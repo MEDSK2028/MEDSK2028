@@ -1,16 +1,45 @@
-## Hi there 👋
+# Hi 👋 , I'm Mohamed Sarkouh 
 
-<!--
-**MEDSK2028/MEDSK2028** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🎓 Cybersecurity Graduate  
+ Laayoune, Morocco
 
-Here are some ideas to get you started:
+## About Me
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+I'm a cybersecurity and IT professional with experience in:
+
+- Network Administration
+- Linux Systems
+- Cybersecurity
+- AI Automation
+- Web Development
+
+Currently building AI-powered workflows, web applications, and cybersecurity projects.
+
+## Skills
+
+### Cybersecurity
+- Network Security
+- IDS/IPS
+- DDoS Protection
+- Ubuntu Hardening
+
+### Networking
+- CCNA
+- OSPF
+- BGP
+- MPLS
+
+### Programming
+- Python
+- Bash
+- TypeScript
+- JavaScript
+
+### AI & Automation
+- n8n
+- OpenAI APIs
+- AI Agents
+
+## Contact
+
+📧 medd.sarkouh@gmail.com
