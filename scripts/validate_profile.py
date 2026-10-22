@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Validate README references, SVG safety, contribution data, and workflow guards."""
+"""Validate README references and SVG accessibility and safety."""
 
 from __future__ import annotations
 
-import json
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -18,15 +17,13 @@ ASSETS = [
     "assets/stack.svg",
     "assets/projects.svg",
     "assets/projects-mobile.svg",
-    "assets/contribution-graph.svg",
+    "assets/engineering-footprint.svg",
+    "assets/engineering-footprint-mobile.svg",
 ]
 REQUIRED = [
     "README.md",
-    "data/contributions.json",
     "scripts/generate_profile_assets.py",
-    "scripts/fetch_contributions.py",
-    "scripts/render_contributions.py",
-    ".github/workflows/update-contributions.yml",
+    "docs/maintenance.md",
     *ASSETS,
 ]
 
@@ -73,51 +70,13 @@ def validate_svg(path: Path) -> None:
         fail(f"{path.name} requires accessible title and desc elements")
 
 
-def validate_contributions() -> None:
-    payload = json.loads((ROOT / "data/contributions.json").read_text(encoding="utf-8"))
-    if payload.get("username") != "MEDSK2028":
-        fail("Contribution data belongs to the wrong account")
-    days = payload.get("days")
-    if not isinstance(days, list) or len(days) < 300:
-        fail("Contribution data is incomplete")
-    if any(not 0 <= int(day["level"]) <= 4 or int(day["count"]) < 0 for day in days):
-        fail("Contribution data contains an invalid level or count")
-
-
-def validate_workflow() -> None:
-    path = ROOT / ".github/workflows/update-contributions.yml"
-    source = path.read_text(encoding="utf-8")
-    required_fragments = [
-        "schedule:",
-        "workflow_dispatch:",
-        "contents: write",
-        "python scripts/fetch_contributions.py",
-        "python scripts/render_contributions.py",
-        "python scripts/validate_profile.py",
-    ]
-    missing = [fragment for fragment in required_fragments if fragment not in source]
-    if missing:
-        fail("Workflow is missing: " + ", ".join(missing))
-    action_refs = re.findall(r"uses:\s*([^\s#]+)", source)
-    if not action_refs or any(not re.search(r"@[0-9a-f]{40}$", ref) for ref in action_refs):
-        fail("Every workflow action must be pinned to a full commit SHA")
-    if "secrets." in source:
-        fail("Contribution workflow must not require repository secrets")
-
-
 def main() -> None:
-    checks = [
-        validate_required_files,
-        validate_readme_links,
-        validate_contributions,
-        validate_workflow,
-    ]
     try:
-        for check in checks:
-            check()
+        validate_required_files()
+        validate_readme_links()
         for asset in ASSETS:
             validate_svg(ROOT / asset)
-    except (ET.ParseError, KeyError, TypeError, ValueError) as exc:
+    except (ET.ParseError, TypeError, ValueError) as exc:
         print(f"validation failed: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
     print(f"profile validation passed ({len(REQUIRED)} required files, {len(ASSETS)} SVGs)")

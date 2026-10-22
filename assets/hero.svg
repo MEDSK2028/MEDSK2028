@@ -18,10 +18,12 @@ text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
 .reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
 .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
 .scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
+.flow{stroke-dasharray:7 10;animation:flow 4.8s cubic-bezier(.22,1,.36,1) infinite}
 @keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
 @keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
-@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan{animation:none!important;opacity:1!important;transform:none!important}}
+@keyframes flow{from{stroke-dashoffset:34}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan,.flow{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
 <rect x="4" y="4" width="952" height="382" rx="28" fill="#030806" stroke="#0d2b22"/>
 <rect x="11" y="11" width="938" height="368" rx="22" fill="url(#shell)" stroke="#174c3b"/>

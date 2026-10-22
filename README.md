@@ -34,10 +34,13 @@
 
 <br>
 
-### `mohamed@github:~$ contributions --live --53w`
+### `mohamed@github:~$ engineering-footprint --verified`
 
 <div align="center">
-  <img src="./assets/contribution-graph.svg" width="100%" alt="Mohamed Sarkouh's real public GitHub contribution calendar for the last 53 weeks">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/engineering-footprint-mobile.svg">
+    <img src="./assets/engineering-footprint.svg" width="100%" alt="Verified engineering footprint connecting AI agents, application systems, data reliability, and network security to Mohamed Sarkouh's selected projects">
+  </picture>
 </div>
 
 <br>
@@ -76,7 +79,7 @@ The software summaries are derived from current private repository READMEs and m
 
 #### Profile maintenance
 
-The contribution artwork is generated from GitHub's public contribution calendar and refreshed daily by GitHub Actions. The generators use only the Python standard library. See [maintenance and security notes](./docs/maintenance.md).
+All profile artwork is generated locally from verified project and technology information using only the Python standard library. See [maintenance and security notes](./docs/maintenance.md).
 
 </details>
 

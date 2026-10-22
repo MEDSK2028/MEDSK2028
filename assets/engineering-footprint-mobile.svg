@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="820" viewBox="0 0 560 820" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh engineering footprint</title>
+<desc id="desc">A verified map connecting AI agents, application systems, data reliability, and network security to selected projects.</desc>
+<defs>
+<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#091814"/>
+<stop offset="0.55" stop-color="#050b09"/>
+<stop offset="1" stop-color="#061510"/>
+</linearGradient>
+<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">
+<stop offset="0" stop-color="#35f2a1" stop-opacity=".13"/>
+<stop offset=".48" stop-color="#43d9ff" stop-opacity=".025"/>
+<stop offset="1" stop-color="#000" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<style>
+text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
+.flow{stroke-dasharray:7 10;animation:flow 4.8s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
+@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
+@keyframes flow{from{stroke-dashoffset:34}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan,.flow{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+<rect x="4" y="4" width="552" height="812" rx="28" fill="#030806" stroke="#0d2b22"/>
+<rect x="11" y="11" width="538" height="798" rx="22" fill="url(#shell)" stroke="#174c3b"/>
+<rect x="12" y="12" width="536" height="796" rx="21" fill="url(#signal)"/>
+<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
+<circle cx="54" cy="36" r="5" fill="#f5c76b"/>
+<circle cx="72" cy="36" r="5" fill="#35f2a1"/>
+<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">engineering-footprint --verified</text>
+<line x1="24" y1="58" x2="536" y2="58" stroke="#103529"/>
+<rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
+<line class="flow" x1="52" y1="176" x2="52" y2="742" stroke="#35f2a1" stroke-opacity=".55" stroke-width="1.5"/>
+<rect x="28" y="78" width="504" height="112" rx="22" fill="#071813" stroke="#1a5e47"/>
+<text x="52" y="111" fill="#43d9ff" font-size="10" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.10s">MOHAMED SARKOUH</text>
+<text x="52" y="143" fill="#d7f7e9" font-size="22" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.20s">ENGINEERING FOOTPRINT</text>
+<text x="52" y="169" fill="#35f2a1" font-size="10" font-weight="700" letter-spacing="0.55" class="reveal" style="animation-delay:0.30s">4 PROJECTS / 4 VERIFIED DOMAINS</text>
+<rect x="28" y="210" width="504" height="132" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="48" y="241" fill="#43d9ff" font-size="10" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.18s">01</text>
+<text x="82" y="243" fill="#d7f7e9" font-size="16" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.23s">AI / AGENTS</text>
+<text x="48" y="277" fill="#43d9ff" font-size="9" font-weight="700" letter-spacing="0.65" class="reveal" style="animation-delay:0.28s">EVIDENCE / APEX FUNDED BOT</text>
+<line x1="48" y1="293" x2="512" y2="293" stroke="#123c2f"/>
+<text x="48" y="320" fill="#77998c" font-size="9" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.34s">PYTHON · VISION MODELS · TELEGRAM · N8N</text>
+<circle class="pulse" cx="508" cy="236" r="4" fill="#43d9ff"/>
+<rect x="28" y="355" width="504" height="132" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="48" y="386" fill="#35f2a1" font-size="10" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.30s">02</text>
+<text x="82" y="388" fill="#d7f7e9" font-size="16" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.35s">APPLICATION SYSTEMS</text>
+<text x="48" y="422" fill="#35f2a1" font-size="9" font-weight="700" letter-spacing="0.65" class="reveal" style="animation-delay:0.40s">EVIDENCE / OPTIQ VISION FORGE</text>
+<line x1="48" y1="438" x2="512" y2="438" stroke="#123c2f"/>
+<text x="48" y="465" fill="#77998c" font-size="9" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.46s">REACT · TYPESCRIPT · NODE.JS · EXPRESS</text>
+<circle class="pulse" cx="508" cy="381" r="4" fill="#35f2a1"/>
+<rect x="28" y="500" width="504" height="132" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="48" y="531" fill="#35f2a1" font-size="10" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.42s">03</text>
+<text x="82" y="533" fill="#d7f7e9" font-size="16" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.47s">DATA / RELIABILITY</text>
+<text x="48" y="567" fill="#35f2a1" font-size="9" font-weight="700" letter-spacing="0.65" class="reveal" style="animation-delay:0.52s">EVIDENCE / WATIQA</text>
+<line x1="48" y1="583" x2="512" y2="583" stroke="#123c2f"/>
+<text x="48" y="610" fill="#77998c" font-size="9" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.58s">POSTGRESQL · REDIS · PRISMA · QUEUES</text>
+<circle class="pulse" cx="508" cy="526" r="4" fill="#35f2a1"/>
+<rect x="28" y="645" width="504" height="132" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="48" y="676" fill="#f5c76b" font-size="10" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.54s">04</text>
+<text x="82" y="678" fill="#d7f7e9" font-size="16" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.59s">NETWORK / SECURITY</text>
+<text x="48" y="712" fill="#f5c76b" font-size="9" font-weight="700" letter-spacing="0.65" class="reveal" style="animation-delay:0.64s">EVIDENCE / MPLS NETWORK LAB</text>
+<line x1="48" y1="728" x2="512" y2="728" stroke="#123c2f"/>
+<text x="48" y="755" fill="#77998c" font-size="9" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.70s">MPLS · OSPF · BGP · LINUX · WEBAUTHN</text>
+<circle class="pulse" cx="508" cy="671" r="4" fill="#f5c76b"/>
+</svg>
