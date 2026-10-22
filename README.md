@@ -1,45 +1,85 @@
-# Hi 👋 , I'm Mohamed Sarkouh 
+<div align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/hero-mobile.svg">
+    <img src="./assets/hero.svg" width="100%" alt="Animated terminal introduction for Mohamed Sarkouh, AI engineer and creative developer">
+  </picture>
+</div>
 
-🎓 Cybersecurity Graduate  
- Laayoune, Morocco
+<br>
 
-## About Me
+### `mohamed@github:~$ whoami --verbose`
 
-I'm a cybersecurity and IT professional with experience in:
+<div align="center">
+  <img src="./assets/info-card.svg" width="100%" alt="Mohamed Sarkouh developer information card: AI engineering, automation, full-stack software, and infrastructure">
+</div>
 
-- Network Administration
-- Linux Systems
-- Cybersecurity
-- AI Automation
-- Web Development
+<br>
 
-Currently building AI-powered workflows, web applications, and cybersecurity projects.
+### `mohamed@github:~$ stack --capability-matrix`
 
-## Skills
+<div align="center">
+  <img src="./assets/stack.svg" width="100%" alt="Technology capability matrix covering AI agents, RAG, MCP, Python, TypeScript, n8n, APIs, databases, Linux, networking, and security">
+</div>
 
-### Cybersecurity
-- Network Security
-- IDS/IPS
-- DDoS Protection
-- Ubuntu Hardening
+<br>
 
-### Networking
-- CCNA
-- OSPF
-- BGP
-- MPLS
+### `mohamed@github:~$ projects --verified --private-safe`
 
-### Programming
-- Python
-- Bash
-- TypeScript
-- JavaScript
+<div align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
+    <img src="./assets/projects.svg" width="100%" alt="Selected repository-backed projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and Miskora Commerce">
+  </picture>
+</div>
 
-### AI & Automation
-- n8n
-- OpenAI APIs
-- AI Agents
+<br>
 
-## Contact
+### `mohamed@github:~$ contributions --live --53w`
 
-📧 medd.sarkouh@gmail.com
+<div align="center">
+  <img src="./assets/contribution-graph.svg" width="100%" alt="Mohamed Sarkouh's real public GitHub contribution calendar for the last 53 weeks">
+</div>
+
+<br>
+
+### `mohamed@github:~$ connect --professional`
+
+<p align="center">
+  <a href="https://mohamed-srk-pf.vercel.app/#about"><code>PORTFOLIO</code></a>
+  &nbsp;·&nbsp;
+  <a href="mailto:medd.sarkouh@gmail.com"><code>EMAIL</code></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/MEDSK2028"><code>GITHUB</code></a>
+  &nbsp;·&nbsp;
+  <a href="https://x.com/Med7Stock"><code>X / TWITTER</code></a>
+</p>
+
+<details>
+<summary><strong>Text-only profile and verified project notes</strong></summary>
+
+#### Professional focus
+
+- AI engineering, LLM applications, AI agents, and agentic workflows
+- Retrieval-augmented generation (RAG) systems and MCP integrations
+- Python development, n8n automation, and API integrations
+- Full-stack development with TypeScript, React, Node.js, and data platforms
+- Linux, networking, cybersecurity, and production infrastructure
+
+#### Selected repository-backed work
+
+- **WATIQA** — private identification-record verification system with audited bulk processing, role-based access, passkeys, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and Prisma.
+- **Apex Funded Bot** — Python/Telegram workflow that interprets chart screenshots with vision models, confirms trade context, and writes structured journals and analytics to Notion and Google Sheets.
+- **OPTIQ Vision Forge** — React and Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and production administration workflows.
+- **Miskora Commerce** — multilingual React/TypeScript commerce platform with an Express API, Prisma/PostgreSQL persistence, media management, orders, and localized catalog content.
+
+These summaries are derived from the current private repository READMEs and manifests. No private source, customer data, credentials, or unverified performance claims are exposed here.
+
+#### Profile maintenance
+
+The contribution artwork is generated from GitHub's public contribution calendar and refreshed daily by GitHub Actions. The generators use only the Python standard library. See [maintenance and security notes](./docs/maintenance.md).
+
+</details>
+
+<br>
+
+<p align="center"><samp>DESIGNING RELIABLE SYSTEMS AT THE EDGE OF AI, AUTOMATION, AND INFRASTRUCTURE.</samp></p>

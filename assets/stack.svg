@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="430" viewBox="0 0 840 430" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh technology stack</title>
+<desc id="desc">Animated capability matrix for AI engineering, full-stack development, automation, and infrastructure.</desc>
+<defs>
+<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#091814"/>
+<stop offset="0.55" stop-color="#050b09"/>
+<stop offset="1" stop-color="#061510"/>
+</linearGradient>
+<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">
+<stop offset="0" stop-color="#35f2a1" stop-opacity=".13"/>
+<stop offset=".48" stop-color="#43d9ff" stop-opacity=".025"/>
+<stop offset="1" stop-color="#000" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<style>
+text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
+@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+<rect x="4" y="4" width="832" height="422" rx="28" fill="#030806" stroke="#0d2b22"/>
+<rect x="11" y="11" width="818" height="408" rx="22" fill="url(#shell)" stroke="#174c3b"/>
+<rect x="12" y="12" width="816" height="406" rx="21" fill="url(#signal)"/>
+<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
+<circle cx="54" cy="36" r="5" fill="#f5c76b"/>
+<circle cx="72" cy="36" r="5" fill="#35f2a1"/>
+<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">stack --capability-matrix</text>
+<line x1="24" y1="58" x2="816" y2="58" stroke="#103529"/>
+<rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
+<rect x="42" y="84" width="232" height="306" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="62" y="119" fill="#35f2a1" font-size="11" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.14s">01 / INTELLIGENCE</text>
+<line x1="62" y1="136" x2="254" y2="136" stroke="#123c2f"/>
+<circle class="pulse" cx="70" cy="175" r="3.5" fill="#35f2a1" style="animation-delay:0.32s"/>
+<text x="85" y="180" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.32s">LLM APPLICATIONS</text>
+<text x="85" y="198" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.37s">ready</text>
+<circle class="pulse" cx="70" cy="226" r="3.5" fill="#35f2a1" style="animation-delay:0.41s"/>
+<text x="85" y="231" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.41s">AI AGENTS</text>
+<text x="85" y="249" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.46s">ready</text>
+<circle class="pulse" cx="70" cy="277" r="3.5" fill="#35f2a1" style="animation-delay:0.50s"/>
+<text x="85" y="282" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.50s">RAG SYSTEMS</text>
+<text x="85" y="300" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.55s">ready</text>
+<circle class="pulse" cx="70" cy="328" r="3.5" fill="#35f2a1" style="animation-delay:0.59s"/>
+<text x="85" y="333" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.59s">MCP INTEGRATIONS</text>
+<text x="85" y="351" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.64s">ready</text>
+<rect x="304" y="84" width="232" height="306" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="324" y="119" fill="#43d9ff" font-size="11" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.26s">02 / BUILD</text>
+<line x1="324" y1="136" x2="516" y2="136" stroke="#123c2f"/>
+<circle class="pulse" cx="332" cy="175" r="3.5" fill="#43d9ff" style="animation-delay:0.42s"/>
+<text x="347" y="180" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.42s">PYTHON</text>
+<text x="347" y="198" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.47s">ready</text>
+<circle class="pulse" cx="332" cy="226" r="3.5" fill="#43d9ff" style="animation-delay:0.51s"/>
+<text x="347" y="231" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.51s">TYPESCRIPT</text>
+<text x="347" y="249" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.56s">ready</text>
+<circle class="pulse" cx="332" cy="277" r="3.5" fill="#43d9ff" style="animation-delay:0.60s"/>
+<text x="347" y="282" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.60s">REACT + NODE</text>
+<text x="347" y="300" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.65s">ready</text>
+<circle class="pulse" cx="332" cy="328" r="3.5" fill="#43d9ff" style="animation-delay:0.69s"/>
+<text x="347" y="333" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.69s">FASTIFY + APIs</text>
+<text x="347" y="351" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.74s">ready</text>
+<rect x="566" y="84" width="232" height="306" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="586" y="119" fill="#f5c76b" font-size="11" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.38s">03 / SYSTEMS</text>
+<line x1="586" y1="136" x2="778" y2="136" stroke="#123c2f"/>
+<circle class="pulse" cx="594" cy="175" r="3.5" fill="#f5c76b" style="animation-delay:0.52s"/>
+<text x="609" y="180" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.52s">N8N AUTOMATION</text>
+<text x="609" y="198" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.57s">ready</text>
+<circle class="pulse" cx="594" cy="226" r="3.5" fill="#f5c76b" style="animation-delay:0.61s"/>
+<text x="609" y="231" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.61s">POSTGRES + REDIS</text>
+<text x="609" y="249" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.66s">ready</text>
+<circle class="pulse" cx="594" cy="277" r="3.5" fill="#f5c76b" style="animation-delay:0.70s"/>
+<text x="609" y="282" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.70s">DOCKER + LINUX</text>
+<text x="609" y="300" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.75s">ready</text>
+<circle class="pulse" cx="594" cy="328" r="3.5" fill="#f5c76b" style="animation-delay:0.79s"/>
+<text x="609" y="333" fill="#d7f7e9" font-size="13" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.79s">NETWORK + SECURITY</text>
+<text x="609" y="351" fill="#77998c" font-size="10" class="reveal" style="animation-delay:0.84s">ready</text>
+</svg>

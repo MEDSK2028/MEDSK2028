@@ -1,0 +1,48 @@
+name: Update contribution artwork
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-contribution-update
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    name: Refresh public contribution calendar
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+
+      - name: Regenerate contribution data and SVG
+        run: |
+          python scripts/fetch_contributions.py
+          python scripts/render_contributions.py
+          python scripts/validate_profile.py
+
+      - name: Commit changed artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add data/contributions.json assets/contribution-graph.svg
+          if git diff --cached --quiet; then
+            echo "Contribution artwork is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh contribution artwork [skip ci]"
+          git push

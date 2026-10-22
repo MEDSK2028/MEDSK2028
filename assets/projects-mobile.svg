@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="930" viewBox="0 0 560 930" role="img" aria-labelledby="title desc">
+<title id="title">Selected projects from Mohamed Sarkouh&#x27;s repositories</title>
+<desc id="desc">Four verified private projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and Miskora Commerce.</desc>
+<defs>
+<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#091814"/>
+<stop offset="0.55" stop-color="#050b09"/>
+<stop offset="1" stop-color="#061510"/>
+</linearGradient>
+<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">
+<stop offset="0" stop-color="#35f2a1" stop-opacity=".13"/>
+<stop offset=".48" stop-color="#43d9ff" stop-opacity=".025"/>
+<stop offset="1" stop-color="#000" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<style>
+text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
+@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+<rect x="4" y="4" width="552" height="922" rx="28" fill="#030806" stroke="#0d2b22"/>
+<rect x="11" y="11" width="538" height="908" rx="22" fill="url(#shell)" stroke="#174c3b"/>
+<rect x="12" y="12" width="536" height="906" rx="21" fill="url(#signal)"/>
+<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
+<circle cx="54" cy="36" r="5" fill="#f5c76b"/>
+<circle cx="72" cy="36" r="5" fill="#35f2a1"/>
+<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">projects --verified --private-safe</text>
+<line x1="24" y1="58" x2="536" y2="58" stroke="#103529"/>
+<rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
+<rect x="28" y="78" width="504" height="198" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="50" y="112" fill="#35f2a1" font-size="11" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.14s">01</text>
+<text x="86" y="114" fill="#d7f7e9" font-size="19" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.20s">WATIQA</text>
+<text x="50" y="145" fill="#35f2a1" font-size="10" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.26s">SECURE VERIFICATION INFRASTRUCTURE</text>
+<text x="50" y="181" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.32s">Audited identification-record verification with bulk jobs,</text>
+<text x="50" y="202" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.32s">role controls, passkeys, malware scanning, and private networking.</text>
+<line x1="50" y1="226" x2="510" y2="226" stroke="#123c2f"/>
+<text x="50" y="256" fill="#d7f7e9" font-size="10" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.38s">FASTIFY · POSTGRESQL · REDIS/BULLMQ · PRISMA · WEBAUTHN</text>
+<circle class="pulse" cx="504" cy="106" r="4" fill="#35f2a1"/>
+<rect x="28" y="288" width="504" height="198" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="50" y="322" fill="#43d9ff" font-size="11" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.26s">02</text>
+<text x="86" y="324" fill="#d7f7e9" font-size="19" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.32s">APEX FUNDED BOT</text>
+<text x="50" y="355" fill="#43d9ff" font-size="10" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.38s">VISION-TO-JOURNAL AI WORKFLOW</text>
+<text x="50" y="391" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.44s">Telegram workflow that interprets chart screenshots, confirms</text>
+<text x="50" y="412" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.44s">trade context, and synchronizes Notion and Sheets analytics.</text>
+<line x1="50" y1="436" x2="510" y2="436" stroke="#123c2f"/>
+<text x="50" y="466" fill="#d7f7e9" font-size="10" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.50s">PYTHON · TELEGRAM · VISION MODELS · NOTION · GOOGLE SHEETS</text>
+<circle class="pulse" cx="504" cy="316" r="4" fill="#43d9ff"/>
+<rect x="28" y="498" width="504" height="198" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="50" y="532" fill="#35f2a1" font-size="11" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.38s">03</text>
+<text x="86" y="534" fill="#d7f7e9" font-size="19" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.44s">OPTIQ VISION FORGE</text>
+<text x="50" y="565" fill="#35f2a1" font-size="10" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.50s">COMPUTER-VISION COMMERCE</text>
+<text x="50" y="601" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.56s">Full-stack optical storefront with face-mesh experiences, 3D,</text>
+<text x="50" y="622" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.56s">admin workflows, persistent data, and production media storage.</text>
+<line x1="50" y1="646" x2="510" y2="646" stroke="#123c2f"/>
+<text x="50" y="676" fill="#d7f7e9" font-size="10" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.62s">REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL</text>
+<circle class="pulse" cx="504" cy="526" r="4" fill="#35f2a1"/>
+<rect x="28" y="708" width="504" height="198" rx="20" fill="#06110e" stroke="#123c2f"/>
+<text x="50" y="742" fill="#f5c76b" font-size="11" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.50s">04</text>
+<text x="86" y="744" fill="#d7f7e9" font-size="19" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.56s">MISKORA COMMERCE</text>
+<text x="50" y="775" fill="#f5c76b" font-size="10" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.62s">MULTILINGUAL FULL-STACK PLATFORM</text>
+<text x="50" y="811" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.68s">Morocco-focused commerce system with localized catalog, admin</text>
+<text x="50" y="832" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.68s">content, orders, Cloudinary media, and a PostgreSQL backend.</text>
+<line x1="50" y1="856" x2="510" y2="856" stroke="#123c2f"/>
+<text x="50" y="886" fill="#d7f7e9" font-size="10" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.74s">REACT · TYPESCRIPT · EXPRESS · PRISMA · POSTGRESQL</text>
+<circle class="pulse" cx="504" cy="736" r="4" fill="#f5c76b"/>
+</svg>

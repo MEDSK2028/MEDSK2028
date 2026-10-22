@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh — AI engineer terminal introduction</title>
+<desc id="desc">Animated terminal card with an ASCII MS monogram and an introduction to Mohamed&#x27;s AI engineering work.</desc>
+<defs>
+<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#091814"/>
+<stop offset="0.55" stop-color="#050b09"/>
+<stop offset="1" stop-color="#061510"/>
+</linearGradient>
+<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">
+<stop offset="0" stop-color="#35f2a1" stop-opacity=".13"/>
+<stop offset=".48" stop-color="#43d9ff" stop-opacity=".025"/>
+<stop offset="1" stop-color="#000" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<style>
+text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
+@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+<rect x="4" y="4" width="952" height="382" rx="28" fill="#030806" stroke="#0d2b22"/>
+<rect x="11" y="11" width="938" height="368" rx="22" fill="url(#shell)" stroke="#174c3b"/>
+<rect x="12" y="12" width="936" height="366" rx="21" fill="url(#signal)"/>
+<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
+<circle cx="54" cy="36" r="5" fill="#f5c76b"/>
+<circle cx="72" cy="36" r="5" fill="#35f2a1"/>
+<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">mohamed@github: ~/profile</text>
+<line x1="24" y1="58" x2="936" y2="58" stroke="#103529"/>
+<rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
+<rect x="34" y="78" width="344" height="278" rx="20" fill="#06110d" stroke="#123c2f"/>
+<text x="62" y="142" fill="#35f2a1" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.12s">##    ##   #######</text>
+<text x="62" y="173" fill="#35f2a1" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.21s">###  ###  ##      </text>
+<text x="62" y="204" fill="#35f2a1" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.30s">## ## ##   ###### </text>
+<text x="62" y="235" fill="#43d9ff" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.39s">##    ##        ##</text>
+<text x="62" y="266" fill="#43d9ff" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.48s">##    ##  ####### </text>
+<text x="62" y="325" fill="#77998c" font-size="12" letter-spacing="0.7" class="reveal" style="animation-delay:0.75s">MS:// BUILDING INTELLIGENT SYSTEMS</text>
+<line x1="408" y1="90" x2="408" y2="340" stroke="#123c2f"/>
+<text x="444" y="112" fill="#43d9ff" font-size="14" class="reveal" style="animation-delay:0.20s">&gt; boot --profile mohamed.sarkouh</text>
+<text x="444" y="164" fill="#d7f7e9" font-size="32" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.46s">MOHAMED SARKOUH</text>
+<text x="444" y="200" fill="#35f2a1" font-size="15" font-weight="700" letter-spacing="0.7" class="reveal" style="animation-delay:0.70s">AI ENGINEER  /  CREATIVE DEVELOPER</text>
+<text x="444" y="246" fill="#77998c" font-size="14" class="reveal" style="animation-delay:0.92s">01  agents · RAG · MCP · LLM applications</text>
+<text x="444" y="277" fill="#77998c" font-size="14" class="reveal" style="animation-delay:1.05s">02  Python · n8n · APIs · full-stack systems</text>
+<text x="444" y="308" fill="#77998c" font-size="14" class="reveal" style="animation-delay:1.18s">03  Linux · networking · secure infrastructure</text>
+<circle class="pulse" cx="446" cy="337" r="4" fill="#35f2a1"/>
+<text x="460" y="342" fill="#35f2a1" font-size="12" letter-spacing="0.8" class="reveal" style="animation-delay:1.35s">SYSTEM STATUS: OPEN TO BUILD</text>
+</svg>

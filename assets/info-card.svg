@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="390" viewBox="0 0 840 390" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh developer information card</title>
+<desc id="desc">An animated information card listing Mohamed&#x27;s professional focus across AI, automation, software, and infrastructure.</desc>
+<defs>
+<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#091814"/>
+<stop offset="0.55" stop-color="#050b09"/>
+<stop offset="1" stop-color="#061510"/>
+</linearGradient>
+<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">
+<stop offset="0" stop-color="#35f2a1" stop-opacity=".13"/>
+<stop offset=".48" stop-color="#43d9ff" stop-opacity=".025"/>
+<stop offset="1" stop-color="#000" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<style>
+text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
+@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+<rect x="4" y="4" width="832" height="382" rx="28" fill="#030806" stroke="#0d2b22"/>
+<rect x="11" y="11" width="818" height="368" rx="22" fill="url(#shell)" stroke="#174c3b"/>
+<rect x="12" y="12" width="816" height="366" rx="21" fill="url(#signal)"/>
+<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
+<circle cx="54" cy="36" r="5" fill="#f5c76b"/>
+<circle cx="72" cy="36" r="5" fill="#35f2a1"/>
+<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">whoami --verbose</text>
+<line x1="24" y1="58" x2="816" y2="58" stroke="#103529"/>
+<rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
+<text x="40" y="96" fill="#43d9ff" font-size="11" font-weight="700" letter-spacing="1.8" class="reveal" style="animation-delay:0.10s">IDENTITY</text>
+<text x="40" y="133" fill="#d7f7e9" font-size="26" font-weight="700" class="reveal" style="animation-delay:0.20s">Mohamed Sarkouh</text>
+<text x="40" y="161" fill="#77998c" font-size="14" class="reveal" style="animation-delay:0.30s">AI engineer · systems-minded builder</text>
+<text x="40" y="218" fill="#35f2a1" font-size="11" font-weight="700" letter-spacing="1.0" class="reveal" style="animation-delay:0.42s">INTELLIGENCE</text>
+<text x="174" y="218" fill="#d7f7e9" font-size="13" class="reveal" style="animation-delay:0.48s">LLM applications · AI agents · RAG systems · MCP integrations</text>
+<text x="40" y="249" fill="#43d9ff" font-size="11" font-weight="700" letter-spacing="1.0" class="reveal" style="animation-delay:0.53s">AUTOMATION</text>
+<text x="174" y="249" fill="#d7f7e9" font-size="13" class="reveal" style="animation-delay:0.59s">n8n workflows · API integrations · event-driven operations</text>
+<text x="40" y="280" fill="#35f2a1" font-size="11" font-weight="700" letter-spacing="1.0" class="reveal" style="animation-delay:0.64s">SOFTWARE</text>
+<text x="174" y="280" fill="#d7f7e9" font-size="13" class="reveal" style="animation-delay:0.70s">Python · TypeScript · React · Node.js · Fastify</text>
+<text x="40" y="311" fill="#43d9ff" font-size="11" font-weight="700" letter-spacing="1.0" class="reveal" style="animation-delay:0.75s">PLATFORM</text>
+<text x="174" y="311" fill="#d7f7e9" font-size="13" class="reveal" style="animation-delay:0.81s">PostgreSQL · Redis · Docker · Linux · secure deployment</text>
+<text x="40" y="342" fill="#f5c76b" font-size="11" font-weight="700" letter-spacing="1.0" class="reveal" style="animation-delay:0.86s">FOUNDATION</text>
+<text x="174" y="342" fill="#d7f7e9" font-size="13" class="reveal" style="animation-delay:0.92s">Networking · infrastructure · cybersecurity</text>
+<rect x="638" y="84" width="164" height="86" rx="18" fill="#061510" stroke="#1a5e47"/>
+<text x="660" y="112" fill="#77998c" font-size="10" letter-spacing="1.2" class="reveal" style="animation-delay:0.30s">OPERATING MODE</text>
+<text x="660" y="141" fill="#35f2a1" font-size="16" font-weight="700" class="reveal" style="animation-delay:0.46s">SHIP / LEARN</text>
+<circle class="pulse" cx="779" cy="136" r="5" fill="#35f2a1"/>
+</svg>
