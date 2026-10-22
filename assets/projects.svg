@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="530" viewBox="0 0 960 530" role="img" aria-labelledby="title desc">
-<title id="title">Selected projects from Mohamed Sarkouh&#x27;s repositories</title>
-<desc id="desc">Four verified private projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and Miskora Commerce.</desc>
+<title id="title">Selected projects by Mohamed Sarkouh</title>
+<desc id="desc">Four selected projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and MPLS Network Lab.</desc>
 <defs>
 <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="#091814"/>
@@ -29,7 +29,7 @@ text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
 <circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
 <circle cx="54" cy="36" r="5" fill="#f5c76b"/>
 <circle cx="72" cy="36" r="5" fill="#35f2a1"/>
-<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">projects --verified --private-safe</text>
+<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">projects --selected --private-safe</text>
 <line x1="24" y1="58" x2="936" y2="58" stroke="#103529"/>
 <rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
 <rect x="28" y="82" width="438" height="198" rx="20" fill="#06110e" stroke="#123c2f"/>
@@ -61,11 +61,11 @@ text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
 <circle class="pulse" cx="438" cy="322" r="4" fill="#35f2a1"/>
 <rect x="494" y="294" width="438" height="198" rx="20" fill="#06110e" stroke="#123c2f"/>
 <text x="516" y="328" fill="#f5c76b" font-size="11" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.50s">04</text>
-<text x="552" y="330" fill="#d7f7e9" font-size="19" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.56s">MISKORA COMMERCE</text>
-<text x="516" y="361" fill="#f5c76b" font-size="10" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.62s">MULTILINGUAL FULL-STACK PLATFORM</text>
-<text x="516" y="397" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.68s">Morocco-focused commerce system with localized catalog, admin</text>
-<text x="516" y="418" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.68s">content, orders, Cloudinary media, and a PostgreSQL backend.</text>
+<text x="552" y="330" fill="#d7f7e9" font-size="19" font-weight="700" letter-spacing="0.3" class="reveal" style="animation-delay:0.56s">MPLS NETWORK LAB</text>
+<text x="516" y="361" fill="#f5c76b" font-size="10" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.62s">NETWORK INFRASTRUCTURE PROJECT</text>
+<text x="516" y="397" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.68s">Hands-on networking project focused on MPLS, dynamic routing,</text>
+<text x="516" y="418" fill="#77998c" font-size="12" class="reveal" style="animation-delay:0.68s">Linux-based infrastructure, and secure network operations.</text>
 <line x1="516" y1="442" x2="910" y2="442" stroke="#123c2f"/>
-<text x="516" y="472" fill="#d7f7e9" font-size="10" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.74s">REACT · TYPESCRIPT · EXPRESS · PRISMA · POSTGRESQL</text>
+<text x="516" y="472" fill="#d7f7e9" font-size="10" font-weight="700" letter-spacing="0.15" class="reveal" style="animation-delay:0.74s">MPLS · OSPF · BGP · LINUX · NETWORK SECURITY</text>
 <circle class="pulse" cx="904" cy="322" r="4" fill="#f5c76b"/>
 </svg>

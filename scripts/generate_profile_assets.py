@@ -268,11 +268,11 @@ PROJECTS = [
     },
     {
         "index": "04",
-        "name": "MISKORA COMMERCE",
-        "type": "MULTILINGUAL FULL-STACK PLATFORM",
-        "summary": "Morocco-focused commerce system with localized catalog, admin",
-        "summary2": "content, orders, Cloudinary media, and a PostgreSQL backend.",
-        "stack": "REACT · TYPESCRIPT · EXPRESS · PRISMA · POSTGRESQL",
+        "name": "MPLS NETWORK LAB",
+        "type": "NETWORK INFRASTRUCTURE PROJECT",
+        "summary": "Hands-on networking project focused on MPLS, dynamic routing,",
+        "summary2": "Linux-based infrastructure, and secure network operations.",
+        "stack": "MPLS · OSPF · BGP · LINUX · NETWORK SECURITY",
         "color": AMBER,
     },
 ]
@@ -295,10 +295,10 @@ def projects(desktop: bool) -> str:
     parts = svg_open(
         width,
         height,
-        "Selected projects from Mohamed Sarkouh's repositories",
-        "Four verified private projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and Miskora Commerce.",
+        "Selected projects by Mohamed Sarkouh",
+        "Four selected projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and MPLS Network Lab.",
     )
-    shell(parts, width, height, "projects --verified --private-safe")
+    shell(parts, width, height, "projects --selected --private-safe")
     if desktop:
         positions = [(28, 82), (494, 82), (28, 294), (494, 294)]
         for index, (project, (x, y)) in enumerate(zip(PROJECTS, positions, strict=True)):

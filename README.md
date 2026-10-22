@@ -23,12 +23,12 @@
 
 <br>
 
-### `mohamed@github:~$ projects --verified --private-safe`
+### `mohamed@github:~$ projects --selected --private-safe`
 
 <div align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
-    <img src="./assets/projects.svg" width="100%" alt="Selected repository-backed projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and Miskora Commerce">
+    <img src="./assets/projects.svg" width="100%" alt="Selected projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and MPLS Network Lab">
   </picture>
 </div>
 
@@ -55,7 +55,7 @@
 </p>
 
 <details>
-<summary><strong>Text-only profile and verified project notes</strong></summary>
+<summary><strong>Text-only profile and selected project notes</strong></summary>
 
 #### Professional focus
 
@@ -65,14 +65,14 @@
 - Full-stack development with TypeScript, React, Node.js, and data platforms
 - Linux, networking, cybersecurity, and production infrastructure
 
-#### Selected repository-backed work
+#### Selected work
 
 - **WATIQA** — private identification-record verification system with audited bulk processing, role-based access, passkeys, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and Prisma.
 - **Apex Funded Bot** — Python/Telegram workflow that interprets chart screenshots with vision models, confirms trade context, and writes structured journals and analytics to Notion and Google Sheets.
 - **OPTIQ Vision Forge** — React and Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and production administration workflows.
-- **Miskora Commerce** — multilingual React/TypeScript commerce platform with an Express API, Prisma/PostgreSQL persistence, media management, orders, and localized catalog content.
+- **MPLS Network Lab** — networking project centered on MPLS, OSPF, BGP, Linux-based infrastructure, and secure network operations.
 
-These summaries are derived from the current private repository READMEs and manifests. No private source, customer data, credentials, or unverified performance claims are exposed here.
+The software summaries are derived from current private repository READMEs and manifests; the MPLS entry reflects the networking project and skills specified for this profile. No private source, customer data, credentials, or unverified performance claims are exposed here.
 
 #### Profile maintenance
 
