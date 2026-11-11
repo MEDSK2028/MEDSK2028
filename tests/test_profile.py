@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from fetch_contributions import Day, calculate_stats, parse_contributions  # noqa: E402
 from generate_profile_assets import footer, hero, projects, skills, system_status, terminal  # noqa: E402
-from render_activity import render, snake_route  # noqa: E402
+from render_activity import PALETTE, python_snake, render, snake_route  # noqa: E402
 
 
 class ContributionTests(unittest.TestCase):
@@ -82,6 +82,10 @@ class SvgTests(unittest.TestCase):
         self.assertGreaterEqual(route.count("V"), 53)
         self.assertGreaterEqual(route.count("C"), 54)
         self.assertLess(route.find("V243.5"), route.find("C97.5"))
+        self.assertIn('dur="48s"', "\n".join(python_snake(route, mobile=False)))
+
+    def test_activity_uses_neon_blue_palette(self) -> None:
+        self.assertEqual(PALETTE, ["#111A35", "#34235F", "#62348E", "#9D4EDD", "#00E5FF"])
 
     def test_owner_snapshot_preserves_public_anchor_dates(self) -> None:
         payload = json.loads((ROOT / "data/contribution-snapshot-2026.json").read_text(encoding="utf-8"))

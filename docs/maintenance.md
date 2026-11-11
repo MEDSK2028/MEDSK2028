@@ -43,7 +43,7 @@ If branch protection blocks bot commits, allow this workflow to bypass the relev
 - The security radar and system-status lights are explicitly labeled decorative.
 - The displayed 487-contribution calendar is reconstructed from the authenticated GitHub screenshot supplied by the profile owner; its 42 active-day levels and six-day longest streak match that snapshot.
 - Anonymous API/public-HTML data remains stored separately in `data/contributions.json` and is never presented as the complete private-inclusive history.
-- The Python snake is a decorative SVG motion layer. It travels down/up successive columns and never writes, fills, or changes contribution cells.
+- The Python snake is a decorative 48-second SVG motion layer. It travels down/up successive columns and never writes, fills, or changes contribution cells. Snapshot intensities use the profile's violet-to-cyan palette rather than GitHub green.
 - Project cards expose README-level summaries only; private source and repository URLs remain undisclosed, with email used for detail requests.
 - Private source URLs, credentials, customer data, and unverifiable metrics are not exposed.
 - Third-party statistics widgets are intentionally avoided to prevent outages, rate limits, and broken images.

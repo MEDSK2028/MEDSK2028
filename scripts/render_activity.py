@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data" / "contribution-snapshot-2026.json"
 DESKTOP_OUTPUT = ROOT / "assets" / "activity.svg"
 MOBILE_OUTPUT = ROOT / "assets" / "activity-mobile.svg"
-PALETTE = ["#161B22", "#033A16", "#196C2E", "#2EA043", "#56D364"]
+PALETTE = ["#111A35", "#34235F", "#62348E", "#9D4EDD", "#00E5FF"]
 
 
 def sunday_before(day: date) -> date:
@@ -59,7 +59,7 @@ def python_snake(route: str, *, mobile: bool) -> list[str]:
         '<path d="M-25 0C-20-7-15 7-10 0S0-7 5 0" fill="none" stroke="url(#python)" stroke-width="6" stroke-linecap="round"/>',
         '<path d="M4-5C11-5 14-2 14 3C14 8 10 10 5 10H1V4H6C8 4 8 2 6 2H2C-1 2-3 0-3-3C-3-5-1-7 2-7H7" fill="#00E5FF" stroke="#EAF4FF" stroke-opacity=".55" stroke-width=".8"/>',
         '<circle cx="8.5" cy="-1.5" r="1.15" fill="#050816"/>',
-        '<animateMotion dur="30s" repeatCount="indefinite" rotate="auto" calcMode="paced">',
+        '<animateMotion dur="48s" repeatCount="indefinite" rotate="auto" calcMode="paced">',
         '<mpath href="#snake-route"/>',
         '</animateMotion>',
         '</g>',
