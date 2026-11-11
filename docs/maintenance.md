@@ -21,7 +21,7 @@ python scripts/validate_profile.py
 python -m unittest discover -s tests -v
 ```
 
-The static generator owns the hero, eight-project private-safe showcase, terminal, capabilities, neural globe, centered radar/current-focus panel, and footer. The public, low-detail project pages live under `case-studies/`; original repositories remain private, and product iterations are grouped into one brief. The activity renderer owns `assets/activity.svg` and `assets/activity-mobile.svg`, including the full-year grid and decorative looping Python snake. It renders the owner-provided authenticated snapshot in `data/contribution-snapshot-2026.json`; the scheduled fetcher separately refreshes the anonymous public audit in `data/contributions.json`.
+The static generator owns the hero, eight-project private-safe showcase, terminal, capabilities, neural globe, centered radar/current-focus panel, and footer. The public, low-detail project pages live under `case-studies/`; original repositories remain private, and product iterations are grouped into one brief. The activity renderer owns `assets/activity.svg` and `assets/activity-mobile.svg` and renders the owner-provided authenticated snapshot in `data/contribution-snapshot-2026.json`; the scheduled fetcher separately refreshes the anonymous public audit in `data/contributions.json`.
 
 ## Automation
 
@@ -43,7 +43,7 @@ If branch protection blocks bot commits, allow this workflow to bypass the relev
 - The security radar and system-status lights are explicitly labeled decorative.
 - The displayed 487-contribution calendar is reconstructed from the authenticated GitHub screenshot supplied by the profile owner; its 42 active-day levels and six-day longest streak match that snapshot.
 - Anonymous API/public-HTML data remains stored separately in `data/contributions.json` and is never presented as the complete private-inclusive history.
-- The Python snake is a decorative 48-second SVG motion layer. It travels down/up successive columns and never writes, fills, or changes contribution cells. Snapshot intensities use the profile's violet-to-cyan palette rather than GitHub green.
+- Snapshot intensities use the profile's violet-to-cyan palette rather than GitHub green. No path-following animation is rendered over the contribution cells.
 - Project cards expose README-level summaries only; private source and repository URLs remain undisclosed, with email used for detail requests.
 - Public case-study briefs disclose only the problem space, high-level scope, and selected technologies. Source code, internal architecture, schemas, endpoints, credentials, private data, and implementation details stay private.
 - Empty placeholder repositories and duplicate product iterations are not presented as separate achievements.

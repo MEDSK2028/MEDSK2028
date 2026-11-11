@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from fetch_contributions import Day, calculate_stats, parse_contributions  # noqa: E402
 from generate_profile_assets import footer, hero, projects, skills, system_status, terminal  # noqa: E402
-from render_activity import PALETTE, python_snake, render, snake_route  # noqa: E402
+from render_activity import PALETTE, render  # noqa: E402
 
 
 class ContributionTests(unittest.TestCase):
@@ -75,17 +75,8 @@ class SvgTests(unittest.TestCase):
             ET.fromstring(source)
             self.assertEqual(source.count('class="day"'), 368)
             self.assertIn("487 CONTRIBUTIONS IN THE LAST YEAR", source)
-            self.assertIn('class="python-snake"', source)
-            self.assertIn('repeatCount="indefinite"', source)
-            self.assertIn("SNAPSHOT LEVELS ARE UNCHANGED", source)
-
-    def test_snake_uses_vertical_rounded_serpentine_route(self) -> None:
-        route = snake_route(92, 148, 11, 4)
-        self.assertTrue(route.startswith("M97.5 153.5 V243.5"))
-        self.assertGreaterEqual(route.count("V"), 53)
-        self.assertGreaterEqual(route.count("C"), 54)
-        self.assertLess(route.find("V243.5"), route.find("C97.5"))
-        self.assertIn('dur="48s"', "\n".join(python_snake(route, mobile=False)))
+            self.assertNotIn("animateMotion", source)
+            self.assertIn("CONTRIBUTION LEVELS UNCHANGED", source)
 
     def test_activity_uses_neon_blue_palette(self) -> None:
         self.assertEqual(PALETTE, ["#111A35", "#34235F", "#62348E", "#9D4EDD", "#00E5FF"])

@@ -64,7 +64,7 @@
 <div align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/activity-mobile.svg">
-    <img src="./assets/activity.svg" width="100%" alt="Mohamed Sarkouh's owner-provided authenticated 2026 GitHub contribution snapshot showing 487 contributions, with a decorative looping vertical Python snake">
+    <img src="./assets/activity.svg" width="100%" alt="Mohamed Sarkouh's owner-provided authenticated 2026 GitHub contribution snapshot showing 487 contributions">
   </picture>
 </div>
 
@@ -119,6 +119,6 @@ Only high-level public briefs are shown. Original repositories, source code, int
 
 #### Profile engineering
 
-The artwork is self-hosted, GitHub-compatible SVG with reduced-motion fallbacks and no README JavaScript. The activity artwork reproduces the 487-contribution authenticated GitHub snapshot supplied by the profile owner; its looping vertical Python snake is decorative and does not change the captured contribution levels. Anonymous public activity remains separately audited by the scheduled workflow. See [maintenance and security notes](./docs/maintenance.md).
+The artwork is self-hosted, GitHub-compatible SVG with reduced-motion fallbacks and no README JavaScript. The activity artwork reproduces the 487-contribution authenticated GitHub snapshot supplied by the profile owner. Anonymous public activity remains separately audited by the scheduled workflow. See [maintenance and security notes](./docs/maintenance.md).
 
 </details>

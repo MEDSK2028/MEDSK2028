@@ -1,17 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="390" viewBox="0 0 1000 390" role="img" aria-labelledby="title desc">
 <title id="title">MEDSK2028 public GitHub activity</title>
-<desc id="desc">A 53-week GitHub contribution calendar from an owner-provided authenticated snapshot, with a decorative Python snake moving vertically through the squares.</desc>
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101A32"/><stop offset=".55" stop-color="#080D1B"/><stop offset="1" stop-color="#050816"/></linearGradient><linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9D4EDD"/><stop offset=".5" stop-color="#FF4ECD"/><stop offset="1" stop-color="#00E5FF"/></linearGradient><linearGradient id="python" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9D4EDD"/><stop offset=".5" stop-color="#00E5FF"/><stop offset="1" stop-color="#00FFA3"/></linearGradient><filter id="snakeGlow" x="-80%" y="-160%" width="260%" height="420%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<desc id="desc">A 53-week GitHub contribution calendar from an owner-provided authenticated snapshot.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101A32"/><stop offset=".55" stop-color="#080D1B"/><stop offset="1" stop-color="#050816"/></linearGradient><linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9D4EDD"/><stop offset=".5" stop-color="#FF4ECD"/><stop offset="1" stop-color="#00E5FF"/></linearGradient></defs>
 <style>
 text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace}
 .day{opacity:0;animation:cell .68s cubic-bezier(.22,1,.36,1) forwards}
 .meta{opacity:0;animation:meta .8s cubic-bezier(.22,1,.36,1) .95s forwards}
 .scan{animation:scan 5.8s cubic-bezier(.22,1,.36,1) infinite}
-.python-snake{opacity:.92}
 @keyframes cell{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 @keyframes meta{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scan{0%{opacity:0;transform:translateX(-120px)}18%{opacity:.7}68%,100%{opacity:0;transform:translateX(1020px)}}
-@media (prefers-reduced-motion:reduce){.day,.meta,.scan{animation:none!important;opacity:1!important;transform:none!important}.python-snake{display:none!important}}
+@media (prefers-reduced-motion:reduce){.day,.meta,.scan{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
 <rect x="4" y="4" width="992" height="382" rx="30" fill="#030510" stroke="#19254A"/>
 <rect x="11" y="11" width="978" height="368" rx="24" fill="url(#bg)" stroke="#26365F"/>
@@ -20,7 +19,7 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <line x1="24" y1="58" x2="976" y2="58" stroke="#223259"/>
 <rect class="scan" x="24" y="59" width="135" height="1" fill="url(#brand)" opacity="0"/>
 <text class="meta" x="42" y="89" fill="#EAF4FF" font-size="15" font-weight="700">487 CONTRIBUTIONS IN THE LAST YEAR</text>
-<text class="meta" x="42" y="111" fill="#91A4C5" font-size="9">MEDSK2028 · OWNER-PROVIDED GITHUB SNAPSHOT · VERTICAL PYTHON SNAKE</text>
+<text class="meta" x="42" y="111" fill="#91A4C5" font-size="9">MEDSK2028 · OWNER-PROVIDED GITHUB SNAPSHOT</text>
 <rect x="890" y="76" width="72" height="28" rx="9" fill="#14244A" stroke="#314C80"/>
 <text class="meta" x="909" y="95" fill="#00E5FF" font-size="10" font-weight="700">2026</text>
 <text x="92" y="138" fill="#7184A9" font-size="9">NOV</text>
@@ -407,15 +406,6 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <rect class="day" x="872" y="163" width="11" height="11" rx="3" fill="#111A35" style="animation-delay:0.931s"><title>GitHub activity on 2026-11-09; exact daily count is private in the supplied snapshot</title></rect>
 <rect class="day" x="872" y="178" width="11" height="11" rx="3" fill="#111A35" style="animation-delay:0.948s"><title>GitHub activity on 2026-11-10; exact daily count is private in the supplied snapshot</title></rect>
 <rect class="day" x="872" y="193" width="11" height="11" rx="3" fill="#34235F" style="animation-delay:0.965s"><title>GitHub activity on 2026-11-11; exact daily count is private in the supplied snapshot</title></rect>
-<path id="snake-route" d="M97.5 153.5 V243.5 C97.5 257.3 112.5 257.3 112.5 243.5 V153.5 C112.5 139.7 127.5 139.7 127.5 153.5 V243.5 C127.5 257.3 142.5 257.3 142.5 243.5 V153.5 C142.5 139.7 157.5 139.7 157.5 153.5 V243.5 C157.5 257.3 172.5 257.3 172.5 243.5 V153.5 C172.5 139.7 187.5 139.7 187.5 153.5 V243.5 C187.5 257.3 202.5 257.3 202.5 243.5 V153.5 C202.5 139.7 217.5 139.7 217.5 153.5 V243.5 C217.5 257.3 232.5 257.3 232.5 243.5 V153.5 C232.5 139.7 247.5 139.7 247.5 153.5 V243.5 C247.5 257.3 262.5 257.3 262.5 243.5 V153.5 C262.5 139.7 277.5 139.7 277.5 153.5 V243.5 C277.5 257.3 292.5 257.3 292.5 243.5 V153.5 C292.5 139.7 307.5 139.7 307.5 153.5 V243.5 C307.5 257.3 322.5 257.3 322.5 243.5 V153.5 C322.5 139.7 337.5 139.7 337.5 153.5 V243.5 C337.5 257.3 352.5 257.3 352.5 243.5 V153.5 C352.5 139.7 367.5 139.7 367.5 153.5 V243.5 C367.5 257.3 382.5 257.3 382.5 243.5 V153.5 C382.5 139.7 397.5 139.7 397.5 153.5 V243.5 C397.5 257.3 412.5 257.3 412.5 243.5 V153.5 C412.5 139.7 427.5 139.7 427.5 153.5 V243.5 C427.5 257.3 442.5 257.3 442.5 243.5 V153.5 C442.5 139.7 457.5 139.7 457.5 153.5 V243.5 C457.5 257.3 472.5 257.3 472.5 243.5 V153.5 C472.5 139.7 487.5 139.7 487.5 153.5 V243.5 C487.5 257.3 502.5 257.3 502.5 243.5 V153.5 C502.5 139.7 517.5 139.7 517.5 153.5 V243.5 C517.5 257.3 532.5 257.3 532.5 243.5 V153.5 C532.5 139.7 547.5 139.7 547.5 153.5 V243.5 C547.5 257.3 562.5 257.3 562.5 243.5 V153.5 C562.5 139.7 577.5 139.7 577.5 153.5 V243.5 C577.5 257.3 592.5 257.3 592.5 243.5 V153.5 C592.5 139.7 607.5 139.7 607.5 153.5 V243.5 C607.5 257.3 622.5 257.3 622.5 243.5 V153.5 C622.5 139.7 637.5 139.7 637.5 153.5 V243.5 C637.5 257.3 652.5 257.3 652.5 243.5 V153.5 C652.5 139.7 667.5 139.7 667.5 153.5 V243.5 C667.5 257.3 682.5 257.3 682.5 243.5 V153.5 C682.5 139.7 697.5 139.7 697.5 153.5 V243.5 C697.5 257.3 712.5 257.3 712.5 243.5 V153.5 C712.5 139.7 727.5 139.7 727.5 153.5 V243.5 C727.5 257.3 742.5 257.3 742.5 243.5 V153.5 C742.5 139.7 757.5 139.7 757.5 153.5 V243.5 C757.5 257.3 772.5 257.3 772.5 243.5 V153.5 C772.5 139.7 787.5 139.7 787.5 153.5 V243.5 C787.5 257.3 802.5 257.3 802.5 243.5 V153.5 C802.5 139.7 817.5 139.7 817.5 153.5 V243.5 C817.5 257.3 832.5 257.3 832.5 243.5 V153.5 C832.5 139.7 847.5 139.7 847.5 153.5 V243.5 C847.5 257.3 862.5 257.3 862.5 243.5 V153.5 C862.5 139.7 877.5 139.7 877.5 153.5 V243.5 C892.5 243.5 892.5 126.5 877.5 126.5 H82.5 C70.5 126.5 70.5 153.5 97.5 153.5 H97.5" fill="none" stroke="none"/>
-<g class="python-snake" transform="scale(1)" aria-hidden="true" filter="url(#snakeGlow)">
-<path d="M-25 0C-20-7-15 7-10 0S0-7 5 0" fill="none" stroke="url(#python)" stroke-width="6" stroke-linecap="round"/>
-<path d="M4-5C11-5 14-2 14 3C14 8 10 10 5 10H1V4H6C8 4 8 2 6 2H2C-1 2-3 0-3-3C-3-5-1-7 2-7H7" fill="#00E5FF" stroke="#EAF4FF" stroke-opacity=".55" stroke-width=".8"/>
-<circle cx="8.5" cy="-1.5" r="1.15" fill="#050816"/>
-<animateMotion dur="48s" repeatCount="indefinite" rotate="auto" calcMode="paced">
-<mpath href="#snake-route"/>
-</animateMotion>
-</g>
 <text class="meta" x="42" y="302" fill="#00E5FF" font-size="12" font-weight="700">487 CONTRIBUTIONS</text>
 <text class="meta" x="270" y="302" fill="#91A4C5" font-size="11">42 ACTIVE DAYS</text>
 <text class="meta" x="430" y="302" fill="#91A4C5" font-size="11">6D LONGEST STREAK</text>
@@ -427,5 +417,5 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <rect class="meta" x="869" y="339" width="10" height="10" rx="2" fill="#9D4EDD"/>
 <rect class="meta" x="884" y="339" width="10" height="10" rx="2" fill="#00E5FF"/>
 <text class="meta" x="902" y="348" fill="#7184A9" font-size="8">MORE</text>
-<text class="meta" x="42" y="348" fill="#65769E" font-size="8">VERTICAL PYTHON SNAKE IS DECORATIVE · SNAPSHOT LEVELS ARE UNCHANGED</text>
+<text class="meta" x="42" y="348" fill="#65769E" font-size="8">OWNER SNAPSHOT · CONTRIBUTION LEVELS UNCHANGED</text>
 </svg>

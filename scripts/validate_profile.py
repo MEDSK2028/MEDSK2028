@@ -162,8 +162,8 @@ def validate_activity() -> None:
         source = (ROOT / asset).read_text(encoding="utf-8")
         if source.count('class="day"') != 368:
             fail(f"{asset} must contain the complete captured 53-week calendar")
-        if 'class="python-snake"' not in source or 'repeatCount="indefinite"' not in source:
-            fail(f"{asset} is missing the looping decorative Python snake")
+        if "<animateMotion" in source:
+            fail(f"{asset} must not contain path-following motion")
         if "487 CONTRIBUTIONS IN THE LAST YEAR" not in source:
             fail(f"{asset} is not rendering the owner-provided contribution snapshot")
 
