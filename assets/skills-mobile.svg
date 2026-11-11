@@ -35,8 +35,9 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 .blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
 .scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
 .flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
-.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
-.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.orbit-line{stroke-dasharray:8 13;animation:orbitFlow 10s linear infinite}
+.orbit-line.reverse{animation-direction:reverse;animation-duration:13s}
+.radar{transform-box:view-box;animation:radar 7.2s linear infinite}
 .role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
 .r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
 @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -44,10 +45,10 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 @keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
 @keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
 @keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
-@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes orbitFlow{from{stroke-dashoffset:84}to{stroke-dashoffset:0}}
 @keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit-line,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
 </style>
 <rect x="4" y="4" width="552" height="1002" rx="30" fill="#030510" stroke="#19254A"/>
 <rect x="11" y="11" width="538" height="988" rx="24" fill="url(#bg)" stroke="#26365F"/>

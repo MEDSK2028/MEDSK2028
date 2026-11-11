@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from html import escape
+from math import cos, pi, sin
 from pathlib import Path
 
 
@@ -65,8 +66,9 @@ def svg_open(width: int, height: int, title: str, description: str) -> list[str]
         ".blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}",
         ".scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}",
         ".flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}",
-        ".orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}",
-        ".radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}",
+        ".orbit-line{stroke-dasharray:8 13;animation:orbitFlow 10s linear infinite}",
+        ".orbit-line.reverse{animation-direction:reverse;animation-duration:13s}",
+        ".radar{transform-box:view-box;animation:radar 7.2s linear infinite}",
         ".role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}",
         ".r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}",
         "@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}",
@@ -74,10 +76,10 @@ def svg_open(width: int, height: int, title: str, description: str) -> list[str]
         "@keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}",
         "@keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}",
         "@keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}",
-        "@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+        "@keyframes orbitFlow{from{stroke-dashoffset:84}to{stroke-dashoffset:0}}",
         "@keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
         "@keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}",
-        "@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}",
+        "@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit-line,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}",
         "</style>",
     ]
 
@@ -152,9 +154,21 @@ NEURAL_EDGES = [
 
 
 def neural_network(parts: list[str], x: int, y: int, scale: float = 1.0) -> None:
+    parts.extend(
+        [
+            '<defs><clipPath id="sphereClip"><ellipse cx="184" cy="140" rx="158" ry="116"/></clipPath>',
+            '<radialGradient id="sphereFace" cx="42%" cy="35%" r="72%"><stop offset="0" stop-color="#1A2851"/><stop offset=".52" stop-color="#0B132B"/><stop offset="1" stop-color="#050816"/></radialGradient></defs>',
+        ]
+    )
     parts.append(f'<g transform="translate({x} {y}) scale({scale})">')
-    parts.append('<ellipse cx="184" cy="140" rx="165" ry="119" fill="#0B1026" fill-opacity=".62" stroke="#34406E"/>')
-    parts.append('<path class="orbit" d="M28 140 C48 18 310 6 344 132 C370 230 98 286 28 140Z" fill="none" stroke="#9D4EDD" stroke-opacity=".28"/>')
+    parts.append('<ellipse cx="184" cy="140" rx="158" ry="116" fill="url(#sphereFace)" stroke="#47598F" stroke-opacity=".9"/>')
+    parts.append('<ellipse cx="184" cy="140" rx="158" ry="42" fill="none" stroke="#344C7D" stroke-opacity=".62"/>')
+    parts.append('<ellipse cx="184" cy="140" rx="158" ry="82" fill="none" stroke="#263D6B" stroke-opacity=".58"/>')
+    parts.append('<ellipse cx="184" cy="140" rx="58" ry="116" fill="none" stroke="#344C7D" stroke-opacity=".56"/>')
+    parts.append('<ellipse cx="184" cy="140" rx="112" ry="116" fill="none" stroke="#263D6B" stroke-opacity=".5"/>')
+    parts.append('<g transform="rotate(21 184 140)"><ellipse class="orbit-line" cx="184" cy="140" rx="176" ry="104" fill="none" stroke="#9D4EDD" stroke-opacity=".52" stroke-width="1.2"/></g>')
+    parts.append('<g transform="rotate(-23 184 140)"><ellipse class="orbit-line reverse" cx="184" cy="140" rx="170" ry="92" fill="none" stroke="#00E5FF" stroke-opacity=".44" stroke-width="1.1"/></g>')
+    parts.append('<g clip-path="url(#sphereClip)">')
     for index, (start, end) in enumerate(NEURAL_EDGES):
         x1, y1 = NEURAL_NODES[start]
         x2, y2 = NEURAL_NODES[end]
@@ -172,6 +186,8 @@ def neural_network(parts: list[str], x: int, y: int, scale: float = 1.0) -> None
             f'<circle class="pulse" cx="{node_x}" cy="{node_y}" r="{radius}" fill="{color}" '
             f'filter="url(#glow)" style="animation-delay:{index * .08:.2f}s"/>'
         )
+    parts.append("</g>")
+    parts.append('<circle cx="184" cy="140" r="31" fill="none" stroke="#00E5FF" stroke-opacity=".16"/>')
     parts.append(f'<circle cx="184" cy="140" r="18" fill="{BG}" stroke="{CYAN}" stroke-opacity=".75"/>')
     parts.append(f'<circle class="pulse" cx="184" cy="140" r="6" fill="{MINT}" filter="url(#glow)"/>')
     parts.append("</g>")
@@ -371,7 +387,7 @@ PROJECTS = [
         "summary": ["Optical commerce platform with MediaPipe face mesh,", "3D experiences, full-stack admin, and persistent data."],
         "stack": "REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL",
         "color": CYAN,
-        "status": "PRIVATE REPOSITORY",
+        "status": "README PREVIEW · SOURCE PRIVATE",
     },
     {
         "index": "02",
@@ -380,7 +396,7 @@ PROJECTS = [
         "summary": ["Telegram-to-vision workflow with user confirmation,", "structured trade journaling, Notion, and Sheets sync."],
         "stack": "PYTHON · TELEGRAM · VISION MODELS · NOTION · SHEETS",
         "color": VIOLET,
-        "status": "PRIVATE REPOSITORY",
+        "status": "README PREVIEW · SOURCE PRIVATE",
     },
     {
         "index": "03",
@@ -389,7 +405,7 @@ PROJECTS = [
         "summary": ["Audited bulk record verification with passkeys, queues,", "malware scanning, role controls, and private networking."],
         "stack": "FASTIFY · POSTGRESQL · REDIS · PRISMA · WEBAUTHN",
         "color": MAGENTA,
-        "status": "PRIVATE REPOSITORY",
+        "status": "README PREVIEW · SOURCE PRIVATE",
     },
     {
         "index": "04",
@@ -398,7 +414,7 @@ PROJECTS = [
         "summary": ["Hands-on MPLS and dynamic-routing lab focused on", "Linux infrastructure and security-aware network design."],
         "stack": "MPLS · OSPF · BGP · LINUX · NETWORK SECURITY",
         "color": MINT,
-        "status": "LAB PROJECT",
+        "status": "README PREVIEW · LAB DETAILS PRIVATE",
     },
 ]
 
@@ -414,7 +430,8 @@ def project_card(parts: list[str], project: dict[str, object], x: int, y: int, w
         parts.append(text(x + 24, y + 111 + line_index * 22, str(line), size=10 if width < 400 else 11, fill=MUTED, css="reveal", delay=delay + .16))
     parts.append(f'<line x1="{x + 24}" y1="{y + height - 70}" x2="{x + width - 24}" y2="{y + height - 70}" stroke="#26365F"/>')
     parts.append(text(x + 24, y + height - 43, str(project["stack"]), size=8 if width < 400 else 9, fill=TEXT, weight=700, spacing=.1, css="reveal", delay=delay + .22))
-    parts.append(text(x + 24, y + height - 18, str(project["status"]), size=8, fill="#667AA5", weight=700, spacing=.7, css="reveal", delay=delay + .28))
+    parts.append(text(x + 24, y + height - 18, str(project["status"]), size=7 if width < 400 else 8, fill="#667AA5", weight=700, spacing=.35, css="reveal", delay=delay + .28))
+    parts.append(text(x + width - (116 if width < 400 else 132), y + height - 18, "EMAIL FOR DETAILS >", size=7 if width < 400 else 8, fill=color, weight=700, spacing=.25, css="reveal", delay=delay + .32))
     parts.append(f'<circle class="pulse" cx="{x + width - 26}" cy="{y + 27}" r="4" fill="{color}"/>')
 
 
@@ -443,9 +460,24 @@ def radar(parts: list[str], cx: int, cy: int, radius: int) -> None:
         parts.append(f'<circle cx="{cx}" cy="{cy}" r="{radius * ratio:g}" fill="none" stroke="#33436F" stroke-opacity=".7"/>')
     parts.append(f'<line x1="{cx - radius}" y1="{cy}" x2="{cx + radius}" y2="{cy}" stroke="#27375F"/>')
     parts.append(f'<line x1="{cx}" y1="{cy - radius}" x2="{cx}" y2="{cy + radius}" stroke="#27375F"/>')
-    sweep_x = cx + radius * .88
-    sweep_y = cy - radius * .34
-    parts.append(f'<path class="radar" d="M{cx} {cy} L{cx} {cy - radius} A{radius} {radius} 0 0 1 {sweep_x:g} {sweep_y:g} Z" fill="{CYAN}" fill-opacity=".12" stroke="{CYAN}" stroke-opacity=".5"/>')
+    for tick in range(24):
+        angle = tick * 2 * pi / 24
+        outer_x = cx + cos(angle) * radius
+        outer_y = cy + sin(angle) * radius
+        inner_radius = radius - (8 if tick % 3 == 0 else 4)
+        inner_x = cx + cos(angle) * inner_radius
+        inner_y = cy + sin(angle) * inner_radius
+        parts.append(f'<line x1="{inner_x:g}" y1="{inner_y:g}" x2="{outer_x:g}" y2="{outer_y:g}" stroke="#526898" stroke-opacity="{.72 if tick % 3 == 0 else .38}"/>')
+    sweep_angle = -36 * pi / 180
+    sweep_x = cx + radius * cos(sweep_angle)
+    sweep_y = cy + radius * sin(sweep_angle)
+    parts.append(f'<g class="radar" style="transform-origin:{cx}px {cy}px">')
+    parts.append(f'<path d="M{cx} {cy} L{cx} {cy - radius} A{radius} {radius} 0 0 1 {sweep_x:g} {sweep_y:g} Z" fill="{CYAN}" fill-opacity=".1" stroke="none"/>')
+    parts.append(f'<line x1="{cx}" y1="{cy}" x2="{sweep_x:g}" y2="{sweep_y:g}" stroke="{CYAN}" stroke-opacity=".92" stroke-width="1.5" filter="url(#glow)"/>')
+    parts.append(f'<path d="M{cx} {cy - radius * .68:g} A{radius * .68:g} {radius * .68:g} 0 0 1 {cx + radius * .68 * cos(sweep_angle):g} {cy + radius * .68 * sin(sweep_angle):g}" fill="none" stroke="{CYAN}" stroke-opacity=".22"/>')
+    parts.append("</g>")
+    parts.append(f'<circle cx="{cx}" cy="{cy}" r="6" fill="{BG}" stroke="{CYAN}" stroke-opacity=".8"/>')
+    parts.append(f'<circle class="pulse" cx="{cx}" cy="{cy}" r="2.5" fill="{MINT}" filter="url(#glow)"/>')
     dots = [(-.48, -.25, "SIEM", MAGENTA), (.42, -.46, "NETWORK", CYAN), (.28, .42, "ENDPOINT", MINT)]
     for dx, dy, label, color in dots:
         dot_x = cx + radius * dx

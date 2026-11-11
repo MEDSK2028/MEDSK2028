@@ -91,6 +91,12 @@ def validate_activity() -> None:
         fail("Activity data is incomplete")
     if any(not 0 <= int(day["level"]) <= 4 or int(day["count"]) < 0 for day in days):
         fail("Activity data contains an invalid value")
+    for asset in ("assets/activity.svg", "assets/activity-mobile.svg"):
+        source = (ROOT / asset).read_text(encoding="utf-8")
+        if source.count('class="day"') != 53 * 7:
+            fail(f"{asset} must contain a complete 53-week grid")
+        if 'class="python-snake"' not in source or 'repeatCount="indefinite"' not in source:
+            fail(f"{asset} is missing the looping decorative Python snake")
 
 
 def validate_workflow() -> None:

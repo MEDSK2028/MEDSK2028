@@ -71,7 +71,23 @@ class SvgTests(unittest.TestCase):
             source = render(payload, mobile=mobile)
             ET.fromstring(source)
             self.assertEqual(source.count('class="day"'), 53 * 7)
-            self.assertIn("NO FABRICATED ACTIVITY", source)
+            self.assertIn("PUBLIC CONTRIBUTIONS IN THE LAST YEAR", source)
+            self.assertIn('class="python-snake"', source)
+            self.assertIn('repeatCount="indefinite"', source)
+            self.assertIn("CONTRIBUTION DATA IS UNCHANGED", source)
+
+    def test_project_previews_keep_source_private(self) -> None:
+        source = projects(True)
+        self.assertEqual(source.count("EMAIL FOR DETAILS &gt;"), 4)
+        self.assertIn("README PREVIEW · SOURCE PRIVATE", source)
+        self.assertNotIn("github.com/", source)
+
+    def test_radar_uses_explicit_centered_origin(self) -> None:
+        desktop = system_status(True)
+        mobile = system_status(False)
+        self.assertIn("transform-origin:240px 286px", desktop)
+        self.assertIn("transform-origin:280px 266px", mobile)
+        self.assertIn("animation:radar 7.2s linear infinite", desktop)
 
 
 if __name__ == "__main__":

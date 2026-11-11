@@ -35,8 +35,9 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 .blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
 .scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
 .flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
-.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
-.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.orbit-line{stroke-dasharray:8 13;animation:orbitFlow 10s linear infinite}
+.orbit-line.reverse{animation-direction:reverse;animation-duration:13s}
+.radar{transform-box:view-box;animation:radar 7.2s linear infinite}
 .role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
 .r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
 @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -44,10 +45,10 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 @keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
 @keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
 @keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
-@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes orbitFlow{from{stroke-dashoffset:84}to{stroke-dashoffset:0}}
 @keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit-line,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
 </style>
 <rect x="4" y="4" width="992" height="512" rx="30" fill="#030510" stroke="#19254A"/>
 <rect x="11" y="11" width="978" height="498" rx="24" fill="url(#bg)" stroke="#26365F"/>
@@ -72,9 +73,17 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="55" y="382" fill="#91A4C5" font-size="14" class="reveal" style="animation-delay:0.72s">Turning ideas into intelligent, secure digital experiences.</text>
 <text x="55" y="432" fill="#9D4EDD" font-size="12" class="reveal" style="animation-delay:0.90s">&gt; build --creative --automate --secure</text>
 <rect class="blink" x="365" y="419" width="9" height="16" rx="2" fill="#00E5FF"/>
+<defs><clipPath id="sphereClip"><ellipse cx="184" cy="140" rx="158" ry="116"/></clipPath>
+<radialGradient id="sphereFace" cx="42%" cy="35%" r="72%"><stop offset="0" stop-color="#1A2851"/><stop offset=".52" stop-color="#0B132B"/><stop offset="1" stop-color="#050816"/></radialGradient></defs>
 <g transform="translate(602 112) scale(0.98)">
-<ellipse cx="184" cy="140" rx="165" ry="119" fill="#0B1026" fill-opacity=".62" stroke="#34406E"/>
-<path class="orbit" d="M28 140 C48 18 310 6 344 132 C370 230 98 286 28 140Z" fill="none" stroke="#9D4EDD" stroke-opacity=".28"/>
+<ellipse cx="184" cy="140" rx="158" ry="116" fill="url(#sphereFace)" stroke="#47598F" stroke-opacity=".9"/>
+<ellipse cx="184" cy="140" rx="158" ry="42" fill="none" stroke="#344C7D" stroke-opacity=".62"/>
+<ellipse cx="184" cy="140" rx="158" ry="82" fill="none" stroke="#263D6B" stroke-opacity=".58"/>
+<ellipse cx="184" cy="140" rx="58" ry="116" fill="none" stroke="#344C7D" stroke-opacity=".56"/>
+<ellipse cx="184" cy="140" rx="112" ry="116" fill="none" stroke="#263D6B" stroke-opacity=".5"/>
+<g transform="rotate(21 184 140)"><ellipse class="orbit-line" cx="184" cy="140" rx="176" ry="104" fill="none" stroke="#9D4EDD" stroke-opacity=".52" stroke-width="1.2"/></g>
+<g transform="rotate(-23 184 140)"><ellipse class="orbit-line reverse" cx="184" cy="140" rx="170" ry="92" fill="none" stroke="#00E5FF" stroke-opacity=".44" stroke-width="1.1"/></g>
+<g clip-path="url(#sphereClip)">
 <path class="flow" d="M32 126 Q47.5 84 63 78" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
 <path class="flow" d="M32 126 Q40 173 48 184" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
 <path class="flow" d="M63 78 Q79.5 76 96 110" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
@@ -123,6 +132,8 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <circle class="pulse" cx="126" cy="202" r="4.6" fill="#00FFA3" filter="url(#glow)" style="animation-delay:1.20s"/>
 <circle class="pulse" cx="82" cy="238" r="3.2" fill="#00E5FF" filter="url(#glow)" style="animation-delay:1.28s"/>
 <circle class="pulse" cx="48" cy="184" r="3.2" fill="#9D4EDD" filter="url(#glow)" style="animation-delay:1.36s"/>
+</g>
+<circle cx="184" cy="140" r="31" fill="none" stroke="#00E5FF" stroke-opacity=".16"/>
 <circle cx="184" cy="140" r="18" fill="#080D1B" stroke="#00E5FF" stroke-opacity=".75"/>
 <circle class="pulse" cx="184" cy="140" r="6" fill="#00FFA3" filter="url(#glow)"/>
 </g>

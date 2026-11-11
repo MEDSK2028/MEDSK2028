@@ -10,11 +10,15 @@
 ### `mohamed@github:~$ ./projects.showcase --verified`
 
 <div align="center">
-  <picture>
-    <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
-    <img src="./assets/projects.svg" width="100%" alt="Selected projects: OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab">
-  </picture>
+  <a href="mailto:medd.sarkouh@gmail.com?subject=Project%20details%20request">
+    <picture>
+      <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
+      <img src="./assets/projects.svg" width="100%" alt="README-level project previews for OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab; email Mohamed for details">
+    </picture>
+  </a>
 </div>
+
+<p align="center"><a href="mailto:medd.sarkouh@gmail.com?subject=Project%20details%20request"><code>EMAIL ME FOR PROJECT DETAILS →</code></a></p>
 
 <br>
 
@@ -51,12 +55,12 @@
 
 <br>
 
-### `mohamed@github:~$ public-signal --verified --53w`
+### `mohamed@github:~$ public-signal --verified --full-year --python-snake`
 
 <div align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/activity-mobile.svg">
-    <img src="./assets/activity.svg" width="100%" alt="Mohamed Sarkouh's verified public GitHub contribution calendar for the last 53 weeks">
+    <img src="./assets/activity.svg" width="100%" alt="Mohamed Sarkouh's verified full-year public GitHub contribution calendar with a decorative looping Python snake">
   </picture>
 </div>
 
@@ -98,15 +102,15 @@ I turn ideas into intelligent, secure digital experiences through AI-assisted de
 
 #### Selected projects
 
-- **OPTIQ Vision Forge** (`optiq-vision-forge-main`, private) — React/Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and administration workflows.
-- **Apex Funded Bot** (`apex-funded-bot-fully-configured`, private) — Python/Telegram workflow that interprets chart screenshots with vision models, confirms context, and synchronizes structured journals with Notion and Google Sheets.
-- **WATIQA** (`watiqa-dashboard`, private) — audited verification system with passkeys, role controls, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and private-network hardening.
+- **OPTIQ Vision Forge** — React/Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and administration workflows.
+- **Apex Funded Bot** — Python/Telegram workflow that interprets chart screenshots with vision models, confirms context, and synchronizes structured journals with Notion and Google Sheets.
+- **WATIQA** — audited verification system with passkeys, role controls, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and private-network hardening.
 - **MPLS Network Lab** — networking project centered on MPLS, OSPF, BGP, Linux infrastructure, and security-aware network design.
 
-The software descriptions are derived from current private repository documentation. The MPLS entry reflects the networking project explicitly supplied for this profile. The SOC/SIEM material is presented as a capability and practice area, not as a repository-backed project.
+Only high-level README summaries are shown; source code and private repository links remain private. [Email me for project details](mailto:medd.sarkouh@gmail.com?subject=Project%20details%20request). The MPLS entry reflects the networking project explicitly supplied for this profile. The SOC/SIEM material is presented as a capability and practice area, not as a repository-backed project.
 
 #### Profile engineering
 
-The artwork is self-hosted, GitHub-compatible SVG with reduced-motion fallbacks and no README JavaScript. The public activity graph is generated only from GitHub's public contribution calendar. See [maintenance and security notes](./docs/maintenance.md).
+The artwork is self-hosted, GitHub-compatible SVG with reduced-motion fallbacks and no README JavaScript. The activity artwork shows a complete 53-week calendar generated only from GitHub's public contribution data; its looping Python snake is decorative and does not change the contribution record. See [maintenance and security notes](./docs/maintenance.md).
 
 </details>

@@ -21,7 +21,7 @@ python scripts/validate_profile.py
 python -m unittest discover -s tests -v
 ```
 
-The static generator owns the hero, project showcase, terminal, capabilities, radar/current-focus panel, and footer. The activity scripts own `data/contributions.json`, `assets/activity.svg`, and `assets/activity-mobile.svg`.
+The static generator owns the hero, private-safe project showcase, terminal, capabilities, neural globe, centered radar/current-focus panel, and footer. The activity scripts own `data/contributions.json`, `assets/activity.svg`, and `assets/activity-mobile.svg`, including the full-year grid and decorative looping Python snake.
 
 ## Automation
 
@@ -42,5 +42,7 @@ If branch protection blocks bot commits, allow this workflow to bypass the relev
 - SOC, SIEM, Wazuh, and security-monitoring content is presented as a capability/practice area, not a fabricated repository.
 - The security radar and system-status lights are explicitly labeled decorative.
 - Public contribution artwork is based only on GitHub's public calendar and is never inflated.
+- The Python snake is a decorative SVG motion layer. It never writes, fills, or changes contribution cells.
+- Project cards expose README-level summaries only; private source and repository URLs remain undisclosed, with email used for detail requests.
 - Private source URLs, credentials, customer data, and unverifiable metrics are not exposed.
 - Third-party statistics widgets are intentionally avoided to prevent outages, rate limits, and broken images.

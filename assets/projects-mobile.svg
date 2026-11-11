@@ -35,8 +35,9 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 .blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
 .scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
 .flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
-.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
-.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.orbit-line{stroke-dasharray:8 13;animation:orbitFlow 10s linear infinite}
+.orbit-line.reverse{animation-direction:reverse;animation-duration:13s}
+.radar{transform-box:view-box;animation:radar 7.2s linear infinite}
 .role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
 .r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
 @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -44,10 +45,10 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 @keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
 @keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
 @keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
-@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes orbitFlow{from{stroke-dashoffset:84}to{stroke-dashoffset:0}}
 @keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit-line,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
 </style>
 <rect x="4" y="4" width="552" height="1157" rx="30" fill="#030510" stroke="#19254A"/>
 <rect x="11" y="11" width="538" height="1143" rx="24" fill="url(#bg)" stroke="#26365F"/>
@@ -67,7 +68,8 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="211" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.28s">3D experiences, full-stack admin, and persistent data.</text>
 <line x1="52" y1="254" x2="508" y2="254" stroke="#26365F"/>
 <text x="52" y="281" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.34s">REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL</text>
-<text x="52" y="306" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.7" class="reveal" style="animation-delay:0.40s">PRIVATE REPOSITORY</text>
+<text x="52" y="306" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.40s">README PREVIEW · SOURCE PRIVATE</text>
+<text x="400" y="306" fill="#00E5FF" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.44s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="105" r="4" fill="#00E5FF"/>
 <rect x="28" y="346" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
 <rect x="29" y="347" width="502" height="4" rx="2" fill="#9D4EDD" opacity=".9"/>
@@ -78,7 +80,8 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="479" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.41s">structured trade journaling, Notion, and Sheets sync.</text>
 <line x1="52" y1="522" x2="508" y2="522" stroke="#26365F"/>
 <text x="52" y="549" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.47s">PYTHON · TELEGRAM · VISION MODELS · NOTION · SHEETS</text>
-<text x="52" y="574" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.7" class="reveal" style="animation-delay:0.53s">PRIVATE REPOSITORY</text>
+<text x="52" y="574" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.53s">README PREVIEW · SOURCE PRIVATE</text>
+<text x="400" y="574" fill="#9D4EDD" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.57s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="373" r="4" fill="#9D4EDD"/>
 <rect x="28" y="614" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
 <rect x="29" y="615" width="502" height="4" rx="2" fill="#FF4ECD" opacity=".9"/>
@@ -89,7 +92,8 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="747" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.54s">malware scanning, role controls, and private networking.</text>
 <line x1="52" y1="790" x2="508" y2="790" stroke="#26365F"/>
 <text x="52" y="817" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.60s">FASTIFY · POSTGRESQL · REDIS · PRISMA · WEBAUTHN</text>
-<text x="52" y="842" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.7" class="reveal" style="animation-delay:0.66s">PRIVATE REPOSITORY</text>
+<text x="52" y="842" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.66s">README PREVIEW · SOURCE PRIVATE</text>
+<text x="400" y="842" fill="#FF4ECD" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.70s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="641" r="4" fill="#FF4ECD"/>
 <rect x="28" y="882" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
 <rect x="29" y="883" width="502" height="4" rx="2" fill="#00FFA3" opacity=".9"/>
@@ -100,6 +104,7 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="1015" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.67s">Linux infrastructure and security-aware network design.</text>
 <line x1="52" y1="1058" x2="508" y2="1058" stroke="#26365F"/>
 <text x="52" y="1085" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.73s">MPLS · OSPF · BGP · LINUX · NETWORK SECURITY</text>
-<text x="52" y="1110" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.7" class="reveal" style="animation-delay:0.79s">LAB PROJECT</text>
+<text x="52" y="1110" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.79s">README PREVIEW · LAB DETAILS PRIVATE</text>
+<text x="400" y="1110" fill="#00FFA3" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.83s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="909" r="4" fill="#00FFA3"/>
 </svg>

@@ -35,8 +35,9 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 .blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
 .scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
 .flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
-.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
-.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.orbit-line{stroke-dasharray:8 13;animation:orbitFlow 10s linear infinite}
+.orbit-line.reverse{animation-direction:reverse;animation-duration:13s}
+.radar{transform-box:view-box;animation:radar 7.2s linear infinite}
 .role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
 .r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
 @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -44,10 +45,10 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 @keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
 @keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
 @keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
-@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes orbitFlow{from{stroke-dashoffset:84}to{stroke-dashoffset:0}}
 @keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit-line,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
 </style>
 <rect x="4" y="4" width="552" height="852" rx="30" fill="#030510" stroke="#19254A"/>
 <rect x="11" y="11" width="538" height="838" rx="24" fill="url(#bg)" stroke="#26365F"/>
@@ -65,7 +66,37 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <circle cx="280" cy="266" r="125" fill="none" stroke="#33436F" stroke-opacity=".7"/>
 <line x1="155" y1="266" x2="405" y2="266" stroke="#27375F"/>
 <line x1="280" y1="141" x2="280" y2="391" stroke="#27375F"/>
-<path class="radar" d="M280 266 L280 141 A125 125 0 0 1 390 223.5 Z" fill="#00E5FF" fill-opacity=".12" stroke="#00E5FF" stroke-opacity=".5"/>
+<line x1="397" y1="266" x2="405" y2="266" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="396.877" y1="297.317" x2="400.741" y2="298.352" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="384.789" y1="326.5" x2="388.253" y2="328.5" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="362.731" y1="348.731" x2="368.388" y2="354.388" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="340.5" y1="370.789" x2="342.5" y2="374.253" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="311.317" y1="382.877" x2="312.352" y2="386.741" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="280" y1="383" x2="280" y2="391" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="248.683" y1="382.877" x2="247.648" y2="386.741" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="219.5" y1="370.789" x2="217.5" y2="374.253" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="197.269" y1="348.731" x2="191.612" y2="354.388" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="175.211" y1="326.5" x2="171.747" y2="328.5" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="163.123" y1="297.317" x2="159.259" y2="298.352" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="163" y1="266" x2="155" y2="266" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="163.123" y1="234.683" x2="159.259" y2="233.648" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="175.211" y1="205.5" x2="171.747" y2="203.5" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="197.269" y1="183.269" x2="191.612" y2="177.612" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="219.5" y1="161.211" x2="217.5" y2="157.747" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="248.683" y1="149.123" x2="247.648" y2="145.259" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="280" y1="149" x2="280" y2="141" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="311.317" y1="149.123" x2="312.352" y2="145.259" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="340.5" y1="161.211" x2="342.5" y2="157.747" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="362.731" y1="183.269" x2="368.388" y2="177.612" stroke="#526898" stroke-opacity="0.72"/>
+<line x1="384.789" y1="205.5" x2="388.253" y2="203.5" stroke="#526898" stroke-opacity="0.38"/>
+<line x1="396.877" y1="234.683" x2="400.741" y2="233.648" stroke="#526898" stroke-opacity="0.38"/>
+<g class="radar" style="transform-origin:280px 266px">
+<path d="M280 266 L280 141 A125 125 0 0 1 381.127 192.527 Z" fill="#00E5FF" fill-opacity=".1" stroke="none"/>
+<line x1="280" y1="266" x2="381.127" y2="192.527" stroke="#00E5FF" stroke-opacity=".92" stroke-width="1.5" filter="url(#glow)"/>
+<path d="M280 181 A85 85 0 0 1 348.766 216.038" fill="none" stroke="#00E5FF" stroke-opacity=".22"/>
+</g>
+<circle cx="280" cy="266" r="6" fill="#080D1B" stroke="#00E5FF" stroke-opacity=".8"/>
+<circle class="pulse" cx="280" cy="266" r="2.5" fill="#00FFA3" filter="url(#glow)"/>
 <circle class="pulse" cx="220" cy="234.75" r="5" fill="#FF4ECD" filter="url(#glow)"/>
 <text x="230" y="226.75" fill="#FF4ECD" font-size="8" font-weight="700" letter-spacing="0.45">SIEM</text>
 <circle class="pulse" cx="332.5" cy="208.5" r="5" fill="#00E5FF" filter="url(#glow)"/>
