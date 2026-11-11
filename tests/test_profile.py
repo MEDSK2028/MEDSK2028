@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from fetch_contributions import Day, calculate_stats, parse_contributions  # noqa: E402
 from generate_profile_assets import footer, hero, projects, skills, system_status, terminal  # noqa: E402
-from render_activity import render  # noqa: E402
+from render_activity import render, snake_route  # noqa: E402
 
 
 class ContributionTests(unittest.TestCase):
@@ -66,15 +66,30 @@ class SvgTests(unittest.TestCase):
             self.assertIn(label, project_source)
 
     def test_activity_renderer_outputs_53_week_grid(self) -> None:
-        payload = json.loads((ROOT / "data/contributions.json").read_text(encoding="utf-8"))
+        payload = json.loads((ROOT / "data/contribution-snapshot-2026.json").read_text(encoding="utf-8"))
         for mobile in (False, True):
             source = render(payload, mobile=mobile)
             ET.fromstring(source)
-            self.assertEqual(source.count('class="day"'), 53 * 7)
-            self.assertIn("PUBLIC CONTRIBUTIONS IN THE LAST YEAR", source)
+            self.assertEqual(source.count('class="day"'), 368)
+            self.assertIn("487 CONTRIBUTIONS IN THE LAST YEAR", source)
             self.assertIn('class="python-snake"', source)
             self.assertIn('repeatCount="indefinite"', source)
-            self.assertIn("CONTRIBUTION DATA IS UNCHANGED", source)
+            self.assertIn("SNAPSHOT LEVELS ARE UNCHANGED", source)
+
+    def test_snake_uses_vertical_rounded_serpentine_route(self) -> None:
+        route = snake_route(92, 148, 11, 4)
+        self.assertTrue(route.startswith("M97.5 153.5 V243.5"))
+        self.assertGreaterEqual(route.count("V"), 53)
+        self.assertGreaterEqual(route.count("C"), 54)
+        self.assertLess(route.find("V243.5"), route.find("C97.5"))
+
+    def test_owner_snapshot_preserves_public_anchor_dates(self) -> None:
+        payload = json.loads((ROOT / "data/contribution-snapshot-2026.json").read_text(encoding="utf-8"))
+        levels = {tuple(entry[:2]): entry[2] for entry in payload["levels"]}
+        self.assertEqual(payload["stats"]["total"], 487)
+        self.assertEqual(levels[(33, 0)], 2)  # 2026-06-28
+        self.assertEqual(levels[(49, 4)], 1)  # 2026-10-22
+        self.assertEqual(levels[(52, 3)], 1)  # 2026-11-11
 
     def test_project_previews_keep_source_private(self) -> None:
         source = projects(True)

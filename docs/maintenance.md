@@ -21,11 +21,11 @@ python scripts/validate_profile.py
 python -m unittest discover -s tests -v
 ```
 
-The static generator owns the hero, private-safe project showcase, terminal, capabilities, neural globe, centered radar/current-focus panel, and footer. The activity scripts own `data/contributions.json`, `assets/activity.svg`, and `assets/activity-mobile.svg`, including the full-year grid and decorative looping Python snake.
+The static generator owns the hero, private-safe project showcase, terminal, capabilities, neural globe, centered radar/current-focus panel, and footer. The activity renderer owns `assets/activity.svg` and `assets/activity-mobile.svg`, including the full-year grid and decorative looping Python snake. It renders the owner-provided authenticated snapshot in `data/contribution-snapshot-2026.json`; the scheduled fetcher separately refreshes the anonymous public audit in `data/contributions.json`.
 
 ## Automation
 
-`.github/workflows/update-activity.yml` refreshes the public calendar daily at 05:17 UTC and can be dispatched manually. It uses only official GitHub actions pinned to full commit SHAs and has only `contents: write` permission.
+`.github/workflows/update-activity.yml` refreshes the anonymous public audit daily at 05:17 UTC, regenerates the owner-snapshot artwork, and can be dispatched manually. GitHub's anonymous endpoint currently omits the private contribution levels visible in the owner's authenticated screenshot, so the immutable snapshot is intentionally not overwritten. The workflow uses only official GitHub actions pinned to full commit SHAs and has only `contents: write` permission.
 
 After committing and pushing this redesign, confirm repository settings allow the workflow to commit:
 
@@ -41,8 +41,9 @@ If branch protection blocks bot commits, allow this workflow to bypass the relev
 - The MPLS lab reflects information explicitly supplied for the profile.
 - SOC, SIEM, Wazuh, and security-monitoring content is presented as a capability/practice area, not a fabricated repository.
 - The security radar and system-status lights are explicitly labeled decorative.
-- Public contribution artwork is based only on GitHub's public calendar and is never inflated.
-- The Python snake is a decorative SVG motion layer. It never writes, fills, or changes contribution cells.
+- The displayed 487-contribution calendar is reconstructed from the authenticated GitHub screenshot supplied by the profile owner; its 42 active-day levels and six-day longest streak match that snapshot.
+- Anonymous API/public-HTML data remains stored separately in `data/contributions.json` and is never presented as the complete private-inclusive history.
+- The Python snake is a decorative SVG motion layer. It travels down/up successive columns and never writes, fills, or changes contribution cells.
 - Project cards expose README-level summaries only; private source and repository URLs remain undisclosed, with email used for detail requests.
 - Private source URLs, credentials, customer data, and unverifiable metrics are not exposed.
 - Third-party statistics widgets are intentionally avoided to prevent outages, rate limits, and broken images.

@@ -11,10 +11,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = ROOT / "data" / "contributions.json"
+DEFAULT_INPUT = ROOT / "data" / "contribution-snapshot-2026.json"
 DESKTOP_OUTPUT = ROOT / "assets" / "activity.svg"
 MOBILE_OUTPUT = ROOT / "assets" / "activity-mobile.svg"
-PALETTE = ["#111A35", "#34235F", "#62348E", "#9D4EDD", "#00E5FF"]
+PALETTE = ["#161B22", "#033A16", "#196C2E", "#2EA043", "#56D364"]
 
 
 def sunday_before(day: date) -> date:
@@ -22,25 +22,28 @@ def sunday_before(day: date) -> date:
 
 
 def snake_route(grid_x: int, grid_y: int, cell: int, gap: int) -> str:
-    """Build an orthogonal loop that visits every calendar square in order."""
+    """Build a rounded vertical serpentine loop through all 53 calendar columns."""
     pitch = cell + gap
     left = grid_x + cell / 2
     right = grid_x + 52 * pitch + cell / 2
     top = grid_y + cell / 2
     bottom = grid_y + 6 * pitch + cell / 2
-    outside_x = left - pitch * 1.35
-    outside_y = bottom + pitch * 1.35
     commands = [f"M{left:g} {top:g}"]
-    for row in range(7):
-        target_x = right if row % 2 == 0 else left
-        commands.append(f"H{target_x:g}")
-        if row < 6:
-            commands.append(f"V{top + (row + 1) * pitch:g}")
+    for week in range(53):
+        x = left + week * pitch
+        target_y = bottom if week % 2 == 0 else top
+        commands.append(f"V{target_y:g}")
+        if week < 52:
+            next_x = x + pitch
+            turn_y = target_y + (pitch * .92 if week % 2 == 0 else -pitch * .92)
+            commands.append(
+                f"C{x:g} {turn_y:g} {next_x:g} {turn_y:g} {next_x:g} {target_y:g}"
+            )
     commands.extend(
         [
-            f"V{outside_y:g}",
-            f"H{outside_x:g}",
-            f"V{top:g}",
+            f"C{right + pitch:g} {bottom:g} {right + pitch:g} {top - pitch * 1.8:g} {right:g} {top - pitch * 1.8:g}",
+            f"H{left - pitch:g}",
+            f"C{left - pitch * 1.8:g} {top - pitch * 1.8:g} {left - pitch * 1.8:g} {top:g} {left:g} {top:g}",
             f"H{left:g}",
         ]
     )
@@ -64,23 +67,48 @@ def python_snake(route: str, *, mobile: bool) -> list[str]:
 
 
 def render(payload: dict[str, object], *, mobile: bool) -> str:
-    raw_days = payload.get("days")
-    if not isinstance(raw_days, list) or len(raw_days) < 300:
-        raise ValueError("Contribution JSON must contain at least 300 days")
-    days: dict[date, dict[str, int]] = {}
-    for raw in raw_days:
-        if not isinstance(raw, dict):
-            continue
-        current = date.fromisoformat(str(raw["date"]))
-        level = int(raw["level"])
-        count = int(raw["count"])
-        if not 0 <= level <= 4 or count < 0:
-            raise ValueError(f"Invalid contribution value for {current}")
-        days[current] = {"level": level, "count": count}
-
-    last_day = max(days)
-    end_saturday = sunday_before(last_day) + timedelta(days=6)
-    start_sunday = end_saturday - timedelta(weeks=52)
+    owner_snapshot = payload.get("source_type") == "owner_authenticated_snapshot"
+    days: dict[date, dict[str, int | None]] = {}
+    if owner_snapshot:
+        start_sunday = date.fromisoformat(str(payload.get("calendar_start")))
+        last_day = date.fromisoformat(str(payload.get("calendar_end")))
+        if start_sunday.weekday() != 6 or last_day < start_sunday:
+            raise ValueError("Snapshot calendar bounds are invalid")
+        for week in range(53):
+            for row in range(7):
+                current = start_sunday + timedelta(weeks=week, days=row)
+                if current <= last_day:
+                    days[current] = {"level": 0, "count": None}
+        raw_levels = payload.get("levels")
+        if not isinstance(raw_levels, list):
+            raise ValueError("Snapshot contribution levels are missing")
+        for entry in raw_levels:
+            if not isinstance(entry, list) or len(entry) != 3:
+                raise ValueError("Snapshot contribution level entry is invalid")
+            week, row, level = (int(value) for value in entry)
+            current = start_sunday + timedelta(weeks=week, days=row)
+            if not 0 <= week < 53 or not 0 <= row < 7 or not 1 <= level <= 4:
+                raise ValueError("Snapshot contribution level is out of range")
+            if current not in days:
+                raise ValueError("Snapshot contribution level is outside the captured calendar")
+            days[current] = {"level": level, "count": None}
+        end_saturday = start_sunday + timedelta(weeks=52, days=6)
+    else:
+        raw_days = payload.get("days")
+        if not isinstance(raw_days, list) or len(raw_days) < 300:
+            raise ValueError("Contribution JSON must contain at least 300 days")
+        for raw in raw_days:
+            if not isinstance(raw, dict):
+                continue
+            current = date.fromisoformat(str(raw["date"]))
+            level = int(raw["level"])
+            count = int(raw["count"])
+            if not 0 <= level <= 4 or count < 0:
+                raise ValueError(f"Invalid contribution value for {current}")
+            days[current] = {"level": level, "count": count}
+        last_day = max(days)
+        end_saturday = sunday_before(last_day) + timedelta(days=6)
+        start_sunday = end_saturday - timedelta(weeks=52)
     username = escape(str(payload.get("username", "GitHub user")))
     stats = payload.get("stats") if isinstance(payload.get("stats"), dict) else {}
 
@@ -94,7 +122,7 @@ def render(payload: dict[str, object], *, mobile: bool) -> str:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
         f'<title id="title">{username} public GitHub activity</title>',
-        '<desc id="desc">A verified 53-week public GitHub contribution calendar with a decorative Python snake moving square to square.</desc>',
+        f'<desc id="desc">A 53-week GitHub contribution calendar from an {"owner-provided authenticated snapshot" if owner_snapshot else "anonymous public calendar"}, with a decorative Python snake moving vertically through the squares.</desc>',
         '<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101A32"/><stop offset=".55" stop-color="#080D1B"/><stop offset="1" stop-color="#050816"/></linearGradient><linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9D4EDD"/><stop offset=".5" stop-color="#FF4ECD"/><stop offset="1" stop-color="#00E5FF"/></linearGradient><linearGradient id="python" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9D4EDD"/><stop offset=".5" stop-color="#00E5FF"/><stop offset="1" stop-color="#00FFA3"/></linearGradient><filter id="snakeGlow" x="-80%" y="-160%" width="260%" height="420%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>',
         "<style>",
         "text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace}",
@@ -110,11 +138,11 @@ def render(payload: dict[str, object], *, mobile: bool) -> str:
         f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="30" fill="#030510" stroke="#19254A"/>',
         f'<rect x="11" y="11" width="{width - 22}" height="{height - 22}" rx="24" fill="url(#bg)" stroke="#26365F"/>',
         '<circle cx="36" cy="36" r="5" fill="#FF5F57"/><circle cx="54" cy="36" r="5" fill="#FEBC2E"/><circle cx="72" cy="36" r="5" fill="#00FFA3"/>',
-        '<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.2">public-signal / verified / full-year</text>',
+        f'<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.2">github-signal / {"authenticated snapshot" if owner_snapshot else "public audit"} / full-year</text>',
         f'<line x1="24" y1="58" x2="{width - 24}" y2="58" stroke="#223259"/>',
         '<rect class="scan" x="24" y="59" width="135" height="1" fill="url(#brand)" opacity="0"/>',
-        f'<text class="meta" x="{34 if mobile else 42}" y="{91 if mobile else 89}" fill="#EAF4FF" font-size="{12 if mobile else 15}" font-weight="700">{total:,} PUBLIC CONTRIBUTIONS IN THE LAST YEAR</text>',
-        f'<text class="meta" x="{34 if mobile else 42}" y="{116 if mobile else 111}" fill="#91A4C5" font-size="9">{username} · VERIFIED PUBLIC CALENDAR · ANIMATED PYTHON SNAKE</text>',
+        f'<text class="meta" x="{34 if mobile else 42}" y="{91 if mobile else 89}" fill="#EAF4FF" font-size="{12 if mobile else 15}" font-weight="700">{total:,} CONTRIBUTIONS IN THE LAST YEAR</text>',
+        f'<text class="meta" x="{34 if mobile else 42}" y="{116 if mobile else 111}" fill="#91A4C5" font-size="9">{username} · {"OWNER-PROVIDED GITHUB SNAPSHOT" if owner_snapshot else "VERIFIED PUBLIC CALENDAR"} · VERTICAL PYTHON SNAKE</text>',
         f'<rect x="{width - (92 if mobile else 110)}" y="76" width="{62 if mobile else 72}" height="28" rx="9" fill="#14244A" stroke="#314C80"/>',
         f'<text class="meta" x="{width - (76 if mobile else 91)}" y="95" fill="#00E5FF" font-size="10" font-weight="700">{last_day.year}</text>',
     ]
@@ -139,32 +167,42 @@ def render(payload: dict[str, object], *, mobile: bool) -> str:
     for week in range(53):
         for row in range(7):
             current = start_sunday + timedelta(weeks=week, days=row)
-            record = days.get(current, {"level": 0, "count": 0})
+            record = days.get(current)
+            if owner_snapshot and record is None:
+                continue
+            if record is None:
+                record = {"level": 0, "count": 0}
             x = grid_x + week * (cell + gap)
             y = grid_y + row * (cell + gap)
             delay = min(.03 + (week + row) * .017, 1.02)
+            tooltip = (
+                f'GitHub activity on {current.isoformat()}; exact daily count is private in the supplied snapshot'
+                if record["count"] is None
+                else f'{record["count"]} contributions on {current.isoformat()}'
+            )
             parts.append(
                 f'<rect class="day" x="{x}" y="{y}" width="{cell}" height="{cell}" rx="{2 if mobile else 3}" '
-                f'fill="{PALETTE[record["level"]]}" style="animation-delay:{delay:.3f}s">'
-                f'<title>{record["count"]} contributions on {current.isoformat()}</title></rect>'
+                f'fill="{PALETTE[int(record["level"])]}" style="animation-delay:{delay:.3f}s">'
+                f'<title>{tooltip}</title></rect>'
             )
 
     parts.extend(python_snake(route, mobile=mobile))
 
     footer_y = 302 if not mobile else 292
-    parts.append(f'<text class="meta" x="{34 if mobile else 42}" y="{footer_y}" fill="#00E5FF" font-size="{10 if mobile else 12}" font-weight="700">{total:,} PUBLIC CONTRIBUTIONS</text>')
+    parts.append(f'<text class="meta" x="{34 if mobile else 42}" y="{footer_y}" fill="#00E5FF" font-size="{10 if mobile else 12}" font-weight="700">{total:,} CONTRIBUTIONS</text>')
     parts.append(f'<text class="meta" x="{230 if mobile else 270}" y="{footer_y}" fill="#91A4C5" font-size="{9 if mobile else 11}">{active} ACTIVE DAYS</text>')
     parts.append(f'<text class="meta" x="{390 if mobile else 430}" y="{footer_y}" fill="#91A4C5" font-size="{9 if mobile else 11}">{streak}D LONGEST STREAK</text>')
-    fetched = escape(str(payload.get("fetched_at", "unknown"))[:10])
+    fetched = escape(str(payload.get("captured_at" if owner_snapshot else "fetched_at", "unknown"))[:10])
     source_y = 376 if not mobile else 392
-    parts.append(f'<text class="meta" x="{34 if mobile else 42}" y="{source_y}" fill="#596B91" font-size="8">SOURCE: GITHUB PUBLIC CALENDAR · UPDATED {fetched}</text>')
+    source_name = "AUTHENTICATED GITHUB SNAPSHOT · OWNER PROVIDED" if owner_snapshot else "GITHUB PUBLIC CALENDAR"
+    parts.append(f'<text class="meta" x="{34 if mobile else 42}" y="{source_y}" fill="#596B91" font-size="8">SOURCE: {source_name} · {fetched}</text>')
     legend_x = 392 if mobile else 790
     legend_y = 348 if not mobile else 350
     parts.append(f'<text class="meta" x="{legend_x}" y="{legend_y}" fill="#7184A9" font-size="8">LESS</text>')
     for index, color in enumerate(PALETTE):
         parts.append(f'<rect class="meta" x="{legend_x + 34 + index * 15}" y="{legend_y - 9}" width="10" height="10" rx="2" fill="{color}"/>')
     parts.append(f'<text class="meta" x="{legend_x + 112}" y="{legend_y}" fill="#7184A9" font-size="8">MORE</text>')
-    parts.append(f'<text class="meta" x="{34 if mobile else 42}" y="{legend_y}" fill="#65769E" font-size="8">PYTHON SNAKE IS DECORATIVE · CONTRIBUTION DATA IS UNCHANGED</text>')
+    parts.append(f'<text class="meta" x="{34 if mobile else 42}" y="{legend_y}" fill="#65769E" font-size="8">VERTICAL PYTHON SNAKE IS DECORATIVE · SNAPSHOT LEVELS ARE UNCHANGED</text>')
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 

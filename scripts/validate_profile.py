@@ -7,6 +7,7 @@ import json
 import re
 import sys
 import xml.etree.ElementTree as ET
+from datetime import date, timedelta
 from pathlib import Path
 
 
@@ -31,6 +32,7 @@ REQUIRED = [
     "README.md",
     "docs/maintenance.md",
     "data/contributions.json",
+    "data/contribution-snapshot-2026.json",
     "scripts/generate_profile_assets.py",
     "scripts/fetch_contributions.py",
     "scripts/render_activity.py",
@@ -91,12 +93,48 @@ def validate_activity() -> None:
         fail("Activity data is incomplete")
     if any(not 0 <= int(day["level"]) <= 4 or int(day["count"]) < 0 for day in days):
         fail("Activity data contains an invalid value")
+    snapshot = json.loads((ROOT / "data/contribution-snapshot-2026.json").read_text(encoding="utf-8"))
+    if snapshot.get("username") != "MEDSK2028" or snapshot.get("source_type") != "owner_authenticated_snapshot":
+        fail("Contribution snapshot provenance is invalid")
+    levels = snapshot.get("levels")
+    stats = snapshot.get("stats")
+    if not isinstance(levels, list) or not isinstance(stats, dict):
+        fail("Contribution snapshot structure is invalid")
+    if len(levels) != 42 or int(stats.get("total", 0)) != 487:
+        fail("Contribution snapshot no longer matches the owner-provided 2026 calendar")
+    if any(
+        not isinstance(entry, list)
+        or len(entry) != 3
+        or not 0 <= int(entry[0]) < 53
+        or not 0 <= int(entry[1]) < 7
+        or not 1 <= int(entry[2]) <= 4
+        for entry in levels
+    ):
+        fail("Contribution snapshot contains an invalid level entry")
+    coordinates = {(int(entry[0]), int(entry[1])) for entry in levels}
+    if len(coordinates) != len(levels):
+        fail("Contribution snapshot contains duplicate calendar cells")
+    start = date.fromisoformat(str(snapshot.get("calendar_start")))
+    end = date.fromisoformat(str(snapshot.get("calendar_end")))
+    active_dates = sorted(start + timedelta(weeks=week, days=row) for week, row in coordinates)
+    if active_dates[-1] > end or int(stats.get("active_days", 0)) != len(active_dates):
+        fail("Contribution snapshot active-day count is invalid")
+    longest = run = 0
+    previous: date | None = None
+    for current in active_dates:
+        run = run + 1 if previous and current == previous + timedelta(days=1) else 1
+        longest = max(longest, run)
+        previous = current
+    if int(stats.get("longest_streak", 0)) != longest:
+        fail("Contribution snapshot longest streak is invalid")
     for asset in ("assets/activity.svg", "assets/activity-mobile.svg"):
         source = (ROOT / asset).read_text(encoding="utf-8")
-        if source.count('class="day"') != 53 * 7:
-            fail(f"{asset} must contain a complete 53-week grid")
+        if source.count('class="day"') != 368:
+            fail(f"{asset} must contain the complete captured 53-week calendar")
         if 'class="python-snake"' not in source or 'repeatCount="indefinite"' not in source:
             fail(f"{asset} is missing the looping decorative Python snake")
+        if "487 CONTRIBUTIONS IN THE LAST YEAR" not in source:
+            fail(f"{asset} is not rendering the owner-provided contribution snapshot")
 
 
 def validate_workflow() -> None:

@@ -1,4 +1,4 @@
-name: Update public activity artwork
+name: Refresh contribution snapshot artwork
 
 on:
   schedule:
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   refresh:
-    name: Refresh verified public contribution art
+    name: Refresh public audit and owner-snapshot artwork
     runs-on: ubuntu-24.04
     timeout-minutes: 5
 
@@ -27,22 +27,22 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Regenerate verified activity artwork
+      - name: Refresh public audit and regenerate snapshot artwork
         run: |
           python scripts/fetch_contributions.py
           python scripts/render_activity.py
           python scripts/validate_profile.py
 
-      - name: Commit changed artwork
+      - name: Commit changed audit or artwork
         shell: bash
         run: |
           set -euo pipefail
           git add data/contributions.json assets/activity.svg assets/activity-mobile.svg
           if git diff --cached --quiet; then
-            echo "Public activity artwork is already current."
+            echo "Contribution audit and snapshot artwork are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: refresh verified public activity [skip ci]"
+          git commit -m "chore: refresh contribution audit [skip ci]"
           git push
