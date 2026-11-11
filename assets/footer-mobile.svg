@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh coding philosophy</title>
+<desc id="desc">A minimal cyber-terminal footer with Mohamed&#x27;s coding philosophy and availability status.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#101A32"/>
+<stop offset=".52" stop-color="#080D1B"/>
+<stop offset="1" stop-color="#050816"/>
+</linearGradient>
+<linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#9D4EDD"/>
+<stop offset=".5" stop-color="#FF4ECD"/>
+<stop offset="1" stop-color="#00E5FF"/>
+</linearGradient>
+<linearGradient id="neural" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF4ECD"/>
+<stop offset=".5" stop-color="#9D4EDD"/>
+<stop offset="1" stop-color="#00E5FF"/>
+</linearGradient>
+<radialGradient id="aura" cx=".78" cy=".18" r=".82">
+<stop offset="0" stop-color="#9D4EDD" stop-opacity=".22"/>
+<stop offset=".42" stop-color="#00E5FF" stop-opacity=".06"/>
+<stop offset="1" stop-color="#080D1B" stop-opacity="0"/>
+</radialGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+<feGaussianBlur stdDeviation="3" result="blur"/>
+<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<style>
+text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace}
+.display{font-family:'Space Grotesk','Aptos Display','Segoe UI',sans-serif}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) infinite}
+.blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
+.flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
+.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
+.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
+.r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
+@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
+@keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
+@keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
+@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
+</style>
+<rect x="4" y="4" width="552" height="242" rx="30" fill="#030510" stroke="#19254A"/>
+<rect x="11" y="11" width="538" height="228" rx="24" fill="url(#bg)" stroke="#26365F"/>
+<rect x="12" y="12" width="536" height="226" rx="23" fill="url(#aura)"/>
+<circle cx="36" cy="36" r="5" fill="#FF5F57"/>
+<circle cx="54" cy="36" r="5" fill="#FEBC2E"/>
+<circle cx="72" cy="36" r="5" fill="#00FFA3"/>
+<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.35">philosophy.sh / end-of-line</text>
+<line x1="24" y1="58" x2="536" y2="58" stroke="#223259"/>
+<rect class="scan" x="24" y="59" width="150" height="1" fill="url(#brand)" opacity="0"/>
+<text x="34" y="102" fill="#9D4EDD" font-size="18" font-weight="700" class="reveal" style="animation-delay:0.12s">&gt;</text>
+<text x="62" y="102" fill="#EAF4FF" font-size="16" font-weight="700" class="reveal display" style="animation-delay:0.20s">BUILD SMARTER.</text>
+<text x="62" y="133" fill="#EAF4FF" font-size="16" font-weight="700" class="reveal display" style="animation-delay:0.26s">AUTOMATE FASTER.</text>
+<text x="62" y="164" fill="#00FFA3" font-size="16" font-weight="700" class="reveal display" style="animation-delay:0.32s">THINK SECURELY.</text>
+<text x="62" y="208" fill="#91A4C5" font-size="9" class="reveal" style="animation-delay:0.42s">AI innovation × creative building × practical security</text>
+</svg>

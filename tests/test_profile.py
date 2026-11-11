@@ -1,34 +1,53 @@
 from __future__ import annotations
 
+import json
 import sys
 import unittest
 import xml.etree.ElementTree as ET
+from datetime import date, timedelta
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from generate_profile_assets import (  # noqa: E402
-    engineering_footprint,
-    hero,
-    info_card,
-    projects,
-    stack_card,
-)
+from fetch_contributions import Day, calculate_stats, parse_contributions  # noqa: E402
+from generate_profile_assets import footer, hero, projects, skills, system_status, terminal  # noqa: E402
+from render_activity import render  # noqa: E402
+
+
+class ContributionTests(unittest.TestCase):
+    def test_parser_extracts_counts_from_a_full_calendar(self) -> None:
+        start = date(2025, 1, 1)
+        chunks = []
+        for index in range(301):
+            current = start + timedelta(days=index)
+            count = 9 if index == 42 else 0
+            level = 4 if count else 0
+            label = f"{count} contributions" if count else "No contributions"
+            chunks.append(
+                f'<td id="day-{index}" data-date="{current.isoformat()}" data-level="{level}"></td>'
+                f'<tool-tip for="day-{index}">{label} on {current.isoformat()}.</tool-tip>'
+            )
+        days = parse_contributions("".join(chunks))
+        self.assertEqual(len(days), 301)
+        self.assertEqual(days[42], Day(days[42].date, 4, 9))
+
+    def test_stats_are_derived_from_real_counts(self) -> None:
+        stats = calculate_stats(
+            [Day("2026-01-01", 1, 1), Day("2026-01-02", 2, 2), Day("2026-01-04", 4, 7)]
+        )
+        self.assertEqual(stats["total"], 10)
+        self.assertEqual(stats["active_days"], 3)
+        self.assertEqual(stats["longest_streak"], 2)
 
 
 class SvgTests(unittest.TestCase):
-    def test_generators_return_valid_accessible_svg(self) -> None:
+    def test_static_generators_are_valid_accessible_svg(self) -> None:
         generated = (
-            hero(True),
-            hero(False),
-            info_card(),
-            stack_card(),
-            projects(True),
-            projects(False),
-            engineering_footprint(True),
-            engineering_footprint(False),
+            hero(True), hero(False), projects(True), projects(False),
+            terminal(True), terminal(False), skills(True), skills(False),
+            system_status(True), system_status(False), footer(True), footer(False),
         )
         for source in generated:
             root = ET.fromstring(source)
@@ -36,17 +55,23 @@ class SvgTests(unittest.TestCase):
             self.assertIn("title", tags)
             self.assertIn("desc", tags)
             self.assertNotIn("script", tags)
+            self.assertIn("prefers-reduced-motion", source)
 
-    def test_footprint_is_evidence_based(self) -> None:
-        source = engineering_footprint(True)
-        for label in (
-            "APEX FUNDED BOT",
-            "OPTIQ VISION FORGE",
-            "WATIQA",
-            "MPLS NETWORK LAB",
-        ):
-            self.assertIn(label, source)
-        self.assertNotIn("contributions", source.lower())
+    def test_brand_and_project_evidence_are_present(self) -> None:
+        hero_source = hero(True)
+        project_source = projects(True)
+        self.assertIn("AI-POWERED BUILDER", hero_source)
+        self.assertIn("CYBERSECURITY MINDSET", hero_source)
+        for label in ("OPTIQ VISION FORGE", "APEX FUNDED BOT", "WATIQA", "MPLS NETWORK LAB"):
+            self.assertIn(label, project_source)
+
+    def test_activity_renderer_outputs_53_week_grid(self) -> None:
+        payload = json.loads((ROOT / "data/contributions.json").read_text(encoding="utf-8"))
+        for mobile in (False, True):
+            source = render(payload, mobile=mobile)
+            ET.fromstring(source)
+            self.assertEqual(source.count('class="day"'), 53 * 7)
+            self.assertIn("NO FABRICATED ACTIVITY", source)
 
 
 if __name__ == "__main__":

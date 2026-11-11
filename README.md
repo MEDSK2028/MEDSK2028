@@ -1,7 +1,18 @@
 <div align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="./assets/hero-mobile.svg">
-    <img src="./assets/hero.svg" width="100%" alt="Animated terminal introduction for Mohamed Sarkouh, AI engineer and creative developer">
+    <img src="./assets/hero.svg" width="100%" alt="Animated futuristic introduction for Mohamed Sarkouh, an AI-powered builder, creative vibe coder, and cybersecurity-minded developer">
+  </picture>
+</div>
+
+<br>
+
+### `mohamed@github:~$ ./projects.showcase --verified`
+
+<div align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
+    <img src="./assets/projects.svg" width="100%" alt="Selected projects: OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab">
   </picture>
 </div>
 
@@ -10,36 +21,42 @@
 ### `mohamed@github:~$ whoami --verbose`
 
 <div align="center">
-  <img src="./assets/info-card.svg" width="100%" alt="Mohamed Sarkouh developer information card: AI engineering, automation, full-stack software, and infrastructure">
-</div>
-
-<br>
-
-### `mohamed@github:~$ stack --capability-matrix`
-
-<div align="center">
-  <img src="./assets/stack.svg" width="100%" alt="Technology capability matrix covering AI agents, RAG, MCP, Python, TypeScript, n8n, APIs, databases, Linux, networking, and security">
-</div>
-
-<br>
-
-### `mohamed@github:~$ projects --selected --private-safe`
-
-<div align="center">
   <picture>
-    <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
-    <img src="./assets/projects.svg" width="100%" alt="Selected projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and MPLS Network Lab">
+    <source media="(max-width: 600px)" srcset="./assets/terminal-mobile.svg">
+    <img src="./assets/terminal.svg" width="100%" alt="Animated Linux-style terminal describing Mohamed Sarkouh's identity, current focus, and mission">
   </picture>
 </div>
 
 <br>
 
-### `mohamed@github:~$ engineering-footprint --verified`
+### `mohamed@github:~$ system.status --decorative`
 
 <div align="center">
   <picture>
-    <source media="(max-width: 600px)" srcset="./assets/engineering-footprint-mobile.svg">
-    <img src="./assets/engineering-footprint.svg" width="100%" alt="Verified engineering footprint connecting AI agents, application systems, data reliability, and network security to Mohamed Sarkouh's selected projects">
+    <source media="(max-width: 600px)" srcset="./assets/system-status-mobile.svg">
+    <img src="./assets/system-status.svg" width="100%" alt="Decorative animated cybersecurity radar and currently-building panel for secure AI applications, agentic automation, and cybersecurity practice">
+  </picture>
+</div>
+
+<br>
+
+### `mohamed@github:~$ capabilities.map --evidence-led`
+
+<div align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/skills-mobile.svg">
+    <img src="./assets/skills.svg" width="100%" alt="Capability map covering AI automation, creative development, cybersecurity, and infrastructure technologies">
+  </picture>
+</div>
+
+<br>
+
+### `mohamed@github:~$ public-signal --verified --53w`
+
+<div align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/activity-mobile.svg">
+    <img src="./assets/activity.svg" width="100%" alt="Mohamed Sarkouh's verified public GitHub contribution calendar for the last 53 weeks">
   </picture>
 </div>
 
@@ -57,32 +74,39 @@
   <a href="https://x.com/Med7Stock"><code>X / TWITTER</code></a>
 </p>
 
+<div align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/footer-mobile.svg">
+    <img src="./assets/footer.svg" width="100%" alt="Build smarter, automate faster, think securely">
+  </picture>
+</div>
+
 <details>
-<summary><strong>Text-only profile and selected project notes</strong></summary>
+<summary><strong>Accessible text profile and evidence notes</strong></summary>
 
-#### Professional focus
+#### Brand
 
-- AI engineering, LLM applications, AI agents, and agentic workflows
-- Retrieval-augmented generation (RAG) systems and MCP integrations
-- Python development, n8n automation, and API integrations
-- Full-stack development with TypeScript, React, Node.js, and data platforms
-- Linux, networking, cybersecurity, and production infrastructure
+**AI-Powered Builder. Creative Vibe Coder. Cybersecurity Mindset.**
 
-#### Selected work
+I turn ideas into intelligent, secure digital experiences through AI-assisted development, agentic automation, modern application engineering, and practical security thinking.
 
-- **WATIQA** — private identification-record verification system with audited bulk processing, role-based access, passkeys, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and Prisma.
-- **Apex Funded Bot** — Python/Telegram workflow that interprets chart screenshots with vision models, confirms trade context, and writes structured journals and analytics to Notion and Google Sheets.
-- **OPTIQ Vision Forge** — React and Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and production administration workflows.
-- **MPLS Network Lab** — networking project centered on MPLS, OSPF, BGP, Linux-based infrastructure, and secure network operations.
+#### Current focus
 
-The software summaries are derived from current private repository READMEs and manifests; the MPLS entry reflects the networking project and skills specified for this profile. No private source, customer data, credentials, or unverified performance claims are exposed here.
+- AI agents, LLM applications, RAG, MCP, n8n, Python, and API integrations
+- Creative rapid prototyping with React, TypeScript, Node.js, and AI-assisted workflows
+- SOC concepts, SIEM monitoring, Linux security, networking, and defensive security
 
-#### Profile maintenance
+#### Selected projects
 
-All profile artwork is generated locally from verified project and technology information using only the Python standard library. See [maintenance and security notes](./docs/maintenance.md).
+- **OPTIQ Vision Forge** (`optiq-vision-forge-main`, private) — React/Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and administration workflows.
+- **Apex Funded Bot** (`apex-funded-bot-fully-configured`, private) — Python/Telegram workflow that interprets chart screenshots with vision models, confirms context, and synchronizes structured journals with Notion and Google Sheets.
+- **WATIQA** (`watiqa-dashboard`, private) — audited verification system with passkeys, role controls, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and private-network hardening.
+- **MPLS Network Lab** — networking project centered on MPLS, OSPF, BGP, Linux infrastructure, and security-aware network design.
+
+The software descriptions are derived from current private repository documentation. The MPLS entry reflects the networking project explicitly supplied for this profile. The SOC/SIEM material is presented as a capability and practice area, not as a repository-backed project.
+
+#### Profile engineering
+
+The artwork is self-hosted, GitHub-compatible SVG with reduced-motion fallbacks and no README JavaScript. The public activity graph is generated only from GitHub's public contribution calendar. See [maintenance and security notes](./docs/maintenance.md).
 
 </details>
-
-<br>
-
-<p align="center"><samp>DESIGNING RELIABLE SYSTEMS AT THE EDGE OF AI, AUTOMATION, AND INFRASTRUCTURE.</samp></p>

@@ -1,0 +1,48 @@
+name: Update public activity artwork
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-public-activity
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    name: Refresh verified public contribution art
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+
+      - name: Regenerate verified activity artwork
+        run: |
+          python scripts/fetch_contributions.py
+          python scripts/render_activity.py
+          python scripts/validate_profile.py
+
+      - name: Commit changed artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add data/contributions.json assets/activity.svg assets/activity-mobile.svg
+          if git diff --cached --quiet; then
+            echo "Public activity artwork is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh verified public activity [skip ci]"
+          git push

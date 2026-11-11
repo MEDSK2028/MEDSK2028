@@ -1,28 +1,46 @@
 # Profile maintenance
 
-This profile is intentionally self-contained. All visuals are committed SVG files, no JavaScript runs in the README, and no hosted statistics service is required.
+This profile is self-contained: artwork is committed as SVG, animations run inside the SVG files, and the README executes no JavaScript. The only network operation is the scheduled refresh of GitHub's public contribution calendar.
 
 ## Requirements
 
 - Python 3.11 or newer
+- Internet access when refreshing public GitHub activity
 
-The generator uses only the Python standard library and requires no `pip install` step.
+All scripts use the Python standard library. No `pip install` step is required.
 
-## Regenerate the profile
+## Regenerate everything
 
 From the repository root:
 
 ```bash
 python scripts/generate_profile_assets.py
+python scripts/fetch_contributions.py
+python scripts/render_activity.py
 python scripts/validate_profile.py
 python -m unittest discover -s tests -v
 ```
 
-`generate_profile_assets.py` owns every terminal visual, including responsive desktop and mobile variants for the hero, selected projects, and engineering footprint.
+The static generator owns the hero, project showcase, terminal, capabilities, radar/current-focus panel, and footer. The activity scripts own `data/contributions.json`, `assets/activity.svg`, and `assets/activity-mobile.svg`.
+
+## Automation
+
+`.github/workflows/update-activity.yml` refreshes the public calendar daily at 05:17 UTC and can be dispatched manually. It uses only official GitHub actions pinned to full commit SHAs and has only `contents: write` permission.
+
+After committing and pushing this redesign, confirm repository settings allow the workflow to commit:
+
+1. Open **Settings → Actions → General**.
+2. Under **Workflow permissions**, select **Read and write permissions**.
+3. Run **Update public activity artwork** once from the Actions tab.
+
+If branch protection blocks bot commits, allow this workflow to bypass the relevant rule or convert the final step into a pull-request workflow.
 
 ## Content integrity
 
-- Project summaries must stay grounded in repository documentation or information explicitly supplied for this profile.
-- The engineering footprint maps technologies to selected projects; it does not claim contribution counts, years of experience, or performance results.
-- Private project code and repository URLs are deliberately omitted from the public README.
-- No personal access token, API key, or other secret is required.
+- Featured software descriptions are derived from current private repository documentation.
+- The MPLS lab reflects information explicitly supplied for the profile.
+- SOC, SIEM, Wazuh, and security-monitoring content is presented as a capability/practice area, not a fabricated repository.
+- The security radar and system-status lights are explicitly labeled decorative.
+- Public contribution artwork is based only on GitHub's public calendar and is never inflated.
+- Private source URLs, credentials, customer data, and unverifiable metrics are not exposed.
+- Third-party statistics widgets are intentionally avoided to prevent outages, rate limits, and broken images.

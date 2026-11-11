@@ -1,52 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="610" viewBox="0 0 560 610" role="img" aria-labelledby="title desc">
-<title id="title">Mohamed Sarkouh — AI engineer terminal introduction</title>
-<desc id="desc">Animated terminal card with an ASCII MS monogram and an introduction to Mohamed&#x27;s AI engineering work.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="780" viewBox="0 0 560 780" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh — AI powered builder and cybersecurity minded developer</title>
+<desc id="desc">Animated futuristic hero with Mohamed Sarkouh&#x27;s name, rotating professional roles, and a neon neural network.</desc>
 <defs>
-<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#091814"/>
-<stop offset="0.55" stop-color="#050b09"/>
-<stop offset="1" stop-color="#061510"/>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#101A32"/>
+<stop offset=".52" stop-color="#080D1B"/>
+<stop offset="1" stop-color="#050816"/>
 </linearGradient>
-<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">
-<stop offset="0" stop-color="#35f2a1" stop-opacity=".13"/>
-<stop offset=".48" stop-color="#43d9ff" stop-opacity=".025"/>
-<stop offset="1" stop-color="#000" stop-opacity="0"/>
+<linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#9D4EDD"/>
+<stop offset=".5" stop-color="#FF4ECD"/>
+<stop offset="1" stop-color="#00E5FF"/>
+</linearGradient>
+<linearGradient id="neural" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF4ECD"/>
+<stop offset=".5" stop-color="#9D4EDD"/>
+<stop offset="1" stop-color="#00E5FF"/>
+</linearGradient>
+<radialGradient id="aura" cx=".78" cy=".18" r=".82">
+<stop offset="0" stop-color="#9D4EDD" stop-opacity=".22"/>
+<stop offset=".42" stop-color="#00E5FF" stop-opacity=".06"/>
+<stop offset="1" stop-color="#080D1B" stop-opacity="0"/>
 </radialGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+<feGaussianBlur stdDeviation="3" result="blur"/>
+<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
 </defs>
 <style>
-text{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace}
+.display{font-family:'Space Grotesk','Aptos Display','Segoe UI',sans-serif}
 .reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
-.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}
-.scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}
-.flow{stroke-dasharray:7 10;animation:flow 4.8s cubic-bezier(.22,1,.36,1) infinite}
-@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}
-@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}
-@keyframes flow{from{stroke-dashoffset:34}to{stroke-dashoffset:0}}
-@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan,.flow{animation:none!important;opacity:1!important;transform:none!important}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) infinite}
+.blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
+.flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
+.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
+.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
+.r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
+@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
+@keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
+@keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
+@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
 </style>
-<rect x="4" y="4" width="552" height="602" rx="28" fill="#030806" stroke="#0d2b22"/>
-<rect x="11" y="11" width="538" height="588" rx="22" fill="url(#shell)" stroke="#174c3b"/>
-<rect x="12" y="12" width="536" height="586" rx="21" fill="url(#signal)"/>
-<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>
-<circle cx="54" cy="36" r="5" fill="#f5c76b"/>
-<circle cx="72" cy="36" r="5" fill="#35f2a1"/>
-<text x="96" y="41" fill="#77998c" font-size="13" letter-spacing="1.2">mohamed@github: ~/profile</text>
-<line x1="24" y1="58" x2="536" y2="58" stroke="#103529"/>
-<rect class="scan" x="24" y="59" width="120" height="1" fill="#43d9ff" opacity="0"/>
-<rect x="28" y="78" width="504" height="228" rx="20" fill="#06110d" stroke="#123c2f"/>
-<text x="68" y="130" fill="#35f2a1" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.12s">##    ##   #######</text>
-<text x="68" y="160" fill="#35f2a1" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.21s">###  ###  ##      </text>
-<text x="68" y="190" fill="#35f2a1" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.30s">## ## ##   ###### </text>
-<text x="68" y="220" fill="#43d9ff" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.39s">##    ##        ##</text>
-<text x="68" y="250" fill="#43d9ff" font-size="20" font-weight="700" letter-spacing="1.4" class="reveal" style="animation-delay:0.48s">##    ##  ####### </text>
-<text x="68" y="283" fill="#77998c" font-size="13" letter-spacing="0.8" class="reveal" style="animation-delay:0.75s">MS:// INTELLIGENT SYSTEMS</text>
-<text x="42" y="352" fill="#43d9ff" font-size="14" class="reveal" style="animation-delay:0.25s">&gt; boot mohamed.sarkouh</text>
-<text x="42" y="402" fill="#d7f7e9" font-size="30" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.48s">MOHAMED SARKOUH</text>
-<text x="42" y="436" fill="#35f2a1" font-size="14" font-weight="700" class="reveal" style="animation-delay:0.70s">AI ENGINEER / CREATIVE DEVELOPER</text>
-<text x="42" y="482" fill="#77998c" font-size="14" class="reveal" style="animation-delay:0.90s">01  agents · RAG · MCP · LLM apps</text>
-<text x="42" y="513" fill="#77998c" font-size="14" class="reveal" style="animation-delay:1.03s">02  Python · n8n · APIs · full-stack</text>
-<text x="42" y="544" fill="#77998c" font-size="14" class="reveal" style="animation-delay:1.16s">03  Linux · networking · infrastructure</text>
-<circle class="pulse" cx="44" cy="580" r="4" fill="#35f2a1"/>
-<text x="58" y="585" fill="#35f2a1" font-size="12" class="reveal" style="animation-delay:1.34s">SYSTEM STATUS: OPEN TO BUILD</text>
+<rect x="4" y="4" width="552" height="772" rx="30" fill="#030510" stroke="#19254A"/>
+<rect x="11" y="11" width="538" height="758" rx="24" fill="url(#bg)" stroke="#26365F"/>
+<rect x="12" y="12" width="536" height="756" rx="23" fill="url(#aura)"/>
+<circle cx="36" cy="36" r="5" fill="#FF5F57"/>
+<circle cx="54" cy="36" r="5" fill="#FEBC2E"/>
+<circle cx="72" cy="36" r="5" fill="#00FFA3"/>
+<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.35">identity.sys / ai-cyber profile</text>
+<line x1="24" y1="58" x2="536" y2="58" stroke="#223259"/>
+<rect class="scan" x="24" y="59" width="150" height="1" fill="url(#brand)" opacity="0"/>
+<text x="34" y="100" fill="#00FFA3" font-size="10" font-weight="700" letter-spacing="1.35" class="reveal" style="animation-delay:0.10s">AI × CYBERSECURITY / PROFILE</text>
+<text class="display reveal" x="34" y="156" fill="url(#brand)" font-size="35" font-weight="800" letter-spacing="-.6" style="animation-delay:.22s">MOHAMED SARKOUH</text>
+<text x="34" y="194" fill="#EAF4FF" font-size="13" font-weight="700" class="reveal" style="animation-delay:0.38s">AI-POWERED BUILDER · VIBE CODER</text>
+<text x="34" y="221" fill="#FF4ECD" font-size="13" font-weight="700" class="reveal" style="animation-delay:0.46s">CYBERSECURITY MINDSET</text>
+<rect x="28" y="252" width="504" height="70" rx="16" fill="#0B1329" stroke="#354271"/>
+<text x="48" y="277" fill="#91A4C5" font-size="9" font-weight="700" letter-spacing="1.1" class="reveal" style="animation-delay:0.55s">CURRENT ROLE /</text>
+<text x="48" y="304" fill="#00E5FF" font-size="12" font-weight="700" letter-spacing="0.45" class="role">AI-POWERED DEVELOPER</text>
+<text x="48" y="304" fill="#00E5FF" font-size="12" font-weight="700" letter-spacing="0.45" class="role r1">VIBE CODING ENTHUSIAST</text>
+<text x="48" y="304" fill="#00E5FF" font-size="12" font-weight="700" letter-spacing="0.45" class="role r2">AI AGENTS &amp; AUTOMATION BUILDER</text>
+<text x="48" y="304" fill="#00E5FF" font-size="12" font-weight="700" letter-spacing="0.45" class="role r3">CYBERSECURITY &amp; NETWORK ENGINEER</text>
+<text x="48" y="304" fill="#00E5FF" font-size="12" font-weight="700" letter-spacing="0.45" class="role r4">CREATIVE PROBLEM SOLVER</text>
+<text x="34" y="361" fill="#91A4C5" font-size="13" class="reveal" style="animation-delay:0.72s">Turning ideas into intelligent,</text>
+<text x="34" y="383" fill="#91A4C5" font-size="13" class="reveal" style="animation-delay:0.76s">secure digital experiences.</text>
+<g transform="translate(98 432) scale(1.0)">
+<ellipse cx="184" cy="140" rx="165" ry="119" fill="#0B1026" fill-opacity=".62" stroke="#34406E"/>
+<path class="orbit" d="M28 140 C48 18 310 6 344 132 C370 230 98 286 28 140Z" fill="none" stroke="#9D4EDD" stroke-opacity=".28"/>
+<path class="flow" d="M32 126 Q47.5 84 63 78" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M32 126 Q40 173 48 184" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M63 78 Q79.5 76 96 110" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M63 78 Q93.5 81 124 48" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M96 110 Q125 82 154 90" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M96 110 Q111 174 126 202" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M124 48 Q139 51 154 90" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M124 48 Q155 63 186 42" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M154 90 Q184 82 214 110" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M154 90 Q179 156 204 186" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M186 42 Q200 58 214 110" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M186 42 Q216 73 246 68" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M214 110 Q230 71 246 68" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M214 110 Q245 134 276 122" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M214 110 Q209 130 204 186" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M246 68 Q276 93 306 82" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M276 122 Q291 84 306 82" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M276 122 Q308 150 340 142" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M276 122 Q286 138 296 190" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M276 122 Q240 172 204 186" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M340 142 Q318 148 296 190" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M296 190 Q275 226 254 226" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M254 226 Q229 188 204 186" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M254 226 Q213 254 172 246" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M204 186 Q188 198 172 246" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M204 186 Q165 212 126 202" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M172 246 Q127 224 82 238" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M126 202 Q104 238 82 238" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M126 202 Q87 175 48 184" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<path class="flow" d="M82 238 Q65 229 48 184" fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>
+<circle class="pulse" cx="32" cy="126" r="4.6" fill="#00E5FF" filter="url(#glow)" style="animation-delay:0.00s"/>
+<circle class="pulse" cx="63" cy="78" r="3.2" fill="#9D4EDD" filter="url(#glow)" style="animation-delay:0.08s"/>
+<circle class="pulse" cx="96" cy="110" r="3.2" fill="#FF4ECD" filter="url(#glow)" style="animation-delay:0.16s"/>
+<circle class="pulse" cx="124" cy="48" r="3.2" fill="#00FFA3" filter="url(#glow)" style="animation-delay:0.24s"/>
+<circle class="pulse" cx="154" cy="90" r="3.2" fill="#00E5FF" filter="url(#glow)" style="animation-delay:0.32s"/>
+<circle class="pulse" cx="186" cy="42" r="4.6" fill="#9D4EDD" filter="url(#glow)" style="animation-delay:0.40s"/>
+<circle class="pulse" cx="214" cy="110" r="3.2" fill="#FF4ECD" filter="url(#glow)" style="animation-delay:0.48s"/>
+<circle class="pulse" cx="246" cy="68" r="3.2" fill="#00FFA3" filter="url(#glow)" style="animation-delay:0.56s"/>
+<circle class="pulse" cx="276" cy="122" r="3.2" fill="#00E5FF" filter="url(#glow)" style="animation-delay:0.64s"/>
+<circle class="pulse" cx="306" cy="82" r="3.2" fill="#9D4EDD" filter="url(#glow)" style="animation-delay:0.72s"/>
+<circle class="pulse" cx="340" cy="142" r="4.6" fill="#FF4ECD" filter="url(#glow)" style="animation-delay:0.80s"/>
+<circle class="pulse" cx="296" cy="190" r="3.2" fill="#00FFA3" filter="url(#glow)" style="animation-delay:0.88s"/>
+<circle class="pulse" cx="254" cy="226" r="3.2" fill="#00E5FF" filter="url(#glow)" style="animation-delay:0.96s"/>
+<circle class="pulse" cx="204" cy="186" r="3.2" fill="#9D4EDD" filter="url(#glow)" style="animation-delay:1.04s"/>
+<circle class="pulse" cx="172" cy="246" r="3.2" fill="#FF4ECD" filter="url(#glow)" style="animation-delay:1.12s"/>
+<circle class="pulse" cx="126" cy="202" r="4.6" fill="#00FFA3" filter="url(#glow)" style="animation-delay:1.20s"/>
+<circle class="pulse" cx="82" cy="238" r="3.2" fill="#00E5FF" filter="url(#glow)" style="animation-delay:1.28s"/>
+<circle class="pulse" cx="48" cy="184" r="3.2" fill="#9D4EDD" filter="url(#glow)" style="animation-delay:1.36s"/>
+<circle cx="184" cy="140" r="18" fill="#080D1B" stroke="#00E5FF" stroke-opacity=".75"/>
+<circle class="pulse" cx="184" cy="140" r="6" fill="#00FFA3" filter="url(#glow)"/>
+</g>
+<text x="151" y="733" fill="#91A4C5" font-size="9" letter-spacing="0.55" class="reveal" style="animation-delay:0.85s">NEURAL BUILD GRAPH / LIVE MOTION</text>
 </svg>

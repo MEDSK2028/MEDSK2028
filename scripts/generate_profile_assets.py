@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the static animated SVG artwork used by the profile README."""
+"""Generate the premium animated SVG artwork used by the profile README."""
 
 from __future__ import annotations
 
@@ -10,47 +10,74 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 
-BG = "#050b09"
-PANEL = "#07110e"
-PANEL_ALT = "#091814"
-LINE = "#174c3b"
-MUTED = "#77998c"
-TEXT = "#d7f7e9"
-EMERALD = "#35f2a1"
-CYAN = "#43d9ff"
-AMBER = "#f5c76b"
-MONO = "'SFMono-Regular',Consolas,'Liberation Mono',monospace"
+BG = "#080D1B"
+DEEP = "#050816"
+PANEL = "#0D1428"
+PANEL_2 = "#101A32"
+LINE = "#26365F"
+VIOLET = "#9D4EDD"
+CYAN = "#00E5FF"
+MINT = "#00FFA3"
+MAGENTA = "#FF4ECD"
+TEXT = "#EAF4FF"
+MUTED = "#91A4C5"
+MONO = "'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace"
+DISPLAY = "'Space Grotesk','Aptos Display','Segoe UI',sans-serif"
 
 
 def svg_open(width: int, height: int, title: str, description: str) -> list[str]:
     return [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
-        f"<title id=\"title\">{escape(title)}</title>",
-        f"<desc id=\"desc\">{escape(description)}</desc>",
+        f'<title id="title">{escape(title)}</title>',
+        f'<desc id="desc">{escape(description)}</desc>',
         "<defs>",
-        '<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">',
-        f'<stop offset="0" stop-color="{PANEL_ALT}"/>',
-        f'<stop offset="0.55" stop-color="{BG}"/>',
-        '<stop offset="1" stop-color="#061510"/>',
+        '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">',
+        f'<stop offset="0" stop-color="{PANEL_2}"/>',
+        f'<stop offset=".52" stop-color="{BG}"/>',
+        f'<stop offset="1" stop-color="{DEEP}"/>',
         "</linearGradient>",
-        '<radialGradient id="signal" cx="0.18" cy="0.1" r="0.85">',
-        f'<stop offset="0" stop-color="{EMERALD}" stop-opacity=".13"/>',
-        f'<stop offset=".48" stop-color="{CYAN}" stop-opacity=".025"/>',
-        '<stop offset="1" stop-color="#000" stop-opacity="0"/>',
+        '<linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">',
+        f'<stop offset="0" stop-color="{VIOLET}"/>',
+        f'<stop offset=".5" stop-color="{MAGENTA}"/>',
+        f'<stop offset="1" stop-color="{CYAN}"/>',
+        "</linearGradient>",
+        '<linearGradient id="neural" x1="0" y1="0" x2="1" y2="1">',
+        f'<stop offset="0" stop-color="{MAGENTA}"/>',
+        f'<stop offset=".5" stop-color="{VIOLET}"/>',
+        f'<stop offset="1" stop-color="{CYAN}"/>',
+        "</linearGradient>",
+        '<radialGradient id="aura" cx=".78" cy=".18" r=".82">',
+        f'<stop offset="0" stop-color="{VIOLET}" stop-opacity=".22"/>',
+        f'<stop offset=".42" stop-color="{CYAN}" stop-opacity=".06"/>',
+        f'<stop offset="1" stop-color="{BG}" stop-opacity="0"/>',
         "</radialGradient>",
+        '<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">',
+        '<feGaussianBlur stdDeviation="3" result="blur"/>',
+        '<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>',
+        "</filter>",
         "</defs>",
         "<style>",
         f"text{{font-family:{MONO}}}",
+        f".display{{font-family:{DISPLAY}}}",
         ".reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}",
-        ".pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s cubic-bezier(.22,1,.36,1) infinite}",
-        ".scan{animation:scan 5.5s cubic-bezier(.22,1,.36,1) infinite}",
-        ".flow{stroke-dasharray:7 10;animation:flow 4.8s cubic-bezier(.22,1,.36,1) infinite}",
-        "@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}",
-        "@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1)}}",
-        "@keyframes scan{0%{opacity:0;transform:translateX(-180px)}15%{opacity:.55}60%,100%{opacity:0;transform:translateX(980px)}}",
-        "@keyframes flow{from{stroke-dashoffset:34}to{stroke-dashoffset:0}}",
-        "@media (prefers-reduced-motion:reduce){.reveal,.pulse,.scan,.flow{animation:none!important;opacity:1!important;transform:none!important}}",
+        ".pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) infinite}",
+        ".blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}",
+        ".scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}",
+        ".flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}",
+        ".orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}",
+        ".radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}",
+        ".role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}",
+        ".r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}",
+        "@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}",
+        "@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1.08)}}",
+        "@keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}",
+        "@keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}",
+        "@keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}",
+        "@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+        "@keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+        "@keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}",
+        "@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}",
         "</style>",
     ]
 
@@ -58,22 +85,22 @@ def svg_open(width: int, height: int, title: str, description: str) -> list[str]
 def shell(parts: list[str], width: int, height: int, label: str) -> None:
     parts.extend(
         [
-            f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="28" fill="#030806" stroke="#0d2b22"/>',
-            f'<rect x="11" y="11" width="{width - 22}" height="{height - 22}" rx="22" fill="url(#shell)" stroke="{LINE}"/>',
-            f'<rect x="12" y="12" width="{width - 24}" height="{height - 24}" rx="21" fill="url(#signal)"/>',
-            '<circle cx="36" cy="36" r="5" fill="#ff6b6b"/>',
-            '<circle cx="54" cy="36" r="5" fill="#f5c76b"/>',
-            f'<circle cx="72" cy="36" r="5" fill="{EMERALD}"/>',
-            f'<text x="96" y="41" fill="{MUTED}" font-size="13" letter-spacing="1.2">{escape(label)}</text>',
-            f'<line x1="24" y1="58" x2="{width - 24}" y2="58" stroke="#103529"/>',
-            f'<rect class="scan" x="24" y="59" width="120" height="1" fill="{CYAN}" opacity="0"/>',
+            f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="30" fill="#030510" stroke="#19254A"/>',
+            f'<rect x="11" y="11" width="{width - 22}" height="{height - 22}" rx="24" fill="url(#bg)" stroke="{LINE}"/>',
+            f'<rect x="12" y="12" width="{width - 24}" height="{height - 24}" rx="23" fill="url(#aura)"/>',
+            '<circle cx="36" cy="36" r="5" fill="#FF5F57"/>',
+            '<circle cx="54" cy="36" r="5" fill="#FEBC2E"/>',
+            f'<circle cx="72" cy="36" r="5" fill="{MINT}"/>',
+            f'<text x="96" y="41" fill="{MUTED}" font-size="12" letter-spacing="1.35">{escape(label)}</text>',
+            f'<line x1="24" y1="58" x2="{width - 24}" y2="58" stroke="#223259"/>',
+            f'<rect class="scan" x="24" y="59" width="150" height="1" fill="url(#brand)" opacity="0"/>',
         ]
     )
 
 
 def text(
-    x: int,
-    y: int,
+    x: float,
+    y: float,
     value: str,
     *,
     size: int = 16,
@@ -83,7 +110,7 @@ def text(
     css: str | None = None,
     delay: float | None = None,
 ) -> str:
-    attrs = [f'x="{x}"', f'y="{y}"', f'fill="{fill}"', f'font-size="{size}"']
+    attrs = [f'x="{x:g}"', f'y="{y:g}"', f'fill="{fill}"', f'font-size="{size}"']
     if weight:
         attrs.append(f'font-weight="{weight}"')
     if spacing is not None:
@@ -101,9 +128,9 @@ def rect(
     width: int,
     height: int,
     *,
-    fill: str = PANEL_ALT,
+    fill: str = PANEL,
     stroke: str = LINE,
-    radius: int = 16,
+    radius: int = 18,
 ) -> str:
     return (
         f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="{radius}" '
@@ -111,131 +138,227 @@ def rect(
     )
 
 
-MONOGRAM = [
-    "##    ##   #######",
-    "###  ###  ##      ",
-    "## ## ##   ###### ",
-    "##    ##        ##",
-    "##    ##  ####### ",
+NEURAL_NODES = [
+    (32, 126), (63, 78), (96, 110), (124, 48), (154, 90), (186, 42),
+    (214, 110), (246, 68), (276, 122), (306, 82), (340, 142), (296, 190),
+    (254, 226), (204, 186), (172, 246), (126, 202), (82, 238), (48, 184),
+]
+NEURAL_EDGES = [
+    (0, 1), (0, 17), (1, 2), (1, 3), (2, 4), (2, 15), (3, 4), (3, 5),
+    (4, 6), (4, 13), (5, 6), (5, 7), (6, 7), (6, 8), (6, 13), (7, 9),
+    (8, 9), (8, 10), (8, 11), (8, 13), (10, 11), (11, 12), (12, 13),
+    (12, 14), (13, 14), (13, 15), (14, 16), (15, 16), (15, 17), (16, 17),
 ]
 
 
-def add_monogram(parts: list[str], x: int, y: int, *, font_size: int, step: int) -> None:
-    for index, row in enumerate(MONOGRAM):
+def neural_network(parts: list[str], x: int, y: int, scale: float = 1.0) -> None:
+    parts.append(f'<g transform="translate({x} {y}) scale({scale})">')
+    parts.append('<ellipse cx="184" cy="140" rx="165" ry="119" fill="#0B1026" fill-opacity=".62" stroke="#34406E"/>')
+    parts.append('<path class="orbit" d="M28 140 C48 18 310 6 344 132 C370 230 98 286 28 140Z" fill="none" stroke="#9D4EDD" stroke-opacity=".28"/>')
+    for index, (start, end) in enumerate(NEURAL_EDGES):
+        x1, y1 = NEURAL_NODES[start]
+        x2, y2 = NEURAL_NODES[end]
+        bend = 18 if index % 2 else -18
+        midx = (x1 + x2) / 2
+        midy = (y1 + y2) / 2 + bend
         parts.append(
-            text(
-                x,
-                y + index * step,
-                row,
-                size=font_size,
-                fill=EMERALD if index < 3 else CYAN,
-                weight=700,
-                spacing=1.4,
-                css="reveal",
-                delay=0.12 + index * 0.09,
-            )
+            f'<path class="flow" d="M{x1} {y1} Q{midx:g} {midy:g} {x2} {y2}" '
+            'fill="none" stroke="url(#neural)" stroke-opacity=".55" stroke-width="1.25"/>'
         )
+    for index, (node_x, node_y) in enumerate(NEURAL_NODES):
+        color = (CYAN, VIOLET, MAGENTA, MINT)[index % 4]
+        radius = 4.6 if index % 5 == 0 else 3.2
+        parts.append(
+            f'<circle class="pulse" cx="{node_x}" cy="{node_y}" r="{radius}" fill="{color}" '
+            f'filter="url(#glow)" style="animation-delay:{index * .08:.2f}s"/>'
+        )
+    parts.append(f'<circle cx="184" cy="140" r="18" fill="{BG}" stroke="{CYAN}" stroke-opacity=".75"/>')
+    parts.append(f'<circle class="pulse" cx="184" cy="140" r="6" fill="{MINT}" filter="url(#glow)"/>')
+    parts.append("</g>")
+
+
+ROLES = [
+    "AI-POWERED DEVELOPER",
+    "VIBE CODING ENTHUSIAST",
+    "AI AGENTS & AUTOMATION BUILDER",
+    "CYBERSECURITY & NETWORK ENGINEER",
+    "CREATIVE PROBLEM SOLVER",
+]
+
+
+def add_roles(parts: list[str], x: int, y: int, size: int) -> None:
+    for index, role in enumerate(ROLES):
+        css = "role" if index == 0 else f"role r{index}"
+        parts.append(text(x, y, role, size=size, fill=CYAN, weight=700, spacing=.45, css=css))
 
 
 def hero(desktop: bool) -> str:
-    width, height = ((960, 390) if desktop else (560, 610))
+    width, height = ((1000, 520) if desktop else (560, 780))
     parts = svg_open(
         width,
         height,
-        "Mohamed Sarkouh — AI engineer terminal introduction",
-        "Animated terminal card with an ASCII MS monogram and an introduction to Mohamed's AI engineering work.",
+        "Mohamed Sarkouh — AI powered builder and cybersecurity minded developer",
+        "Animated futuristic hero with Mohamed Sarkouh's name, rotating professional roles, and a neon neural network.",
     )
-    shell(parts, width, height, "mohamed@github: ~/profile")
+    shell(parts, width, height, "identity.sys / ai-cyber profile")
     if desktop:
-        parts.append(rect(34, 78, 344, 278, fill="#06110d", stroke="#123c2f", radius=20))
-        add_monogram(parts, 62, 142, font_size=20, step=31)
-        parts.append(text(62, 325, "MS:// BUILDING INTELLIGENT SYSTEMS", size=12, fill=MUTED, spacing=0.7, css="reveal", delay=.75))
-        divider_x = 408
-        parts.append(f'<line x1="{divider_x}" y1="90" x2="{divider_x}" y2="340" stroke="#123c2f"/>')
-        x = 444
-        parts.append(text(x, 112, "> boot --profile mohamed.sarkouh", size=14, fill=CYAN, css="reveal", delay=.20))
-        parts.append(text(x, 164, "MOHAMED SARKOUH", size=32, fill=TEXT, weight=700, spacing=1.2, css="reveal", delay=.46))
-        parts.append(text(x, 200, "AI ENGINEER  /  CREATIVE DEVELOPER", size=15, fill=EMERALD, weight=700, spacing=.7, css="reveal", delay=.70))
-        lines = [
-            "agents · RAG · MCP · LLM applications",
-            "Python · n8n · APIs · full-stack systems",
-            "Linux · networking · secure infrastructure",
-        ]
-        for index, line in enumerate(lines):
-            parts.append(text(x, 246 + index * 31, f"0{index + 1}  {line}", size=14, fill=MUTED, css="reveal", delay=.92 + index * .13))
-        parts.append(f'<circle class="pulse" cx="446" cy="337" r="4" fill="{EMERALD}"/>')
-        parts.append(text(460, 342, "SYSTEM STATUS: OPEN TO BUILD", size=12, fill=EMERALD, spacing=.8, css="reveal", delay=1.35))
+        parts.append(text(52, 105, "AI × CYBERSECURITY / PROFILE 2026", size=11, fill=MINT, weight=700, spacing=1.8, css="reveal", delay=.10))
+        parts.append('<text class="display reveal" x="52" y="177" fill="url(#brand)" font-size="48" font-weight="800" letter-spacing="-1" style="animation-delay:.22s">MOHAMED SARKOUH</text>')
+        parts.append(text(55, 216, "AI-POWERED BUILDER. CREATIVE VIBE CODER.", size=15, fill=TEXT, weight=700, spacing=.55, css="reveal", delay=.38))
+        parts.append(text(55, 242, "CYBERSECURITY MINDSET.", size=15, fill=MAGENTA, weight=700, spacing=.55, css="reveal", delay=.46))
+        parts.append(rect(52, 274, 500, 62, fill="#0B1329", stroke="#354271", radius=16))
+        parts.append(text(72, 299, "CURRENT ROLE /", size=9, fill=MUTED, weight=700, spacing=1.2, css="reveal", delay=.55))
+        add_roles(parts, 72, 323, 14)
+        parts.append(text(55, 382, "Turning ideas into intelligent, secure digital experiences.", size=14, fill=MUTED, css="reveal", delay=.72))
+        parts.append(text(55, 432, "> build --creative --automate --secure", size=12, fill=VIOLET, css="reveal", delay=.90))
+        parts.append(f'<rect class="blink" x="365" y="419" width="9" height="16" rx="2" fill="{CYAN}"/>')
+        neural_network(parts, 602, 112, .98)
+        parts.append(text(704, 451, "NEURAL BUILD GRAPH / LIVE MOTION", size=9, fill=MUTED, spacing=.8, css="reveal", delay=.85))
     else:
-        parts.append(rect(28, 78, 504, 228, fill="#06110d", stroke="#123c2f", radius=20))
-        add_monogram(parts, 68, 130, font_size=20, step=30)
-        parts.append(text(68, 283, "MS:// INTELLIGENT SYSTEMS", size=13, fill=MUTED, spacing=.8, css="reveal", delay=.75))
-        x = 42
-        parts.append(text(x, 352, "> boot mohamed.sarkouh", size=14, fill=CYAN, css="reveal", delay=.25))
-        parts.append(text(x, 402, "MOHAMED SARKOUH", size=30, fill=TEXT, weight=700, spacing=.8, css="reveal", delay=.48))
-        parts.append(text(x, 436, "AI ENGINEER / CREATIVE DEVELOPER", size=14, fill=EMERALD, weight=700, css="reveal", delay=.70))
-        for index, line in enumerate(("agents · RAG · MCP · LLM apps", "Python · n8n · APIs · full-stack", "Linux · networking · infrastructure")):
-            parts.append(text(x, 482 + index * 31, f"0{index + 1}  {line}", size=14, fill=MUTED, css="reveal", delay=.90 + index * .13))
-        parts.append(f'<circle class="pulse" cx="44" cy="580" r="4" fill="{EMERALD}"/>')
-        parts.append(text(58, 585, "SYSTEM STATUS: OPEN TO BUILD", size=12, fill=EMERALD, css="reveal", delay=1.34))
+        parts.append(text(34, 100, "AI × CYBERSECURITY / PROFILE", size=10, fill=MINT, weight=700, spacing=1.35, css="reveal", delay=.10))
+        parts.append('<text class="display reveal" x="34" y="156" fill="url(#brand)" font-size="35" font-weight="800" letter-spacing="-.6" style="animation-delay:.22s">MOHAMED SARKOUH</text>')
+        parts.append(text(34, 194, "AI-POWERED BUILDER · VIBE CODER", size=13, fill=TEXT, weight=700, css="reveal", delay=.38))
+        parts.append(text(34, 221, "CYBERSECURITY MINDSET", size=13, fill=MAGENTA, weight=700, css="reveal", delay=.46))
+        parts.append(rect(28, 252, 504, 70, fill="#0B1329", stroke="#354271", radius=16))
+        parts.append(text(48, 277, "CURRENT ROLE /", size=9, fill=MUTED, weight=700, spacing=1.1, css="reveal", delay=.55))
+        add_roles(parts, 48, 304, 12)
+        parts.append(text(34, 361, "Turning ideas into intelligent,", size=13, fill=MUTED, css="reveal", delay=.72))
+        parts.append(text(34, 383, "secure digital experiences.", size=13, fill=MUTED, css="reveal", delay=.76))
+        neural_network(parts, 98, 432, 1.0)
+        parts.append(text(151, 733, "NEURAL BUILD GRAPH / LIVE MOTION", size=9, fill=MUTED, spacing=.55, css="reveal", delay=.85))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
 
-def info_card() -> str:
-    width, height = 840, 390
+def terminal(desktop: bool) -> str:
+    width, height = ((960, 470) if desktop else (560, 660))
     parts = svg_open(
         width,
         height,
-        "Mohamed Sarkouh developer information card",
-        "An animated information card listing Mohamed's professional focus across AI, automation, software, and infrastructure.",
+        "Mohamed Sarkouh terminal introduction",
+        "Animated Linux-style terminal showing Mohamed's identity, current focus, and mission, plus a decorative system status panel.",
     )
-    shell(parts, width, height, "whoami --verbose")
-    parts.append(text(40, 96, "IDENTITY", size=11, fill=CYAN, weight=700, spacing=1.8, css="reveal", delay=.1))
-    parts.append(text(40, 133, "Mohamed Sarkouh", size=26, fill=TEXT, weight=700, css="reveal", delay=.2))
-    parts.append(text(40, 161, "AI engineer · systems-minded builder", size=14, fill=MUTED, css="reveal", delay=.3))
-    rows = [
-        ("INTELLIGENCE", "LLM applications · AI agents · RAG systems · MCP integrations", EMERALD),
-        ("AUTOMATION", "n8n workflows · API integrations · event-driven operations", CYAN),
-        ("SOFTWARE", "Python · TypeScript · React · Node.js · Fastify", EMERALD),
-        ("PLATFORM", "PostgreSQL · Redis · Docker · Linux · secure deployment", CYAN),
-        ("FOUNDATION", "Networking · infrastructure · cybersecurity", AMBER),
+    shell(parts, width, height, "mohamed@lab:~ / zsh")
+    commands = [
+        ("whoami", ["AI Builder | Vibe Coder | Cybersecurity Mindset"]),
+        ("current_focus", ["AI Agents · Intelligent Automation · Secure Applications"]),
+        ("mission", ["Build smarter. Automate faster. Think securely."]),
     ]
-    for index, (key, value, color) in enumerate(rows):
-        y = 218 + index * 31
-        parts.append(text(40, y, key, size=11, fill=color, weight=700, spacing=1.0, css="reveal", delay=.42 + index * .11))
-        parts.append(text(174, y, value, size=13, fill=TEXT, css="reveal", delay=.48 + index * .11))
-    parts.append(rect(638, 84, 164, 86, fill="#061510", stroke="#1a5e47", radius=18))
-    parts.append(text(660, 112, "OPERATING MODE", size=10, fill=MUTED, spacing=1.2, css="reveal", delay=.3))
-    parts.append(text(660, 141, "SHIP / LEARN", size=16, fill=EMERALD, weight=700, css="reveal", delay=.46))
-    parts.append(f'<circle class="pulse" cx="779" cy="136" r="5" fill="{EMERALD}"/>')
+    if desktop:
+        x, y = 46, 105
+        for index, (command, outputs) in enumerate(commands):
+            parts.append(text(x, y, "$", size=15, fill=VIOLET, weight=700, css="reveal", delay=.12 + index * .24))
+            parts.append(text(x + 22, y, command, size=14, fill=TEXT, weight=700, css="reveal", delay=.15 + index * .24))
+            parts.append(text(x, y + 32, ">", size=14, fill=MINT, weight=700, css="reveal", delay=.22 + index * .24))
+            parts.append(text(x + 22, y + 32, outputs[0], size=13, fill=MUTED, css="reveal", delay=.25 + index * .24))
+            y += 92
+        parts.append(f'<rect class="blink" x="47" y="382" width="9" height="17" rx="2" fill="{CYAN}"/>')
+        parts.append(rect(674, 84, 244, 330, fill="#0A1227", stroke="#384575", radius=22))
+        parts.append(text(698, 116, "DECORATIVE SYSTEM STATUS", size=9, fill=MAGENTA, weight=700, spacing=.75, css="reveal", delay=.2))
+        status = [
+            ("AI TOOLCHAIN", "ONLINE", CYAN),
+            ("SECURITY MODE", "ACTIVE", MINT),
+            ("NETWORK LAB", "READY", VIOLET),
+            ("BUILD CHANNEL", "OPEN", MAGENTA),
+        ]
+        for index, (label, value, color) in enumerate(status):
+            sy = 164 + index * 56
+            parts.append(f'<circle class="pulse" cx="700" cy="{sy - 4}" r="4" fill="{color}"/>')
+            parts.append(text(716, sy, label, size=10, fill=MUTED, spacing=.5, css="reveal", delay=.32 + index * .11))
+            parts.append(text(872, sy, value, size=10, fill=color, weight=700, css="reveal", delay=.38 + index * .11))
+        parts.append(text(698, 392, "visual indicator / not telemetry", size=8, fill="#63759B", css="reveal", delay=.85))
+    else:
+        x, y = 34, 104
+        mobile_outputs = [
+            ["AI Builder | Vibe Coder |", "Cybersecurity Mindset"],
+            ["AI Agents · Intelligent Automation", "Secure Applications"],
+            ["Build smarter. Automate faster.", "Think securely."],
+        ]
+        for index, ((command, _), outputs) in enumerate(zip(commands, mobile_outputs, strict=True)):
+            parts.append(text(x, y, "$", size=14, fill=VIOLET, weight=700, css="reveal", delay=.12 + index * .24))
+            parts.append(text(x + 22, y, command, size=13, fill=TEXT, weight=700, css="reveal", delay=.15 + index * .24))
+            for line_index, output in enumerate(outputs):
+                parts.append(text(x + (0 if line_index == 0 else 22), y + 30 + line_index * 22, ("> " if line_index == 0 else "") + output, size=12, fill=MINT if line_index == 0 else MUTED, css="reveal", delay=.22 + index * .24 + line_index * .04))
+            y += 106
+        parts.append(rect(28, 426, 504, 188, fill="#0A1227", stroke="#384575", radius=20))
+        parts.append(text(50, 458, "DECORATIVE SYSTEM STATUS", size=9, fill=MAGENTA, weight=700, spacing=.7, css="reveal", delay=.5))
+        status = [("AI TOOLCHAIN", "ONLINE", CYAN), ("SECURITY MODE", "ACTIVE", MINT), ("NETWORK LAB", "READY", VIOLET)]
+        for index, (label, value, color) in enumerate(status):
+            sy = 500 + index * 42
+            parts.append(f'<circle class="pulse" cx="52" cy="{sy - 4}" r="4" fill="{color}"/>')
+            parts.append(text(68, sy, label, size=10, fill=MUTED, css="reveal", delay=.62 + index * .10))
+            parts.append(text(462, sy, value, size=10, fill=color, weight=700, css="reveal", delay=.67 + index * .10))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
 
-def stack_card() -> str:
-    width, height = 840, 430
+SKILL_GROUPS = [
+    ("01", "AI & AUTOMATION", CYAN, ["Python", "OpenAI API", "LLMs", "RAG", "MCP", "n8n", "LangChain", "LangGraph"]),
+    ("02", "CYBERSECURITY", MAGENTA, ["Kali Linux", "Wazuh", "SIEM", "Wireshark", "Linux Security", "Network Security"]),
+    ("03", "CREATIVE DEVELOPMENT", VIOLET, ["React", "Next.js", "JavaScript", "TypeScript", "Node.js", "REST APIs"]),
+    ("04", "INFRASTRUCTURE", MINT, ["Docker", "Git", "GitHub Actions", "VMware", "GNS3", "Linux"]),
+]
+
+
+def skill_icon(parts: list[str], kind: str, x: int, y: int, color: str) -> None:
+    parts.append(f'<g transform="translate({x} {y})" fill="none" stroke="{color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">')
+    if kind == "01":
+        parts.extend([
+            '<circle cx="8" cy="15" r="3"/><circle cx="23" cy="7" r="3"/><circle cx="26" cy="23" r="3"/>',
+            '<path d="M10.6 13.5L20.3 8.5M10.8 16.3L23.2 21.8M23.6 10L25.3 20"/>',
+        ])
+    elif kind == "02":
+        parts.extend([
+            '<path d="M16 3L28 8V15C28 22 23 27 16 30C9 27 4 22 4 15V8L16 3Z"/>',
+            '<path d="M11 16L15 20L22 12"/>',
+        ])
+    elif kind == "03":
+        parts.extend([
+            '<path d="M11 8L3 16L11 24M21 8L29 16L21 24M18 5L14 27"/>',
+        ])
+    else:
+        parts.extend([
+            '<circle cx="16" cy="6" r="3"/><circle cx="6" cy="25" r="3"/><circle cx="26" cy="25" r="3"/>',
+            '<path d="M14.5 8.7L7.5 22.3M17.5 8.7L24.5 22.3M9 25H23"/>',
+        ])
+    parts.append("</g>")
+
+
+def skill_card(parts: list[str], group: tuple[str, str, str, list[str]], x: int, y: int, width: int, height: int, delay: float) -> None:
+    index, title_value, color, items = group
+    parts.append(rect(x, y, width, height, fill="#0A1227", stroke="#2D3B68", radius=22))
+    parts.append(f'<rect x="{x + 1}" y="{y + 1}" width="4" height="{height - 2}" rx="2" fill="{color}" opacity=".85"/>')
+    parts.append(text(x + 24, y + 35, index, size=9, fill=color, weight=700, spacing=1.2, css="reveal", delay=delay))
+    parts.append(text(x + 60, y + 38, title_value, size=15, fill=TEXT, weight=700, spacing=.35, css="reveal", delay=delay + .05))
+    skill_icon(parts, index, x + width - 60, y + 15, color)
+    parts.append(f'<line x1="{x + 24}" y1="{y + 56}" x2="{x + width - 24}" y2="{y + 56}" stroke="#26365F"/>')
+    columns = 2
+    rows = (len(items) + 1) // columns
+    for item_index, item in enumerate(items):
+        column = item_index // rows
+        row = item_index % rows
+        item_x = x + 26 + column * ((width - 46) / 2)
+        item_y = y + 88 + row * 31
+        parts.append(f'<circle class="pulse" cx="{item_x:g}" cy="{item_y - 4:g}" r="3" fill="{color}" style="animation-delay:{delay + item_index * .05:.2f}s"/>')
+        parts.append(text(item_x + 14, item_y, item, size=11, fill=MUTED, weight=700, css="reveal", delay=delay + .12 + item_index * .04))
+
+
+def skills(desktop: bool) -> str:
+    width, height = ((1000, 590) if desktop else (560, 1010))
     parts = svg_open(
         width,
         height,
-        "Mohamed Sarkouh technology stack",
-        "Animated capability matrix for AI engineering, full-stack development, automation, and infrastructure.",
+        "Mohamed Sarkouh skills and technology map",
+        "Four animated capability cards for AI and automation, cybersecurity, creative development, and infrastructure.",
     )
-    shell(parts, width, height, "stack --capability-matrix")
-    columns = [
-        (42, "01 / INTELLIGENCE", EMERALD, ["LLM APPLICATIONS", "AI AGENTS", "RAG SYSTEMS", "MCP INTEGRATIONS"]),
-        (304, "02 / BUILD", CYAN, ["PYTHON", "TYPESCRIPT", "REACT + NODE", "FASTIFY + APIs"]),
-        (566, "03 / SYSTEMS", AMBER, ["N8N AUTOMATION", "POSTGRES + REDIS", "DOCKER + LINUX", "NETWORK + SECURITY"]),
-    ]
-    for column_index, (x, heading, color, items) in enumerate(columns):
-        parts.append(rect(x, 84, 232, 306, fill="#06110e", stroke="#123c2f", radius=20))
-        parts.append(text(x + 20, 119, heading, size=11, fill=color, weight=700, spacing=1.1, css="reveal", delay=.14 + column_index * .12))
-        parts.append(f'<line x1="{x + 20}" y1="136" x2="{x + 212}" y2="136" stroke="#123c2f"/>')
-        for item_index, item in enumerate(items):
-            y = 180 + item_index * 51
-            delay = .32 + column_index * .10 + item_index * .09
-            parts.append(f'<circle class="pulse" cx="{x + 28}" cy="{y - 5}" r="3.5" fill="{color}" style="animation-delay:{delay:.2f}s"/>')
-            parts.append(text(x + 43, y, item, size=13, fill=TEXT, weight=700, spacing=.3, css="reveal", delay=delay))
-            parts.append(text(x + 43, y + 18, "ready", size=10, fill=MUTED, css="reveal", delay=delay + .05))
+    shell(parts, width, height, "capabilities.map / evidence-led stack")
+    if desktop:
+        positions = [(30, 82, 540, 220), (592, 82, 378, 220), (30, 322, 378, 220), (430, 322, 540, 220)]
+        for index, (group, (x, y, card_width, card_height)) in enumerate(zip(SKILL_GROUPS, positions, strict=True)):
+            skill_card(parts, group, x, y, card_width, card_height, .12 + index * .12)
+    else:
+        for index, group in enumerate(SKILL_GROUPS):
+            skill_card(parts, group, 28, 78 + index * 227, 504, 205, .12 + index * .12)
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -243,154 +366,167 @@ def stack_card() -> str:
 PROJECTS = [
     {
         "index": "01",
-        "name": "WATIQA",
-        "type": "SECURE VERIFICATION INFRASTRUCTURE",
-        "summary": "Audited identification-record verification with bulk jobs,",
-        "summary2": "role controls, passkeys, malware scanning, and private networking.",
-        "stack": "FASTIFY · POSTGRESQL · REDIS/BULLMQ · PRISMA · WEBAUTHN",
-        "color": EMERALD,
+        "name": "OPTIQ VISION FORGE",
+        "type": "COMPUTER-VISION COMMERCE",
+        "summary": ["Optical commerce platform with MediaPipe face mesh,", "3D experiences, full-stack admin, and persistent data."],
+        "stack": "REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL",
+        "color": CYAN,
+        "status": "PRIVATE REPOSITORY",
     },
     {
         "index": "02",
         "name": "APEX FUNDED BOT",
-        "type": "VISION-TO-JOURNAL AI WORKFLOW",
-        "summary": "Telegram workflow that interprets chart screenshots, confirms",
-        "summary2": "trade context, and synchronizes Notion and Sheets analytics.",
-        "stack": "PYTHON · TELEGRAM · VISION MODELS · NOTION · GOOGLE SHEETS",
-        "color": CYAN,
+        "type": "AI AUTOMATION WORKFLOW",
+        "summary": ["Telegram-to-vision workflow with user confirmation,", "structured trade journaling, Notion, and Sheets sync."],
+        "stack": "PYTHON · TELEGRAM · VISION MODELS · NOTION · SHEETS",
+        "color": VIOLET,
+        "status": "PRIVATE REPOSITORY",
     },
     {
         "index": "03",
-        "name": "OPTIQ VISION FORGE",
-        "type": "COMPUTER-VISION COMMERCE",
-        "summary": "Full-stack optical storefront with face-mesh experiences, 3D,",
-        "summary2": "admin workflows, persistent data, and production media storage.",
-        "stack": "REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL",
-        "color": EMERALD,
+        "name": "WATIQA",
+        "type": "SECURE VERIFICATION SYSTEM",
+        "summary": ["Audited bulk record verification with passkeys, queues,", "malware scanning, role controls, and private networking."],
+        "stack": "FASTIFY · POSTGRESQL · REDIS · PRISMA · WEBAUTHN",
+        "color": MAGENTA,
+        "status": "PRIVATE REPOSITORY",
     },
     {
         "index": "04",
         "name": "MPLS NETWORK LAB",
-        "type": "NETWORK INFRASTRUCTURE PROJECT",
-        "summary": "Hands-on networking project focused on MPLS, dynamic routing,",
-        "summary2": "Linux-based infrastructure, and secure network operations.",
+        "type": "NETWORKING & SECURITY PROJECT",
+        "summary": ["Hands-on MPLS and dynamic-routing lab focused on", "Linux infrastructure and security-aware network design."],
         "stack": "MPLS · OSPF · BGP · LINUX · NETWORK SECURITY",
-        "color": AMBER,
+        "color": MINT,
+        "status": "LAB PROJECT",
     },
 ]
 
 
-FOOTPRINT_DOMAINS = [
-    {
-        "index": "01",
-        "title": "AI / AGENTS",
-        "evidence": "APEX FUNDED BOT",
-        "stack": "PYTHON · VISION MODELS · TELEGRAM · N8N",
-        "color": CYAN,
-    },
-    {
-        "index": "02",
-        "title": "APPLICATION SYSTEMS",
-        "evidence": "OPTIQ VISION FORGE",
-        "stack": "REACT · TYPESCRIPT · NODE.JS · EXPRESS",
-        "color": EMERALD,
-    },
-    {
-        "index": "03",
-        "title": "DATA / RELIABILITY",
-        "evidence": "WATIQA",
-        "stack": "POSTGRESQL · REDIS · PRISMA · QUEUES",
-        "color": EMERALD,
-    },
-    {
-        "index": "04",
-        "title": "NETWORK / SECURITY",
-        "evidence": "MPLS NETWORK LAB",
-        "stack": "MPLS · OSPF · BGP · LINUX · WEBAUTHN",
-        "color": AMBER,
-    },
-]
-
-
-def footprint_domain(
-    parts: list[str], domain: dict[str, str], x: int, y: int, width: int, delay: float
-) -> None:
-    parts.append(rect(x, y, width, 132, fill="#06110e", stroke="#123c2f", radius=20))
-    parts.append(text(x + 20, y + 31, domain["index"], size=10, fill=domain["color"], weight=700, spacing=1.1, css="reveal", delay=delay))
-    parts.append(text(x + 54, y + 33, domain["title"], size=16, fill=TEXT, weight=700, spacing=.25, css="reveal", delay=delay + .05))
-    parts.append(text(x + 20, y + 67, f'EVIDENCE / {domain["evidence"]}', size=9, fill=domain["color"], weight=700, spacing=.65, css="reveal", delay=delay + .10))
-    parts.append(f'<line x1="{x + 20}" y1="{y + 83}" x2="{x + width - 20}" y2="{y + 83}" stroke="#123c2f"/>')
-    parts.append(text(x + 20, y + 110, domain["stack"], size=9, fill=MUTED, weight=700, spacing=.15, css="reveal", delay=delay + .16))
-    parts.append(f'<circle class="pulse" cx="{x + width - 24}" cy="{y + 26}" r="4" fill="{domain["color"]}"/>')
-
-
-def engineering_footprint(desktop: bool) -> str:
-    width, height = ((960, 540) if desktop else (560, 820))
-    parts = svg_open(
-        width,
-        height,
-        "Mohamed Sarkouh engineering footprint",
-        "A verified map connecting AI agents, application systems, data reliability, and network security to selected projects.",
-    )
-    shell(parts, width, height, "engineering-footprint --verified")
-    if desktop:
-        paths = [
-            "M365 245 C345 230 350 175 340 154",
-            "M595 245 C615 230 610 175 620 154",
-            "M365 305 C345 320 350 405 340 426",
-            "M595 305 C615 320 610 405 620 426",
-        ]
-        for index, path in enumerate(paths):
-            color = FOOTPRINT_DOMAINS[index]["color"]
-            parts.append(f'<path class="flow" d="{path}" fill="none" stroke="{color}" stroke-opacity=".65" stroke-width="1.5"/>')
-        parts.append(rect(365, 210, 230, 130, fill="#071813", stroke="#1a5e47", radius=24))
-        parts.append(text(395, 246, "MOHAMED SARKOUH", size=11, fill=CYAN, weight=700, spacing=1.2, css="reveal", delay=.12))
-        parts.append(text(395, 278, "SYSTEMS BUILDER", size=21, fill=TEXT, weight=700, spacing=.4, css="reveal", delay=.22))
-        parts.append(text(395, 307, "4 PROJECTS / 4 DOMAINS", size=10, fill=EMERALD, weight=700, spacing=.7, css="reveal", delay=.32))
-        parts.append(f'<circle class="pulse" cx="566" cy="242" r="5" fill="{EMERALD}"/>')
-        positions = [(40, 86), (620, 86), (40, 362), (620, 362)]
-        for index, (domain, (x, y)) in enumerate(zip(FOOTPRINT_DOMAINS, positions, strict=True)):
-            footprint_domain(parts, domain, x, y, 300, .18 + index * .12)
-    else:
-        parts.append(f'<line class="flow" x1="52" y1="176" x2="52" y2="742" stroke="{EMERALD}" stroke-opacity=".55" stroke-width="1.5"/>')
-        parts.append(rect(28, 78, 504, 112, fill="#071813", stroke="#1a5e47", radius=22))
-        parts.append(text(52, 111, "MOHAMED SARKOUH", size=10, fill=CYAN, weight=700, spacing=1.1, css="reveal", delay=.10))
-        parts.append(text(52, 143, "ENGINEERING FOOTPRINT", size=22, fill=TEXT, weight=700, spacing=.25, css="reveal", delay=.20))
-        parts.append(text(52, 169, "4 PROJECTS / 4 VERIFIED DOMAINS", size=10, fill=EMERALD, weight=700, spacing=.55, css="reveal", delay=.30))
-        for index, domain in enumerate(FOOTPRINT_DOMAINS):
-            footprint_domain(parts, domain, 28, 210 + index * 145, 504, .18 + index * .12)
-    parts.append("</svg>")
-    return "\n".join(parts) + "\n"
-
-
-def project_card(parts: list[str], project: dict[str, str], x: int, y: int, width: int, delay: float) -> None:
-    parts.append(rect(x, y, width, 198, fill="#06110e", stroke="#123c2f", radius=20))
-    parts.append(text(x + 22, y + 34, project["index"], size=11, fill=project["color"], weight=700, spacing=1.2, css="reveal", delay=delay))
-    parts.append(text(x + 58, y + 36, project["name"], size=19, fill=TEXT, weight=700, spacing=.3, css="reveal", delay=delay + .06))
-    parts.append(text(x + 22, y + 67, project["type"], size=10, fill=project["color"], weight=700, spacing=.8, css="reveal", delay=delay + .12))
-    parts.append(text(x + 22, y + 103, project["summary"], size=12, fill=MUTED, css="reveal", delay=delay + .18))
-    parts.append(text(x + 22, y + 124, project["summary2"], size=12, fill=MUTED, css="reveal", delay=delay + .18))
-    parts.append(f'<line x1="{x + 22}" y1="{y + 148}" x2="{x + width - 22}" y2="{y + 148}" stroke="#123c2f"/>')
-    parts.append(text(x + 22, y + 178, project["stack"], size=10, fill=TEXT, weight=700, spacing=.15, css="reveal", delay=delay + .24))
-    parts.append(f'<circle class="pulse" cx="{x + width - 28}" cy="{y + 28}" r="4" fill="{project["color"]}"/>')
+def project_card(parts: list[str], project: dict[str, object], x: int, y: int, width: int, height: int, delay: float) -> None:
+    color = str(project["color"])
+    parts.append(rect(x, y, width, height, fill="#0A1227", stroke="#2D3B68", radius=24))
+    parts.append(f'<rect x="{x + 1}" y="{y + 1}" width="{width - 2}" height="4" rx="2" fill="{color}" opacity=".9"/>')
+    parts.append(text(x + 24, y + 38, str(project["index"]), size=10, fill=color, weight=700, spacing=1.2, css="reveal", delay=delay))
+    parts.append(text(x + 62, y + 40, str(project["name"]), size=18 if width < 400 else 21, fill=TEXT, weight=700, spacing=.2, css="reveal display", delay=delay + .05))
+    parts.append(text(x + 24, y + 72, str(project["type"]), size=9, fill=color, weight=700, spacing=.8, css="reveal", delay=delay + .10))
+    for line_index, line in enumerate(project["summary"]):
+        parts.append(text(x + 24, y + 111 + line_index * 22, str(line), size=10 if width < 400 else 11, fill=MUTED, css="reveal", delay=delay + .16))
+    parts.append(f'<line x1="{x + 24}" y1="{y + height - 70}" x2="{x + width - 24}" y2="{y + height - 70}" stroke="#26365F"/>')
+    parts.append(text(x + 24, y + height - 43, str(project["stack"]), size=8 if width < 400 else 9, fill=TEXT, weight=700, spacing=.1, css="reveal", delay=delay + .22))
+    parts.append(text(x + 24, y + height - 18, str(project["status"]), size=8, fill="#667AA5", weight=700, spacing=.7, css="reveal", delay=delay + .28))
+    parts.append(f'<circle class="pulse" cx="{x + width - 26}" cy="{y + 27}" r="4" fill="{color}"/>')
 
 
 def projects(desktop: bool) -> str:
-    width, height = ((960, 530) if desktop else (560, 930))
+    width, height = ((1000, 650) if desktop else (560, 1165))
     parts = svg_open(
         width,
         height,
         "Selected projects by Mohamed Sarkouh",
-        "Four selected projects: WATIQA, Apex Funded Bot, OPTIQ Vision Forge, and MPLS Network Lab.",
+        "Premium project showcase for OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab.",
     )
-    shell(parts, width, height, "projects --selected --private-safe")
+    shell(parts, width, height, "projects.showcase / verified / private-safe")
     if desktop:
-        positions = [(28, 82), (494, 82), (28, 294), (494, 294)]
-        for index, (project, (x, y)) in enumerate(zip(PROJECTS, positions, strict=True)):
-            project_card(parts, project, x, y, 438, .14 + index * .12)
+        positions = [(30, 82, 550, 250), (602, 82, 368, 250), (30, 352, 368, 250), (420, 352, 550, 250)]
+        for index, (project, (x, y, card_width, card_height)) in enumerate(zip(PROJECTS, positions, strict=True)):
+            project_card(parts, project, x, y, card_width, card_height, .12 + index * .13)
     else:
         for index, project in enumerate(PROJECTS):
-            project_card(parts, project, 28, 78 + index * 210, 504, .14 + index * .12)
+            project_card(parts, project, 28, 78 + index * 268, 504, 246, .12 + index * .13)
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
+def radar(parts: list[str], cx: int, cy: int, radius: int) -> None:
+    for ratio in (.33, .66, 1.0):
+        parts.append(f'<circle cx="{cx}" cy="{cy}" r="{radius * ratio:g}" fill="none" stroke="#33436F" stroke-opacity=".7"/>')
+    parts.append(f'<line x1="{cx - radius}" y1="{cy}" x2="{cx + radius}" y2="{cy}" stroke="#27375F"/>')
+    parts.append(f'<line x1="{cx}" y1="{cy - radius}" x2="{cx}" y2="{cy + radius}" stroke="#27375F"/>')
+    sweep_x = cx + radius * .88
+    sweep_y = cy - radius * .34
+    parts.append(f'<path class="radar" d="M{cx} {cy} L{cx} {cy - radius} A{radius} {radius} 0 0 1 {sweep_x:g} {sweep_y:g} Z" fill="{CYAN}" fill-opacity=".12" stroke="{CYAN}" stroke-opacity=".5"/>')
+    dots = [(-.48, -.25, "SIEM", MAGENTA), (.42, -.46, "NETWORK", CYAN), (.28, .42, "ENDPOINT", MINT)]
+    for dx, dy, label, color in dots:
+        dot_x = cx + radius * dx
+        dot_y = cy + radius * dy
+        parts.append(f'<circle class="pulse" cx="{dot_x:g}" cy="{dot_y:g}" r="5" fill="{color}" filter="url(#glow)"/>')
+        parts.append(text(dot_x + 10, dot_y - 8, label, size=8, fill=color, weight=700, spacing=.45))
+
+
+def system_status(desktop: bool) -> str:
+    width, height = ((1000, 530) if desktop else (560, 860))
+    parts = svg_open(
+        width,
+        height,
+        "Mohamed Sarkouh currently building and decorative cybersecurity radar",
+        "A decorative animated security radar beside a currently-building panel for AI applications, automation, and cybersecurity labs.",
+    )
+    shell(parts, width, height, "system.status / decorative visual")
+    if desktop:
+        parts.append(rect(30, 80, 420, 405, fill="#091126", stroke="#2D3B68", radius=24))
+        parts.append(text(54, 112, "DECORATIVE / SECURITY RADAR", size=10, fill=MAGENTA, weight=700, spacing=.85, css="reveal", delay=.12))
+        radar(parts, 240, 286, 146)
+        parts.append(text(88, 464, "visual motif · not live security telemetry", size=9, fill="#65769E", css="reveal", delay=.7))
+        parts.append(rect(474, 80, 496, 405, fill="#0A1227", stroke="#2D3B68", radius=24))
+        parts.append(text(502, 119, "CURRENTLY BUILDING", size=11, fill=MINT, weight=700, spacing=1.3, css="reveal", delay=.15))
+        items = [
+            ("01", "SECURE AI-ASSISTED APPLICATIONS", "Fast prototypes with security-aware architecture.", CYAN),
+            ("02", "AGENTIC AUTOMATION", "LLM workflows, MCP, n8n, and API orchestration.", VIOLET),
+            ("03", "CYBERSECURITY PRACTICE", "SOC concepts, SIEM monitoring, and network labs.", MAGENTA),
+        ]
+        for index, (number, heading, detail, color) in enumerate(items):
+            iy = 170 + index * 82
+            parts.append(text(502, iy, number, size=10, fill=color, weight=700, css="reveal", delay=.28 + index * .12))
+            parts.append(text(538, iy, heading, size=12, fill=TEXT, weight=700, css="reveal", delay=.32 + index * .12))
+            parts.append(text(538, iy + 24, detail, size=10, fill=MUTED, css="reveal", delay=.37 + index * .12))
+        parts.append(f'<line x1="502" y1="410" x2="940" y2="410" stroke="{LINE}"/>')
+        parts.append(text(502, 446, "BUILD SMARTER.", size=12, fill=CYAN, weight=700, css="reveal", delay=.78))
+        parts.append(text(627, 446, "AUTOMATE FASTER.", size=12, fill=VIOLET, weight=700, css="reveal", delay=.84))
+        parts.append(text(788, 446, "THINK SECURELY.", size=12, fill=MINT, weight=700, css="reveal", delay=.90))
+    else:
+        parts.append(rect(28, 78, 504, 350, fill="#091126", stroke="#2D3B68", radius=22))
+        parts.append(text(50, 110, "DECORATIVE / SECURITY RADAR", size=9, fill=MAGENTA, weight=700, spacing=.7, css="reveal", delay=.12))
+        radar(parts, 280, 266, 125)
+        parts.append(text(128, 407, "visual motif · not live telemetry", size=9, fill="#65769E", css="reveal", delay=.7))
+        parts.append(rect(28, 448, 504, 362, fill="#0A1227", stroke="#2D3B68", radius=22))
+        parts.append(text(50, 484, "CURRENTLY BUILDING", size=10, fill=MINT, weight=700, spacing=1.1, css="reveal", delay=.15))
+        items = [
+            ("01", "SECURE AI APPLICATIONS", "Security-aware rapid prototypes.", CYAN),
+            ("02", "AGENTIC AUTOMATION", "LLMs, MCP, n8n, and APIs.", VIOLET),
+            ("03", "CYBERSECURITY PRACTICE", "SIEM monitoring and network labs.", MAGENTA),
+        ]
+        for index, (number, heading, detail, color) in enumerate(items):
+            iy = 535 + index * 72
+            parts.append(text(50, iy, number, size=10, fill=color, weight=700, css="reveal", delay=.28 + index * .12))
+            parts.append(text(88, iy, heading, size=12, fill=TEXT, weight=700, css="reveal", delay=.32 + index * .12))
+            parts.append(text(88, iy + 23, detail, size=10, fill=MUTED, css="reveal", delay=.37 + index * .12))
+        parts.append(text(50, 775, "BUILD SMARTER · AUTOMATE FASTER · THINK SECURELY", size=10, fill=CYAN, weight=700, css="reveal", delay=.82))
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
+def footer(desktop: bool) -> str:
+    width, height = ((1000, 190) if desktop else (560, 250))
+    parts = svg_open(
+        width,
+        height,
+        "Mohamed Sarkouh coding philosophy",
+        "A minimal cyber-terminal footer with Mohamed's coding philosophy and availability status.",
+    )
+    shell(parts, width, height, "philosophy.sh / end-of-line")
+    if desktop:
+        parts.append(text(48, 103, ">", size=20, fill=VIOLET, weight=700, css="reveal", delay=.12))
+        parts.append(text(78, 103, "BUILD SMARTER. AUTOMATE FASTER. THINK SECURELY.", size=17, fill=TEXT, weight=700, spacing=.5, css="reveal display", delay=.20))
+        parts.append(text(78, 139, "AI innovation × creative building × practical security", size=11, fill=MUTED, css="reveal", delay=.32))
+        parts.append(f'<circle class="pulse" cx="902" cy="101" r="5" fill="{MINT}"/>')
+        parts.append(text(918, 106, "OPEN", size=10, fill=MINT, weight=700, css="reveal", delay=.4))
+    else:
+        parts.append(text(34, 102, ">", size=18, fill=VIOLET, weight=700, css="reveal", delay=.12))
+        parts.append(text(62, 102, "BUILD SMARTER.", size=16, fill=TEXT, weight=700, css="reveal display", delay=.20))
+        parts.append(text(62, 133, "AUTOMATE FASTER.", size=16, fill=TEXT, weight=700, css="reveal display", delay=.26))
+        parts.append(text(62, 164, "THINK SECURELY.", size=16, fill=MINT, weight=700, css="reveal display", delay=.32))
+        parts.append(text(62, 208, "AI innovation × creative building × practical security", size=9, fill=MUTED, css="reveal", delay=.42))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -398,14 +534,18 @@ def projects(desktop: bool) -> str:
 def write_assets() -> None:
     ASSETS.mkdir(parents=True, exist_ok=True)
     generated = {
-        "hero.svg": hero(desktop=True),
-        "hero-mobile.svg": hero(desktop=False),
-        "info-card.svg": info_card(),
-        "stack.svg": stack_card(),
-        "projects.svg": projects(desktop=True),
-        "projects-mobile.svg": projects(desktop=False),
-        "engineering-footprint.svg": engineering_footprint(desktop=True),
-        "engineering-footprint-mobile.svg": engineering_footprint(desktop=False),
+        "hero.svg": hero(True),
+        "hero-mobile.svg": hero(False),
+        "projects.svg": projects(True),
+        "projects-mobile.svg": projects(False),
+        "terminal.svg": terminal(True),
+        "terminal-mobile.svg": terminal(False),
+        "skills.svg": skills(True),
+        "skills-mobile.svg": skills(False),
+        "system-status.svg": system_status(True),
+        "system-status-mobile.svg": system_status(False),
+        "footer.svg": footer(True),
+        "footer-mobile.svg": footer(False),
     }
     for filename, content in generated.items():
         (ASSETS / filename).write_text(content, encoding="utf-8", newline="\n")

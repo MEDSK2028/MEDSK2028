@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="1010" viewBox="0 0 560 1010" role="img" aria-labelledby="title desc">
+<title id="title">Mohamed Sarkouh skills and technology map</title>
+<desc id="desc">Four animated capability cards for AI and automation, cybersecurity, creative development, and infrastructure.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#101A32"/>
+<stop offset=".52" stop-color="#080D1B"/>
+<stop offset="1" stop-color="#050816"/>
+</linearGradient>
+<linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#9D4EDD"/>
+<stop offset=".5" stop-color="#FF4ECD"/>
+<stop offset="1" stop-color="#00E5FF"/>
+</linearGradient>
+<linearGradient id="neural" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FF4ECD"/>
+<stop offset=".5" stop-color="#9D4EDD"/>
+<stop offset="1" stop-color="#00E5FF"/>
+</linearGradient>
+<radialGradient id="aura" cx=".78" cy=".18" r=".82">
+<stop offset="0" stop-color="#9D4EDD" stop-opacity=".22"/>
+<stop offset=".42" stop-color="#00E5FF" stop-opacity=".06"/>
+<stop offset="1" stop-color="#080D1B" stop-opacity="0"/>
+</radialGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+<feGaussianBlur stdDeviation="3" result="blur"/>
+<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<style>
+text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospace}
+.display{font-family:'Space Grotesk','Aptos Display','Segoe UI',sans-serif}
+.reveal{opacity:0;animation:reveal .82s cubic-bezier(.22,1,.36,1) forwards}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s cubic-bezier(.22,1,.36,1) infinite}
+.blink{animation:blink 1.15s cubic-bezier(.22,1,.36,1) infinite}
+.scan{animation:scan 6.2s cubic-bezier(.22,1,.36,1) infinite}
+.flow{stroke-dasharray:7 11;animation:flow 5s cubic-bezier(.22,1,.36,1) infinite}
+.orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s cubic-bezier(.45,.05,.55,.95) infinite}
+.radar{transform-box:fill-box;transform-origin:center;animation:radar 6s cubic-bezier(.45,.05,.55,.95) infinite}
+.role{opacity:0;animation:role 15s cubic-bezier(.22,1,.36,1) infinite}
+.r1{animation-delay:3s}.r2{animation-delay:6s}.r3{animation-delay:9s}.r4{animation-delay:12s}
+@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes blink{0%,42%{opacity:1}58%,100%{opacity:.08}}
+@keyframes scan{0%{opacity:0;transform:translateX(-160px)}14%{opacity:.7}62%,100%{opacity:0;transform:translateX(1050px)}}
+@keyframes flow{from{stroke-dashoffset:36}to{stroke-dashoffset:0}}
+@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes radar{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
+</style>
+<rect x="4" y="4" width="552" height="1002" rx="30" fill="#030510" stroke="#19254A"/>
+<rect x="11" y="11" width="538" height="988" rx="24" fill="url(#bg)" stroke="#26365F"/>
+<rect x="12" y="12" width="536" height="986" rx="23" fill="url(#aura)"/>
+<circle cx="36" cy="36" r="5" fill="#FF5F57"/>
+<circle cx="54" cy="36" r="5" fill="#FEBC2E"/>
+<circle cx="72" cy="36" r="5" fill="#00FFA3"/>
+<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.35">capabilities.map / evidence-led stack</text>
+<line x1="24" y1="58" x2="536" y2="58" stroke="#223259"/>
+<rect class="scan" x="24" y="59" width="150" height="1" fill="url(#brand)" opacity="0"/>
+<rect x="28" y="78" width="504" height="205" rx="22" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="79" width="4" height="203" rx="2" fill="#00E5FF" opacity=".85"/>
+<text x="52" y="113" fill="#00E5FF" font-size="9" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.12s">01</text>
+<text x="88" y="116" fill="#EAF4FF" font-size="15" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.17s">AI &amp; AUTOMATION</text>
+<g transform="translate(472 93)" fill="none" stroke="#00E5FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+<circle cx="8" cy="15" r="3"/><circle cx="23" cy="7" r="3"/><circle cx="26" cy="23" r="3"/>
+<path d="M10.6 13.5L20.3 8.5M10.8 16.3L23.2 21.8M23.6 10L25.3 20"/>
+</g>
+<line x1="52" y1="134" x2="508" y2="134" stroke="#26365F"/>
+<circle class="pulse" cx="54" cy="162" r="3" fill="#00E5FF" style="animation-delay:0.12s"/>
+<text x="68" y="166" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.24s">Python</text>
+<circle class="pulse" cx="54" cy="193" r="3" fill="#00E5FF" style="animation-delay:0.17s"/>
+<text x="68" y="197" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.28s">OpenAI API</text>
+<circle class="pulse" cx="54" cy="224" r="3" fill="#00E5FF" style="animation-delay:0.22s"/>
+<text x="68" y="228" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.32s">LLMs</text>
+<circle class="pulse" cx="54" cy="255" r="3" fill="#00E5FF" style="animation-delay:0.27s"/>
+<text x="68" y="259" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.36s">RAG</text>
+<circle class="pulse" cx="283" cy="162" r="3" fill="#00E5FF" style="animation-delay:0.32s"/>
+<text x="297" y="166" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.40s">MCP</text>
+<circle class="pulse" cx="283" cy="193" r="3" fill="#00E5FF" style="animation-delay:0.37s"/>
+<text x="297" y="197" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.44s">n8n</text>
+<circle class="pulse" cx="283" cy="224" r="3" fill="#00E5FF" style="animation-delay:0.42s"/>
+<text x="297" y="228" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.48s">LangChain</text>
+<circle class="pulse" cx="283" cy="255" r="3" fill="#00E5FF" style="animation-delay:0.47s"/>
+<text x="297" y="259" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.52s">LangGraph</text>
+<rect x="28" y="305" width="504" height="205" rx="22" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="306" width="4" height="203" rx="2" fill="#FF4ECD" opacity=".85"/>
+<text x="52" y="340" fill="#FF4ECD" font-size="9" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.24s">02</text>
+<text x="88" y="343" fill="#EAF4FF" font-size="15" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.29s">CYBERSECURITY</text>
+<g transform="translate(472 320)" fill="none" stroke="#FF4ECD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+<path d="M16 3L28 8V15C28 22 23 27 16 30C9 27 4 22 4 15V8L16 3Z"/>
+<path d="M11 16L15 20L22 12"/>
+</g>
+<line x1="52" y1="361" x2="508" y2="361" stroke="#26365F"/>
+<circle class="pulse" cx="54" cy="389" r="3" fill="#FF4ECD" style="animation-delay:0.24s"/>
+<text x="68" y="393" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.36s">Kali Linux</text>
+<circle class="pulse" cx="54" cy="420" r="3" fill="#FF4ECD" style="animation-delay:0.29s"/>
+<text x="68" y="424" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.40s">Wazuh</text>
+<circle class="pulse" cx="54" cy="451" r="3" fill="#FF4ECD" style="animation-delay:0.34s"/>
+<text x="68" y="455" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.44s">SIEM</text>
+<circle class="pulse" cx="283" cy="389" r="3" fill="#FF4ECD" style="animation-delay:0.39s"/>
+<text x="297" y="393" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.48s">Wireshark</text>
+<circle class="pulse" cx="283" cy="420" r="3" fill="#FF4ECD" style="animation-delay:0.44s"/>
+<text x="297" y="424" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.52s">Linux Security</text>
+<circle class="pulse" cx="283" cy="451" r="3" fill="#FF4ECD" style="animation-delay:0.49s"/>
+<text x="297" y="455" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.56s">Network Security</text>
+<rect x="28" y="532" width="504" height="205" rx="22" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="533" width="4" height="203" rx="2" fill="#9D4EDD" opacity=".85"/>
+<text x="52" y="567" fill="#9D4EDD" font-size="9" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.36s">03</text>
+<text x="88" y="570" fill="#EAF4FF" font-size="15" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.41s">CREATIVE DEVELOPMENT</text>
+<g transform="translate(472 547)" fill="none" stroke="#9D4EDD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+<path d="M11 8L3 16L11 24M21 8L29 16L21 24M18 5L14 27"/>
+</g>
+<line x1="52" y1="588" x2="508" y2="588" stroke="#26365F"/>
+<circle class="pulse" cx="54" cy="616" r="3" fill="#9D4EDD" style="animation-delay:0.36s"/>
+<text x="68" y="620" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.48s">React</text>
+<circle class="pulse" cx="54" cy="647" r="3" fill="#9D4EDD" style="animation-delay:0.41s"/>
+<text x="68" y="651" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.52s">Next.js</text>
+<circle class="pulse" cx="54" cy="678" r="3" fill="#9D4EDD" style="animation-delay:0.46s"/>
+<text x="68" y="682" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.56s">JavaScript</text>
+<circle class="pulse" cx="283" cy="616" r="3" fill="#9D4EDD" style="animation-delay:0.51s"/>
+<text x="297" y="620" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.60s">TypeScript</text>
+<circle class="pulse" cx="283" cy="647" r="3" fill="#9D4EDD" style="animation-delay:0.56s"/>
+<text x="297" y="651" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.64s">Node.js</text>
+<circle class="pulse" cx="283" cy="678" r="3" fill="#9D4EDD" style="animation-delay:0.61s"/>
+<text x="297" y="682" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.68s">REST APIs</text>
+<rect x="28" y="759" width="504" height="205" rx="22" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="760" width="4" height="203" rx="2" fill="#00FFA3" opacity=".85"/>
+<text x="52" y="794" fill="#00FFA3" font-size="9" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.48s">04</text>
+<text x="88" y="797" fill="#EAF4FF" font-size="15" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.53s">INFRASTRUCTURE</text>
+<g transform="translate(472 774)" fill="none" stroke="#00FFA3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+<circle cx="16" cy="6" r="3"/><circle cx="6" cy="25" r="3"/><circle cx="26" cy="25" r="3"/>
+<path d="M14.5 8.7L7.5 22.3M17.5 8.7L24.5 22.3M9 25H23"/>
+</g>
+<line x1="52" y1="815" x2="508" y2="815" stroke="#26365F"/>
+<circle class="pulse" cx="54" cy="843" r="3" fill="#00FFA3" style="animation-delay:0.48s"/>
+<text x="68" y="847" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.60s">Docker</text>
+<circle class="pulse" cx="54" cy="874" r="3" fill="#00FFA3" style="animation-delay:0.53s"/>
+<text x="68" y="878" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.64s">Git</text>
+<circle class="pulse" cx="54" cy="905" r="3" fill="#00FFA3" style="animation-delay:0.58s"/>
+<text x="68" y="909" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.68s">GitHub Actions</text>
+<circle class="pulse" cx="283" cy="843" r="3" fill="#00FFA3" style="animation-delay:0.63s"/>
+<text x="297" y="847" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.72s">VMware</text>
+<circle class="pulse" cx="283" cy="874" r="3" fill="#00FFA3" style="animation-delay:0.68s"/>
+<text x="297" y="878" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.76s">GNS3</text>
+<circle class="pulse" cx="283" cy="905" r="3" fill="#00FFA3" style="animation-delay:0.73s"/>
+<text x="297" y="909" fill="#91A4C5" font-size="11" font-weight="700" class="reveal" style="animation-delay:0.80s">Linux</text>
+</svg>
