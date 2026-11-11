@@ -387,7 +387,7 @@ PROJECTS = [
         "summary": ["Optical commerce platform with MediaPipe face mesh,", "3D experiences, full-stack admin, and persistent data."],
         "stack": "REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL",
         "color": CYAN,
-        "status": "README PREVIEW · SOURCE PRIVATE",
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
     },
     {
         "index": "02",
@@ -396,7 +396,7 @@ PROJECTS = [
         "summary": ["Telegram-to-vision workflow with user confirmation,", "structured trade journaling, Notion, and Sheets sync."],
         "stack": "PYTHON · TELEGRAM · VISION MODELS · NOTION · SHEETS",
         "color": VIOLET,
-        "status": "README PREVIEW · SOURCE PRIVATE",
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
     },
     {
         "index": "03",
@@ -405,7 +405,7 @@ PROJECTS = [
         "summary": ["Audited bulk record verification with passkeys, queues,", "malware scanning, role controls, and private networking."],
         "stack": "FASTIFY · POSTGRESQL · REDIS · PRISMA · WEBAUTHN",
         "color": MAGENTA,
-        "status": "README PREVIEW · SOURCE PRIVATE",
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
     },
     {
         "index": "04",
@@ -414,7 +414,43 @@ PROJECTS = [
         "summary": ["Hands-on MPLS and dynamic-routing lab focused on", "Linux infrastructure and security-aware network design."],
         "stack": "MPLS · OSPF · BGP · LINUX · NETWORK SECURITY",
         "color": MINT,
-        "status": "README PREVIEW · LAB DETAILS PRIVATE",
+        "status": "PUBLIC BRIEF · LAB FILES PRIVATE",
+    },
+    {
+        "index": "05",
+        "name": "PRIMOSHOP",
+        "type": "FULL-STACK COMMERCE PLATFORM",
+        "summary": ["Commerce platform joining catalog discovery, orders,", "content operations, reporting, and secure administration."],
+        "stack": "REACT · TYPESCRIPT · EXPRESS · PRISMA · CLOUDINARY",
+        "color": CYAN,
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
+    },
+    {
+        "index": "06",
+        "name": "PRIVATE COMMERCE PLATFORM",
+        "type": "MULTILINGUAL RETAIL EXPERIENCE",
+        "summary": ["Localized commerce experience with product discovery,", "ordering, content management, and customer workflows."],
+        "stack": "REACT · TYPESCRIPT · EXPRESS · POSTGRESQL · CLOUDINARY",
+        "color": VIOLET,
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
+    },
+    {
+        "index": "07",
+        "name": "DEVELOPER PORTFOLIO",
+        "type": "PERSONAL BRAND EXPERIENCE",
+        "summary": ["Responsive portfolio presenting development, security,", "automation work, and professional contact paths."],
+        "stack": "REACT · VITE · TAILWIND CSS · EMAILJS · HTML",
+        "color": MAGENTA,
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
+    },
+    {
+        "index": "08",
+        "name": "DIGITAL KEEPSAKE",
+        "type": "PRIVATE INTERACTIVE EXPERIENCE",
+        "summary": ["Privacy-aware experience for memories, letters, media,", "scheduled moments, and owner-managed content."],
+        "stack": "NEXT.JS · TYPESCRIPT · REACT · NETLIFY BLOBS",
+        "color": MINT,
+        "status": "PUBLIC BRIEF · SOURCE PRIVATE",
     },
 ]
 
@@ -436,16 +472,21 @@ def project_card(parts: list[str], project: dict[str, object], x: int, y: int, w
 
 
 def projects(desktop: bool) -> str:
-    width, height = ((1000, 650) if desktop else (560, 1165))
+    width, height = ((1000, 1150) if desktop else (560, 2250))
     parts = svg_open(
         width,
         height,
         "Selected projects by Mohamed Sarkouh",
-        "Premium project showcase for OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab.",
+        "Eight private-safe public project briefs covering AI, commerce, security, networking, and creative development.",
     )
-    shell(parts, width, height, "projects.showcase / verified / private-safe")
+    shell(parts, width, height, "projects.showcase / 8 public briefs / private source")
     if desktop:
-        positions = [(30, 82, 550, 250), (602, 82, 368, 250), (30, 352, 368, 250), (420, 352, 550, 250)]
+        positions = [
+            (30, 82, 550, 240), (602, 82, 368, 240),
+            (30, 342, 368, 240), (420, 342, 550, 240),
+            (30, 602, 550, 240), (602, 602, 368, 240),
+            (30, 862, 368, 240), (420, 862, 550, 240),
+        ]
         for index, (project, (x, y, card_width, card_height)) in enumerate(zip(PROJECTS, positions, strict=True)):
             project_card(parts, project, x, y, card_width, card_height, .12 + index * .13)
     else:

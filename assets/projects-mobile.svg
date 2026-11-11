@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="1165" viewBox="0 0 560 1165" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="2250" viewBox="0 0 560 2250" role="img" aria-labelledby="title desc">
 <title id="title">Selected projects by Mohamed Sarkouh</title>
-<desc id="desc">Premium project showcase for OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab.</desc>
+<desc id="desc">Eight private-safe public project briefs covering AI, commerce, security, networking, and creative development.</desc>
 <defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="#101A32"/>
@@ -50,13 +50,13 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 @keyframes role{0%,14%{opacity:1;transform:translateY(0)}18%,92%{opacity:0;transform:translateY(-8px)}96%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){.reveal,.pulse,.blink,.scan,.flow,.orbit-line,.radar,.role{animation:none!important;opacity:1!important;transform:none!important}.r1,.r2,.r3,.r4{display:none!important}}
 </style>
-<rect x="4" y="4" width="552" height="1157" rx="30" fill="#030510" stroke="#19254A"/>
-<rect x="11" y="11" width="538" height="1143" rx="24" fill="url(#bg)" stroke="#26365F"/>
-<rect x="12" y="12" width="536" height="1141" rx="23" fill="url(#aura)"/>
+<rect x="4" y="4" width="552" height="2242" rx="30" fill="#030510" stroke="#19254A"/>
+<rect x="11" y="11" width="538" height="2228" rx="24" fill="url(#bg)" stroke="#26365F"/>
+<rect x="12" y="12" width="536" height="2226" rx="23" fill="url(#aura)"/>
 <circle cx="36" cy="36" r="5" fill="#FF5F57"/>
 <circle cx="54" cy="36" r="5" fill="#FEBC2E"/>
 <circle cx="72" cy="36" r="5" fill="#00FFA3"/>
-<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.35">projects.showcase / verified / private-safe</text>
+<text x="96" y="41" fill="#91A4C5" font-size="12" letter-spacing="1.35">projects.showcase / 8 public briefs / private source</text>
 <line x1="24" y1="58" x2="536" y2="58" stroke="#223259"/>
 <rect class="scan" x="24" y="59" width="150" height="1" fill="url(#brand)" opacity="0"/>
 <rect x="28" y="78" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
@@ -68,7 +68,7 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="211" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.28s">3D experiences, full-stack admin, and persistent data.</text>
 <line x1="52" y1="254" x2="508" y2="254" stroke="#26365F"/>
 <text x="52" y="281" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.34s">REACT · MEDIAPIPE · THREE.JS · EXPRESS · POSTGRESQL</text>
-<text x="52" y="306" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.40s">README PREVIEW · SOURCE PRIVATE</text>
+<text x="52" y="306" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.40s">PUBLIC BRIEF · SOURCE PRIVATE</text>
 <text x="400" y="306" fill="#00E5FF" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.44s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="105" r="4" fill="#00E5FF"/>
 <rect x="28" y="346" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
@@ -80,7 +80,7 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="479" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.41s">structured trade journaling, Notion, and Sheets sync.</text>
 <line x1="52" y1="522" x2="508" y2="522" stroke="#26365F"/>
 <text x="52" y="549" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.47s">PYTHON · TELEGRAM · VISION MODELS · NOTION · SHEETS</text>
-<text x="52" y="574" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.53s">README PREVIEW · SOURCE PRIVATE</text>
+<text x="52" y="574" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.53s">PUBLIC BRIEF · SOURCE PRIVATE</text>
 <text x="400" y="574" fill="#9D4EDD" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.57s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="373" r="4" fill="#9D4EDD"/>
 <rect x="28" y="614" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
@@ -92,7 +92,7 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="747" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.54s">malware scanning, role controls, and private networking.</text>
 <line x1="52" y1="790" x2="508" y2="790" stroke="#26365F"/>
 <text x="52" y="817" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.60s">FASTIFY · POSTGRESQL · REDIS · PRISMA · WEBAUTHN</text>
-<text x="52" y="842" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.66s">README PREVIEW · SOURCE PRIVATE</text>
+<text x="52" y="842" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.66s">PUBLIC BRIEF · SOURCE PRIVATE</text>
 <text x="400" y="842" fill="#FF4ECD" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.70s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="641" r="4" fill="#FF4ECD"/>
 <rect x="28" y="882" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
@@ -104,7 +104,55 @@ text{font-family:'Geist Mono','IBM Plex Mono','SFMono-Regular',Consolas,monospac
 <text x="52" y="1015" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.67s">Linux infrastructure and security-aware network design.</text>
 <line x1="52" y1="1058" x2="508" y2="1058" stroke="#26365F"/>
 <text x="52" y="1085" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.73s">MPLS · OSPF · BGP · LINUX · NETWORK SECURITY</text>
-<text x="52" y="1110" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.79s">README PREVIEW · LAB DETAILS PRIVATE</text>
+<text x="52" y="1110" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.79s">PUBLIC BRIEF · LAB FILES PRIVATE</text>
 <text x="400" y="1110" fill="#00FFA3" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.83s">EMAIL FOR DETAILS &gt;</text>
 <circle class="pulse" cx="506" cy="909" r="4" fill="#00FFA3"/>
+<rect x="28" y="1150" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="1151" width="502" height="4" rx="2" fill="#00E5FF" opacity=".9"/>
+<text x="52" y="1188" fill="#00E5FF" font-size="10" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.64s">05</text>
+<text x="90" y="1190" fill="#EAF4FF" font-size="21" font-weight="700" letter-spacing="0.2" class="reveal display" style="animation-delay:0.69s">PRIMOSHOP</text>
+<text x="52" y="1222" fill="#00E5FF" font-size="9" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.74s">FULL-STACK COMMERCE PLATFORM</text>
+<text x="52" y="1261" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.80s">Commerce platform joining catalog discovery, orders,</text>
+<text x="52" y="1283" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.80s">content operations, reporting, and secure administration.</text>
+<line x1="52" y1="1326" x2="508" y2="1326" stroke="#26365F"/>
+<text x="52" y="1353" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.86s">REACT · TYPESCRIPT · EXPRESS · PRISMA · CLOUDINARY</text>
+<text x="52" y="1378" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:0.92s">PUBLIC BRIEF · SOURCE PRIVATE</text>
+<text x="400" y="1378" fill="#00E5FF" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:0.96s">EMAIL FOR DETAILS &gt;</text>
+<circle class="pulse" cx="506" cy="1177" r="4" fill="#00E5FF"/>
+<rect x="28" y="1418" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="1419" width="502" height="4" rx="2" fill="#9D4EDD" opacity=".9"/>
+<text x="52" y="1456" fill="#9D4EDD" font-size="10" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.77s">06</text>
+<text x="90" y="1458" fill="#EAF4FF" font-size="21" font-weight="700" letter-spacing="0.2" class="reveal display" style="animation-delay:0.82s">PRIVATE COMMERCE PLATFORM</text>
+<text x="52" y="1490" fill="#9D4EDD" font-size="9" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:0.87s">MULTILINGUAL RETAIL EXPERIENCE</text>
+<text x="52" y="1529" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.93s">Localized commerce experience with product discovery,</text>
+<text x="52" y="1551" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:0.93s">ordering, content management, and customer workflows.</text>
+<line x1="52" y1="1594" x2="508" y2="1594" stroke="#26365F"/>
+<text x="52" y="1621" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:0.99s">REACT · TYPESCRIPT · EXPRESS · POSTGRESQL · CLOUDINARY</text>
+<text x="52" y="1646" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:1.05s">PUBLIC BRIEF · SOURCE PRIVATE</text>
+<text x="400" y="1646" fill="#9D4EDD" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:1.09s">EMAIL FOR DETAILS &gt;</text>
+<circle class="pulse" cx="506" cy="1445" r="4" fill="#9D4EDD"/>
+<rect x="28" y="1686" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="1687" width="502" height="4" rx="2" fill="#FF4ECD" opacity=".9"/>
+<text x="52" y="1724" fill="#FF4ECD" font-size="10" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:0.90s">07</text>
+<text x="90" y="1726" fill="#EAF4FF" font-size="21" font-weight="700" letter-spacing="0.2" class="reveal display" style="animation-delay:0.95s">DEVELOPER PORTFOLIO</text>
+<text x="52" y="1758" fill="#FF4ECD" font-size="9" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:1.00s">PERSONAL BRAND EXPERIENCE</text>
+<text x="52" y="1797" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:1.06s">Responsive portfolio presenting development, security,</text>
+<text x="52" y="1819" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:1.06s">automation work, and professional contact paths.</text>
+<line x1="52" y1="1862" x2="508" y2="1862" stroke="#26365F"/>
+<text x="52" y="1889" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:1.12s">REACT · VITE · TAILWIND CSS · EMAILJS · HTML</text>
+<text x="52" y="1914" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:1.18s">PUBLIC BRIEF · SOURCE PRIVATE</text>
+<text x="400" y="1914" fill="#FF4ECD" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:1.22s">EMAIL FOR DETAILS &gt;</text>
+<circle class="pulse" cx="506" cy="1713" r="4" fill="#FF4ECD"/>
+<rect x="28" y="1954" width="504" height="246" rx="24" fill="#0A1227" stroke="#2D3B68"/>
+<rect x="29" y="1955" width="502" height="4" rx="2" fill="#00FFA3" opacity=".9"/>
+<text x="52" y="1992" fill="#00FFA3" font-size="10" font-weight="700" letter-spacing="1.2" class="reveal" style="animation-delay:1.03s">08</text>
+<text x="90" y="1994" fill="#EAF4FF" font-size="21" font-weight="700" letter-spacing="0.2" class="reveal display" style="animation-delay:1.08s">DIGITAL KEEPSAKE</text>
+<text x="52" y="2026" fill="#00FFA3" font-size="9" font-weight="700" letter-spacing="0.8" class="reveal" style="animation-delay:1.13s">PRIVATE INTERACTIVE EXPERIENCE</text>
+<text x="52" y="2065" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:1.19s">Privacy-aware experience for memories, letters, media,</text>
+<text x="52" y="2087" fill="#91A4C5" font-size="11" class="reveal" style="animation-delay:1.19s">scheduled moments, and owner-managed content.</text>
+<line x1="52" y1="2130" x2="508" y2="2130" stroke="#26365F"/>
+<text x="52" y="2157" fill="#EAF4FF" font-size="9" font-weight="700" letter-spacing="0.1" class="reveal" style="animation-delay:1.25s">NEXT.JS · TYPESCRIPT · REACT · NETLIFY BLOBS</text>
+<text x="52" y="2182" fill="#667AA5" font-size="8" font-weight="700" letter-spacing="0.35" class="reveal" style="animation-delay:1.31s">PUBLIC BRIEF · SOURCE PRIVATE</text>
+<text x="400" y="2182" fill="#00FFA3" font-size="8" font-weight="700" letter-spacing="0.25" class="reveal" style="animation-delay:1.35s">EMAIL FOR DETAILS &gt;</text>
+<circle class="pulse" cx="506" cy="1981" r="4" fill="#00FFA3"/>
 </svg>

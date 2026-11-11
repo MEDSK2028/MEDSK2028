@@ -62,7 +62,10 @@ class SvgTests(unittest.TestCase):
         project_source = projects(True)
         self.assertIn("AI-POWERED BUILDER", hero_source)
         self.assertIn("CYBERSECURITY MINDSET", hero_source)
-        for label in ("OPTIQ VISION FORGE", "APEX FUNDED BOT", "WATIQA", "MPLS NETWORK LAB"):
+        for label in (
+            "OPTIQ VISION FORGE", "APEX FUNDED BOT", "WATIQA", "MPLS NETWORK LAB",
+            "PRIMOSHOP", "PRIVATE COMMERCE PLATFORM", "DEVELOPER PORTFOLIO", "DIGITAL KEEPSAKE",
+        ):
             self.assertIn(label, project_source)
 
     def test_activity_renderer_outputs_53_week_grid(self) -> None:
@@ -97,9 +100,19 @@ class SvgTests(unittest.TestCase):
 
     def test_project_previews_keep_source_private(self) -> None:
         source = projects(True)
-        self.assertEqual(source.count("EMAIL FOR DETAILS &gt;"), 4)
-        self.assertIn("README PREVIEW · SOURCE PRIVATE", source)
+        self.assertEqual(source.count("EMAIL FOR DETAILS &gt;"), 8)
+        self.assertGreaterEqual(source.count("PUBLIC BRIEF · SOURCE PRIVATE"), 7)
         self.assertNotIn("github.com/", source)
+
+    def test_public_case_studies_expose_no_private_repository_links(self) -> None:
+        pages = sorted((ROOT / "case-studies").glob("*/README.md"))
+        self.assertEqual(len(pages), 8)
+        for page in pages:
+            source = page.read_text(encoding="utf-8").lower()
+            self.assertTrue("source code" in source or "lab files" in source)
+            self.assertIn("request the full case study", source)
+            self.assertNotIn("```", source)
+            self.assertNotIn("github.com/medsk2028/", source)
 
     def test_radar_uses_explicit_centered_origin(self) -> None:
         desktop = system_status(True)

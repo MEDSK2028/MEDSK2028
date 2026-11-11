@@ -13,12 +13,16 @@
   <a href="mailto:medd.sarkouh@gmail.com?subject=Project%20details%20request">
     <picture>
       <source media="(max-width: 600px)" srcset="./assets/projects-mobile.svg">
-      <img src="./assets/projects.svg" width="100%" alt="README-level project previews for OPTIQ Vision Forge, Apex Funded Bot, WATIQA, and MPLS Network Lab; email Mohamed for details">
+      <img src="./assets/projects.svg" width="100%" alt="Eight private-safe public project briefs covering OPTIQ Vision Forge, Apex Funded Bot, WATIQA, MPLS Network Lab, PrimoShop, a private commerce platform, Mohamed's developer portfolio, and a digital keepsake">
     </picture>
   </a>
 </div>
 
-<p align="center"><a href="mailto:medd.sarkouh@gmail.com?subject=Project%20details%20request"><code>EMAIL ME FOR PROJECT DETAILS →</code></a></p>
+<p align="center">
+  <a href="./case-studies/README.md"><code>OPEN ALL PUBLIC PROJECT BRIEFS</code></a>
+  &nbsp;·&nbsp;
+  <a href="mailto:medd.sarkouh@gmail.com?subject=Full%20case%20study%20request"><code>REQUEST A FULL CASE STUDY →</code></a>
+</p>
 
 <br>
 
@@ -100,14 +104,18 @@ I turn ideas into intelligent, secure digital experiences through AI-assisted de
 - Creative rapid prototyping with React, TypeScript, Node.js, and AI-assisted workflows
 - SOC concepts, SIEM monitoring, Linux security, networking, and defensive security
 
-#### Selected projects
+#### Project portfolio
 
-- **OPTIQ Vision Forge** — React/Express optical-commerce platform using MediaPipe face mesh, Three.js, PostgreSQL, Cloudinary, and administration workflows.
-- **Apex Funded Bot** — Python/Telegram workflow that interprets chart screenshots with vision models, confirms context, and synchronizes structured journals with Notion and Google Sheets.
-- **WATIQA** — audited verification system with passkeys, role controls, PostgreSQL, Redis/BullMQ, ClamAV, Fastify, and private-network hardening.
-- **MPLS Network Lab** — networking project centered on MPLS, OSPF, BGP, Linux infrastructure, and security-aware network design.
+- [**OPTIQ Vision Forge**](./case-studies/optiq-vision-forge/README.md) — interactive optical-commerce experience.
+- [**Apex Funded Bot**](./case-studies/apex-funded-bot/README.md) — human-confirmed AI trade-journaling workflow.
+- [**WATIQA**](./case-studies/watiqa/README.md) — security-focused record-verification system.
+- [**MPLS Network Lab**](./case-studies/mpls-network-lab/README.md) — routing and secure-network-design lab.
+- [**PrimoShop**](./case-studies/primoshop/README.md) — full-stack commerce and operations platform.
+- [**Private Commerce Platform**](./case-studies/private-commerce-platform/README.md) — multilingual retail experience with private branding.
+- [**Developer Portfolio**](./case-studies/developer-portfolio/README.md) — responsive personal brand and contact experience.
+- [**Digital Keepsake**](./case-studies/digital-keepsake/README.md) — private, owner-managed interactive content experience.
 
-Only high-level README summaries are shown; source code and private repository links remain private. [Email me for project details](mailto:medd.sarkouh@gmail.com?subject=Project%20details%20request). The MPLS entry reflects the networking project explicitly supplied for this profile. The SOC/SIEM material is presented as a capability and practice area, not as a repository-backed project.
+Only high-level public briefs are shown. Original repositories, source code, internal architecture, configuration, data, and full implementation details remain private. [Request a full case study](mailto:medd.sarkouh@gmail.com?subject=Full%20case%20study%20request) for a guided discussion. Repository iterations are grouped by distinct product rather than presented as separate achievements. The SOC/SIEM material is presented as a capability and practice area, not as a repository-backed project.
 
 #### Profile engineering
 

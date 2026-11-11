@@ -28,6 +28,17 @@ ASSETS = [
     "assets/footer.svg",
     "assets/footer-mobile.svg",
 ]
+CASE_STUDIES = [
+    "case-studies/README.md",
+    "case-studies/optiq-vision-forge/README.md",
+    "case-studies/apex-funded-bot/README.md",
+    "case-studies/watiqa/README.md",
+    "case-studies/mpls-network-lab/README.md",
+    "case-studies/primoshop/README.md",
+    "case-studies/private-commerce-platform/README.md",
+    "case-studies/developer-portfolio/README.md",
+    "case-studies/digital-keepsake/README.md",
+]
 REQUIRED = [
     "README.md",
     "docs/maintenance.md",
@@ -37,6 +48,7 @@ REQUIRED = [
     "scripts/fetch_contributions.py",
     "scripts/render_activity.py",
     ".github/workflows/update-activity.yml",
+    *CASE_STUDIES,
     *ASSETS,
 ]
 
@@ -61,6 +73,25 @@ def validate_readme_links() -> None:
     missing = [ref for ref in refs if not (ROOT / ref.removeprefix("./")).is_file()]
     if missing:
         fail("README has broken local references: " + ", ".join(missing))
+
+
+def validate_case_studies() -> None:
+    for relative in CASE_STUDIES:
+        path = ROOT / relative
+        source = path.read_text(encoding="utf-8")
+        if relative != "case-studies/README.md":
+            if "Private" not in source or "Request the full case study" not in source:
+                fail(f"{relative} must state its privacy boundary and full case-study CTA")
+            if "```" in source:
+                fail(f"{relative} must not publish implementation code")
+        lowered = source.lower()
+        if "github.com/medsk2028/" in lowered:
+            fail(f"{relative} exposes a private repository reference")
+    index = (ROOT / "case-studies/README.md").read_text(encoding="utf-8")
+    refs = re.findall(r"\]\((\./[^)#?]+)", index)
+    missing = [ref for ref in refs if not (ROOT / "case-studies" / ref.removeprefix("./")).is_file()]
+    if missing:
+        fail("Case-study index has broken local references: " + ", ".join(missing))
 
 
 def local_name(tag: str) -> str:
@@ -161,6 +192,7 @@ def main() -> None:
     try:
         validate_required_files()
         validate_readme_links()
+        validate_case_studies()
         validate_activity()
         validate_workflow()
         for asset in ASSETS:
